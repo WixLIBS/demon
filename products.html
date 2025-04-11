@@ -1,877 +1,489 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>Menu & Products - New York Seafood Restaurant - St. Petersburg</title> 
-<style> 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap'); 
-:root { 
-  --primary: #003b6f; 
-  --secondary: #e63946; 
-  --light: #f8f9fa; 
-  --dark: #1d3557; 
-  --text: #333333; 
-  --text-light: #666666; 
-  --white: #ffffff; 
-  --shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
-  --transition: all 0.3s ease; 
-} 
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
-} 
-body { 
-  font-family: 'Poppins', sans-serif; 
-  background-color: var(--white); 
-  color: var(--text); 
-  line-height: 1.6; 
-} 
-h1, h2, h3, h4, h5 { 
-  font-family: 'Playfair Display', serif; 
-  font-weight: 600; 
-  color: var(--primary); 
-} 
-header { 
-  background-color: var(--primary); 
-  color: var(--white); 
-  padding: 1.2rem 0; 
-  position: fixed; 
-  width: 100%; 
-  top: 0; 
-  z-index: 1000; 
-  box-shadow: var(--shadow); 
-} 
-.container { 
-  width: 90%; 
-  max-width: 1200px; 
-  margin: 0 auto; 
-} 
-.nav-container { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-} 
-.logo-container { 
-  display: flex; 
-  align-items: center; 
-} 
-.logo { 
-  font-family: 'Playfair Display', serif; 
-  font-size: 1.8rem; 
-  font-weight: 700; 
-  color: var(--white); 
-  text-decoration: none; 
-  transition: var(--transition); 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); 
-} 
-.tagline { 
-  margin-left: 10px; 
-  padding-left: 10px; 
-  border-left: 1px solid rgba(255, 255, 255, 0.3); 
-  font-size: 0.9rem; 
-  font-style: italic; 
-  color: rgba(255, 255, 255, 0.8); 
-} 
-.nav-links { 
-  display: flex; 
-  gap: 2rem; 
-} 
-.nav-links a { 
-  color: var(--white); 
-  text-decoration: none; 
-  font-size: 1rem; 
-  font-weight: 500; 
-  position: relative; 
-  padding: 5px 0; 
-  transition: var(--transition); 
-} 
-.nav-links a::after { 
-  content: ''; 
-  position: absolute; 
-  width: 0; 
-  height: 2px; 
-  bottom: 0; 
-  left: 0; 
-  background-color: var(--secondary); 
-  transition: var(--transition); 
-} 
-.nav-links a:hover { 
-  color: var(--secondary); 
-} 
-.nav-links a:hover::after { 
-  width: 100%; 
-} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Treasures - Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #001429 0%, #000 100%);
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 150, 220, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3498db, transparent);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(77, 182, 255, 0.5);
+        }
+        
+        .tagline {
+            color: #3498db;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Filter Controls */
+        .filter-controls {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-btn {
+            background-color: rgba(0, 20, 40, 0.8);
+            color: #fff;
+            border: 1px solid #1e6091;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .category-btn:hover {
+            background-color: rgba(20, 100, 175, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.2);
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(135deg, #2980b9 0%, #1e6091 100%);
+            box-shadow: 0 0 15px rgba(41, 128, 185, 0.5);
+        }
+        
+        .count-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        /* Menu Items */
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .menu-item {
+            background-color: rgba(0, 20, 40, 0.7);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(30, 144, 255, 0.1);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 100, 200, 0.2);
+            border-color: rgba(30, 144, 255, 0.3);
+        }
+        
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.5), transparent);
+        }
+        
+        .item-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .item-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .item-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        
+        .item-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #3498db;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        footer {
+            background-color: rgba(0, 10, 20, 0.9);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(30, 144, 255, 0.2);
+        }
+        
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Wave decoration */
+        .wave-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="logo">Ocean Treasures</h1>
+            <p class="tagline">Fresh from the Sea to Your Plate</p>
+        </div>
+    </header>
 
-.products-hero { 
-  padding: 9rem 0 5rem; 
-  text-align: center; 
-  position: relative; 
-  background-color: var(--light);
-} 
+    <div class="container">
+        <div class="filter-controls">
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">All Items <span class="count-badge">0</span></button>
+                <button class="category-btn" data-category="appetizers">Appetizers <span class="count-badge">0</span></button>
+                <button class="category-btn" data-category="main-courses">Main Courses <span class="count-badge">0</span></button>
+                <button class="category-btn" data-category="pasta">Pasta Dishes <span class="count-badge">0</span></button>
+                <button class="category-btn" data-category="sushi">Sushi & Sashimi <span class="count-badge">0</span></button>
+                <button class="category-btn" data-category="desserts">Desserts <span class="count-badge">0</span></button>
+                <button class="category-btn" data-category="drinks">Drinks <span class="count-badge">0</span></button>
+            </div>
+        </div>
 
-.products-hero h1 { 
-  font-size: 3rem; 
-  margin-bottom: 1rem; 
-  color: var(--primary); 
-} 
-
-.products-hero p { 
-  font-size: 1.1rem; 
-  max-width: 700px; 
-  margin: 0 auto;
-  color: var(--text-light);
-} 
-
-.menu-categories {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.category-btn {
-  background-color: var(--primary);
-  color: var(--white);
-  border: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.category-btn:hover {
-  background-color: var(--secondary);
-}
-
-.category-btn.active {
-  background-color: var(--secondary);
-}
-
-.menu-section {
-  padding: 3rem 0;
-}
-
-.menu-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
-
-.menu-card {
-  background-color: var(--white);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-
-.menu-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-}
-
-.menu-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.menu-title h3 {
-  font-size: 1.3rem;
-  color: var(--primary);
-  margin: 0;
-}
-
-.menu-price {
-  font-weight: 600;
-  color: var(--secondary);
-  font-size: 1.1rem;
-}
-
-.menu-description {
-  padding: 1rem 1.5rem;
-  color: var(--text-light);
-  font-size: 0.95rem;
-}
-
-.section-title-container {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.section-subtitle {
-  color: var(--secondary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  width: 60px;
-  height: 3px;
-  background-color: var(--secondary);
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.category-section {
-  padding: 3rem 0;
-  background-color: var(--white);
-}
-
-.category-section:nth-child(even) {
-  background-color: var(--light);
-}
-
-.sidebar-toggle {
-  display: none;
-}
-
-.contact-section { 
-  background-color: var(--primary); 
-  color: var(--white); 
-  position: relative; 
-  padding: 5rem 0;
-} 
-
-.contact-content { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 3rem; 
-} 
-
-.contact-info h3 { 
-  font-size: 1.3rem; 
-  margin-bottom: 1.2rem; 
-  color: var(--white); 
-  position: relative; 
-  padding-bottom: 12px; 
-} 
-
-.contact-info h3:after { 
-  content: ''; 
-  position: absolute; 
-  width: 40px; 
-  height: 2px; 
-  background-color: var(--secondary); 
-  bottom: 0; 
-  left: 0; 
-} 
-
-.contact-info p, .contact-info a { 
-  line-height: 1.8; 
-  color: rgba(255, 255, 255, 0.8); 
-  display: block; 
-  margin-bottom: 0.7rem; 
-  text-decoration: none; 
-  transition: var(--transition); 
-} 
-
-.contact-info a:hover { 
-  color: var(--secondary); 
-} 
-
-.contact-item { 
-  display: flex; 
-  align-items: flex-start; 
-  margin-bottom: 1rem; 
-} 
-
-.contact-icon { 
-  margin-right: 12px; 
-  font-size: 1.1rem; 
-  color: var(--secondary); 
-} 
-
-.hours-table { 
-  width: 100%; 
-  border-collapse: collapse; 
-} 
-
-.hours-table tr { 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-} 
-
-.hours-table tr:last-child { 
-  border-bottom: none; 
-} 
-
-.hours-table td { 
-  padding: 6px 0; 
-  color: rgba(255, 255, 255, 0.8); 
-} 
-
-.hours-table td:last-child { 
-  text-align: right; 
-} 
-
-.btn { 
-  background-color: var(--secondary); 
-  color: var(--white); 
-  padding: 0.9rem 2.5rem; 
-  border-radius: 4px; 
-  text-decoration: none; 
-  font-weight: 600; 
-  display: inline-block; 
-  transition: var(--transition); 
-  border: none; 
-  cursor: pointer; 
-  text-transform: uppercase; 
-  letter-spacing: 1px; 
-  font-size: 0.9rem; 
-} 
-
-.btn:hover { 
-  background-color: #c1121f; 
-  transform: translateY(-3px); 
-  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3); 
-} 
-
-footer { 
-  background-color: #00264d; 
-  color: rgba(255, 255, 255, 0.7); 
-  padding: 1.5rem 0; 
-  text-align: center; 
-} 
-
-.footer-content { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  flex-wrap: wrap; 
-} 
-
-.footer-links { 
-  display: flex; 
-  gap: 2rem; 
-} 
-
-.footer-links a { 
-  color: rgba(255, 255, 255, 0.7); 
-  text-decoration: none; 
-  transition: var(--transition); 
-} 
-
-.footer-links a:hover { 
-  color: var(--secondary); 
-} 
-
-@media (max-width: 992px) {
-  .menu-container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .products-hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .nav-links {
-    gap: 1rem;
-  }
-  
-  .tagline {
-    display: none;
-  }
-  
-  .menu-categories {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .products-hero {
-    padding-top: 8rem;
-  }
-  
-  .products-hero h1 {
-    font-size: 2rem;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .footer-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-</style> 
-</head> 
-<body> 
-<header> 
-<div class="container nav-container"> 
-<div class="logo-container"> 
-<a href="index.html" class="logo">New York Seafood</a> 
-<span class="tagline">Authentic Taste of the Sea</span> 
-</div> 
-<nav class="nav-links"> 
-<a href="index.html">Home</a> 
-<a href="menu.html">Menu</a> 
-<a href="products.html">Products</a> 
-<a href="about.html">About Us</a> 
-<a href="#contact">Contact</a> 
-</nav> 
-</div> 
-</header>
-
-<section class="products-hero">
-  <div class="container">
-    <h1>Our Menu</h1>
-    <p>Explore our extensive selection of fresh seafood options and delicious dishes prepared with authentic New York style and flavor.</p>
-    
-    <div class="menu-categories">
-      <button class="category-btn active" data-category="appetizers">Appetizers</button>
-      <button class="category-btn" data-category="salads">Salads & Soups</button>
-      <button class="category-btn" data-category="sandwiches">Sandwiches</button>
-      <button class="category-btn" data-category="fish">Fish</button>
-      <button class="category-btn" data-category="pasta">Pasta</button>
-      <button class="category-btn" data-category="wraps">Wraps</button>
-      <button class="category-btn" data-category="seafood">Seafood Trays</button>
-      <button class="category-btn" data-category="sides">Sides & Specials</button>
-      <button class="category-btn" data-category="asian">Asian Cuisine</button>
-      <button class="category-btn" data-category="drinks">Drinks</button>
+        <div class="menu-items" id="menuContainer">
+            <!-- Menu items will be dynamically loaded here -->
+        </div>
     </div>
-  </div>
-</section>
 
-<section id="appetizers" class="category-section">
-  <div class="container">
-    <div class="section-title-container">
-      <p class="section-subtitle">Start Your Meal</p>
-      <h2 class="section-title">Appetizers</h2>
-    </div>
-    <div class="menu-container">
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Crab Rangoons</h3>
-          <span class="menu-price">$5.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Crispy wontons filled with a creamy crab and cheese filling.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Chicken Tenders</h3>
-          <span class="menu-price">$8.99</span>
-        </div>
-        <div class="menu-description">
-          <p>Served with french fries.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Wings</h3>
-          <span class="menu-price">6 pcs $9.95 • 12 pcs $17.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Crispy chicken wings tossed in your choice of sauce.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Fried Pickles</h3>
-          <span class="menu-price">$6.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Crispy breaded dill pickle slices.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Mac 'N' Cheese Bites</h3>
-          <span class="menu-price">$6.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Crispy breaded macaroni and cheese bites.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Onion Rings</h3>
-          <span class="menu-price">$6.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Golden fried onion rings.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Hush Puppies</h3>
-          <span class="menu-price">8 pcs $4.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Southern-style cornmeal fritters.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Fried Plantains</h3>
-          <span class="menu-price">$4.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Sweet and savory fried plantains.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Garlic Breadsticks</h3>
-          <span class="menu-price">$5.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Warm breadsticks topped with garlic butter.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Fried Calamari</h3>
-          <span class="menu-price">$10.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Lightly breaded calamari, fried to perfection.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <footer>
+        <p>© 2025 Ocean Treasures Seafood Restaurant. All rights reserved.</p>
+    </footer>
 
-<section id="salads" class="category-section">
-  <div class="container">
-    <div class="section-title-container">
-      <p class="section-subtitle">Fresh & Flavorful</p>
-      <h2 class="section-title">Salads & Soups</h2>
-    </div>
-    <div class="menu-container">
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Grilled Chicken Salad</h3>
-          <span class="menu-price">$10.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Romaine and tomatoes topped with grilled chicken, croutons and your choice of dressing.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Grilled Shrimp Salad</h3>
-          <span class="menu-price">$10.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Juicy grilled shrimp on a bed of Romaine, tomatoes and croutons.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Chicken Tender Salad</h3>
-          <span class="menu-price">$12.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Crispy chicken tenders over lettuce, tomatoes and cheese.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Egg Drop Soup</h3>
-          <span class="menu-price">$5.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Traditional Chinese soup with wispy beaten eggs.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Lobster Bisque</h3>
-          <span class="menu-price">$5.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Creamy soup made from lobster stock, heavy cream, and sherry.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Shrimp Corn Chowder</h3>
-          <span class="menu-price">$5.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Rich and creamy soup with shrimp and sweet corn.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Clam Chowder</h3>
-          <span class="menu-price">$5.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Traditional creamy New England style clam chowder.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Scallop Chowder</h3>
-          <span class="menu-price">$6.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Creamy chowder with tender scallops.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <script>
+        // Menu data
+        const menuItems = [
+            {
+                id: 1,
+                title: "Calamari Fritti",
+                description: "Crispy fried calamari served with lemon aioli and marinara sauce",
+                price: "$12.99",
+                category: "appetizers"
+            },
+            {
+                id: 2,
+                title: "Crab Cakes",
+                description: "Pan-seared blue crab cakes with roasted red pepper sauce",
+                price: "$14.99",
+                category: "appetizers"
+            },
+            {
+                id: 3,
+                title: "Shrimp Cocktail",
+                description: "Jumbo shrimp served with our signature cocktail sauce",
+                price: "$13.99",
+                category: "appetizers"
+            },
+            {
+                id: 4,
+                title: "Lobster Bisque",
+                description: "Creamy soup made with fresh Maine lobster and a hint of sherry",
+                price: "$9.99",
+                category: "appetizers"
+            },
+            {
+                id: 5,
+                title: "Grilled Salmon",
+                description: "Atlantic salmon fillet with lemon herb butter, served with seasonal vegetables",
+                price: "$24.99",
+                category: "main-courses"
+            },
+            {
+                id: 6,
+                title: "Seafood Platter",
+                description: "Grilled lobster tail, scallops, shrimp, and fish fillet with drawn butter",
+                price: "$36.99",
+                category: "main-courses"
+            },
+            {
+                id: 7,
+                title: "Blackened Mahi-Mahi",
+                description: "Cajun-spiced mahi-mahi with mango salsa and coconut rice",
+                price: "$26.99",
+                category: "main-courses"
+            },
+            {
+                id: 8,
+                title: "Lobster Linguine",
+                description: "Linguine pasta tossed with chunks of lobster meat in a creamy garlic sauce",
+                price: "$28.99",
+                category: "pasta"
+            },
+            {
+                id: 9,
+                title: "Shrimp Scampi",
+                description: "Garlic butter shrimp over angel hair pasta with white wine sauce",
+                price: "$22.99",
+                category: "pasta"
+            },
+            {
+                id: 10,
+                title: "Seafood Alfredo",
+                description: "Fettuccine with shrimp, scallops, and crab in creamy alfredo sauce",
+                price: "$25.99",
+                category: "pasta"
+            },
+            {
+                id: 11,
+                title: "Rainbow Roll",
+                description: "California roll topped with tuna, salmon, yellowtail, and avocado",
+                price: "$16.99",
+                category: "sushi"
+            },
+            {
+                id: 12,
+                title: "Spicy Tuna Roll",
+                description: "Fresh tuna with spicy mayo, cucumber, and green onion",
+                price: "$14.99",
+                category: "sushi"
+            },
+            {
+                id: 13,
+                title: "Sashimi Platter",
+                description: "Chef's selection of fresh sashimi served with wasabi and pickled ginger",
+                price: "$27.99",
+                category: "sushi"
+            },
+            {
+                id: 14,
+                title: "Key Lime Pie",
+                description: "Tangy key lime filling in a graham cracker crust with whipped cream",
+                price: "$8.99",
+                category: "desserts"
+            },
+            {
+                id: 15,
+                title: "Chocolate Lava Cake",
+                description: "Warm chocolate cake with molten center and vanilla ice cream",
+                price: "$9.99",
+                category: "desserts"
+            },
+            {
+                id: 16,
+                title: "Tropical Sangria",
+                description: "White wine with pineapple, mango, and citrus",
+                price: "$10.99",
+                category: "drinks"
+            },
+            {
+                id: 17,
+                title: "Ocean Breeze Cocktail",
+                description: "Vodka, blue curaçao, lemonade, and a splash of sprite",
+                price: "$12.99",
+                category: "drinks"
+            },
+            {
+                id: 18,
+                title: "Coconut Shrimp",
+                description: "Jumbo shrimp coated in coconut flakes and fried until golden, served with sweet chili sauce",
+                price: "$15.99",
+                category: "appetizers"
+            },
+            {
+                id: 19,
+                title: "Clam Chowder",
+                description: "New England style creamy clam chowder with potatoes and bacon",
+                price: "$8.99",
+                category: "appetizers"
+            },
+            {
+                id: 20,
+                title: "Oysters Rockefeller",
+                description: "Half dozen oysters topped with spinach, herbs, and breadcrumbs",
+                price: "$16.99",
+                category: "appetizers"
+            }
+        ];
 
-<section id="sandwiches" class="category-section">
-  <div class="container">
-    <div class="section-title-container">
-      <p class="section-subtitle">Hand-Crafted</p>
-      <h2 class="section-title">Sandwiches</h2>
-      <p>Includes lettuce, tomatoes, pickles and mayo. Served with fries.</p>
-    </div>
-    <div class="menu-container">
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Fish Sandwich</h3>
-          <span class="menu-price">$8.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Choose Tilapia, Basa or Catfish.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Grouper Sandwich</h3>
-          <span class="menu-price">$12.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Fresh grouper fillet on a toasted bun.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Club Sandwich</h3>
-          <span class="menu-price">$12.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Classic club sandwich with grilled chicken, bacon, lettuce, and tomato on toasted bread.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Chicken Sandwich</h3>
-          <span class="menu-price">$7.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Grilled or fried chicken breast on a toasted bun.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Soft-Shell Crab Sandwich</h3>
-          <span class="menu-price">$12.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Lightly breaded soft-shell crab on a toasted bun.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="fish" class="category-section">
-  <div class="container">
-    <div class="section-title-container">
-      <p class="section-subtitle">Ocean Fresh</p>
-      <h2 class="section-title">Fish Entrées</h2>
-      <p>Deep fried or blackened, served with 2 sides.</p>
-    </div>
-    <div class="menu-container">
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Salmon</h3>
-          <span class="menu-price">$16.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Fresh salmon fillet prepared to your preference.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Grouper</h3>
-          <span class="menu-price">$17.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Tender grouper fillet prepared to your preference.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Tilapia</h3>
-          <span class="menu-price">$12.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Mild flavored tilapia fillet prepared to your preference.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Catfish Nuggets</h3>
-          <span class="menu-price">$11.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Deep fried only. Southern-style catfish nuggets.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Basa</h3>
-          <span class="menu-price">$12.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Mild, tender basa fillet prepared to your preference.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Fish & Shrimp Combo</h3>
-          <span class="menu-price">$13.95</span>
-        </div>
-        <div class="menu-description">
-          <p>6 pcs fish + 6 pcs shrimp. Choose Tilapia, Basa or Catfish. Served with french fries.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Fried or Blackened Shrimp</h3>
-          <span class="menu-price">10 pcs $13.00 • 20 pcs $24.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Your choice of preparation. Served with french fries.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="pasta" class="category-section">
-  <div class="container">
-    <div class="section-title-container">
-      <p class="section-subtitle">Pasta Perfection</p>
-      <h2 class="section-title">Pasta Dishes</h2>
-      <p>Add bread sticks for $3.00</p>
-    </div>
-    <div class="menu-container">
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Shrimp Scampi</h3>
-          <span class="menu-price">$13.99</span>
-        </div>
-        <div class="menu-description">
-          <p>Garlic butter shrimp sautéed in white wine, served over pasta and topped with parsley.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Lemon Garlic Scallop</h3>
-          <span class="menu-price">$15.99</span>
-        </div>
-        <div class="menu-description">
-          <p>Sautéed scallops in garlic butter over linguine with lemon.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Chicken Alfredo</h3>
-          <span class="menu-price">$9.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Grilled chicken over penne in a rich Parmesan Alfredo sauce, topped with parsley.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Cajun Shrimp Alfredo</h3>
-          <span class="menu-price">$10.95</span>
-        </div>
-        <div class="menu-description">
-          <p>Grilled shrimp, coated in Cajun spices, tossed in a creamy Alfredo sauce, and served over penne.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Blackened Salmon Alfredo</h3>
-          <span class="menu-price">$18.99</span>
-        </div>
-        <div class="menu-description">
-          <p>Blackened salmon over creamy garlic house Alfredo sauce with penne and broccoli, topped with mozzarella and Parmesan.</p>
-        </div>
-      </div>
-      
-      <div class="menu-card">
-        <div class="menu-title">
-          <h3>Conch Alfredo</h3>
-          <span class="menu-price">$15.00</span>
-        </div>
-        <div class="menu-description">
-          <p>Creamy Alfredo sauce with tender conch served over penne.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="wr
+        // DOM elements
+        const menuContainer = document.getElementById('menuContainer');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        // Update category counters
+        function updateCategoryCounts() {
+            const categoryCounts = {};
+            categoryCounts['all'] = menuItems.length;
+            
+            menuItems.forEach(item => {
+                if (categoryCounts[item.category]) {
+                    categoryCounts[item.category]++;
+                } else {
+                    categoryCounts[item.category] = 1;
+                }
+            });
+            
+            categoryButtons.forEach(button => {
+                const category = button.dataset.category;
+                const countBadge = button.querySelector('.count-badge');
+                countBadge.textContent = categoryCounts[category] || 0;
+            });
+        }
+        
+        // Create menu item element
+        function createMenuItem(item) {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-category', item.category);
+            
+            menuItem.innerHTML = `
+                <span class="item-category">${getCategoryName(item.category)}</span>
+                <h3 class="item-title">${item.title}</h3>
+                <p class="item-description">${item.description}</p>
+                <p class="item-price">${item.price}</p>
+            `;
+            
+            return menuItem;
+        }
+        
+        // Get friendly category name
+        function getCategoryName(category) {
+            const names = {
+                'appetizers': 'Appetizer',
+                'main-courses': 'Main Course',
+                'pasta': 'Pasta Dish',
+                'sushi': 'Sushi & Sashimi',
+                'desserts': 'Dessert',
+                'drinks': 'Drink'
+            };
+            return names[category] || category;
+        }
+        
+        // Filter menu items by category
+        function filterMenu(category) {
+            const items = menuContainer.querySelectorAll('.menu-item');
+            
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // Initialize menu
+        function initMenu() {
+            // Clear container
+            menuContainer.innerHTML = '';
+            
+            // Create and append menu items
+            menuItems.forEach(item => {
+                const menuItemElement = createMenuItem(item);
+                menuContainer.appendChild(menuItemElement);
+            });
+            
+            // Update category counts
+            updateCategoryCounts();
+        }
+        
+        // Add event listeners to category buttons
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Filter menu
+                const category = this.getAttribute('data-category');
+                filterMenu(category);
+            });
+        });
+        
+        // Initialize the menu when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initMenu();
+            
+            // Handle redirect from menu.html to products.html
+            if (window.location.pathname.endsWith('menu.html')) {
+                window.location.replace('products.html');
+            }
+        });
+    </script>
