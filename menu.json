@@ -25,7 +25,7 @@
       {
         "title": "MOZZARELLA STICKS",
         "price": "6.50",
-        "description": "Cheesy mozzarella sticks served with marinara."
+        "description": "Cheesy mozzarella sticks with marinara."
       },
       {
         "title": "GARLIC BREAD",
@@ -75,12 +75,12 @@
       {
         "title": "LIMADE",
         "price": "3.99",
-        "description": "Refreshing lightly citrus-flavored beverage."
+        "description": "Refreshing light citrus beverage."
       },
       {
         "title": "CLASSIC CLUB SANDWICH",
         "price": "12.00",
-        "description": "Grilled chicken, bacon, lettuce and tomato on toasted bread."
+        "description": "Grilled chicken, bacon, lettuce, and tomato on toasted bread."
       }
     ]
   },
@@ -90,7 +90,7 @@
       {
         "title": "FISH",
         "price": "",
-        "description": "Options that are deep fried or blackened, served with two sides."
+        "description": "Deep fried or blackened fish, served with two sides."
       },
       {
         "title": "SALMON",
@@ -110,17 +110,17 @@
       {
         "title": "WINGS",
         "price": "6 pcs $9.95 • 12 pcs $17.95",
-        "description": "Crispy chicken wings tossed in your choice of sauce."
+        "description": "Crispy chicken wings with your choice of sauce."
       },
       {
         "title": "GROUPER (Secondary)",
         "price": "12.00",
-        "description": "Milder grouper fillet with subtle seasonings."
+        "description": "Milder grouper with subtle seasonings."
       },
       {
         "title": "TILAPIA",
         "price": "12.00",
-        "description": "Flaky tilapia served fried to perfection."
+        "description": "Flaky tilapia, lightly fried."
       }
     ]
   },
@@ -130,7 +130,7 @@
       {
         "title": "FRIED PICKLES",
         "price": "6.00",
-        "description": "Beer-battered pickles with a tangy dip."
+        "description": "Beer-battered pickles with tangy dip."
       },
       {
         "title": "CLUB",
@@ -150,7 +150,7 @@
       {
         "title": "ONION RINGS",
         "price": "6.00",
-        "description": "Thick-cut, crispy onion rings."
+        "description": "Thick-cut crispy onion rings."
       },
       {
         "title": "HUSH PUPPIES",
@@ -165,7 +165,7 @@
       {
         "title": "PASTA",
         "price": "",
-        "description": "Traditional pasta dishes. Breadsticks available for $3.00 extra."
+        "description": "Traditional pasta dishes; breadsticks available for $3.00 extra."
       },
       {
         "title": "GARLIC BREADSTICKS",
@@ -175,12 +175,12 @@
       {
         "title": "CHICKEN CAESAR",
         "price": "10.00",
-        "description": "Chicken Caesar with simple dressing."
+        "description": "Chicken Caesar salad with crisp romaine."
       },
       {
         "title": "LEMON GARLIC SCALLOP",
         "price": "",
-        "description": "Seared scallops in a lemon garlic sauce."
+        "description": "Seared scallops in lemon garlic sauce."
       },
       {
         "title": "FLAVORED LEMONADE",
@@ -195,7 +195,7 @@
       {
         "title": "CHICKEN ALFREDO",
         "price": "",
-        "description": "Grilled chicken over penne in a Parmesan Alfredo sauce."
+        "description": "Grilled chicken with penne in Parmesan Alfredo sauce."
       },
       {
         "title": "PINEAPPLE JUICE",
@@ -225,12 +225,12 @@
       {
         "title": "LOBSTER BISQUE",
         "price": "5.00",
-        "description": "Rich lobster bisque."
+        "description": "Rich and creamy lobster bisque."
       },
       {
         "title": "SHRIMP CORN CHOWDER",
         "price": "5.00",
-        "description": "Hearty chowder with shrimp and corn."
+        "description": "Hearty chowder with shrimp and sweet corn."
       },
       {
         "title": "CLAM CHOWDER",
@@ -240,7 +240,7 @@
       {
         "title": "SCALLOP CHOWDER",
         "price": "6.00",
-        "description": "Chowder featuring bay scallops."
+        "description": "Chowder featuring fresh bay scallops."
       }
     ]
   },
@@ -255,7 +255,7 @@
       {
         "title": "BLACKENED SALMON ALFREDO",
         "price": "18.99",
-        "description": "Blackened salmon with garlic Alfredo sauce over penne and broccoli."
+        "description": "Blackened salmon in garlic Alfredo sauce over penne and broccoli."
       },
       {
         "title": "BEEF SHORT-RIBS",
@@ -460,7 +460,7 @@
       {
         "title": "LARGE NECKBONE TRAY",
         "price": "",
-        "description": "Tray featuring neckbones, potato, sausage and corn."
+        "description": "Tray featuring neckbones, potato, sausage, and corn."
       },
       {
         "title": "DAILY SPECIAL #1",
@@ -495,12 +495,12 @@
       {
         "title": "RAMEN #1",
         "price": "5.00",
-        "description": "Ramen with 3 shrimps and 1 egg."
+        "description": "Ramen noodles with 3 shrimps and 1 egg."
       },
       {
         "title": "RAMEN #2",
         "price": "12.00",
-        "description": "Ramen with neckbones, egg, potato and sausage."
+        "description": "Ramen noodles with neckbones, egg, potato, and sausage."
       },
       {
         "title": "1/2 LB SHRIMP",
@@ -565,7 +565,7 @@
       {
         "title": "NEW YORK SPECIAL",
         "price": "75.00",
-        "description": "Half-pound snowcrab cluster, half-pound Dungeness crab, and additional seafood."
+        "description": "Half-pound snowcrab cluster, half-pound Dungeness crab and extra seafood."
       },
       {
         "title": "SEAFOOD TRAYS",
@@ -580,7 +580,7 @@
       {
         "title": "SHRIMP + GREEN MUSSEL – 1/2 LB CRAWFISH TRAY",
         "price": "12.00",
-        "description": "Tray combining shrimp, green mussels and crawfish."
+        "description": "Tray combining shrimp, green mussels, and crawfish."
       },
       {
         "title": "2 SNOWCRAB CLUSTERS",
@@ -620,7 +620,7 @@
       {
         "title": "SNOWCRAB & SHRIMP #1",
         "price": "18.95",
-        "description": "Tray with snowcrab and shrimp, with potato and sausage."
+        "description": "Tray with snowcrab and shrimp with potato and sausage."
       },
       {
         "title": "SNOWCRAB & SHRIMP #2",
@@ -655,12 +655,12 @@
       {
         "title": "SNOWCRAB & LOBSTER TAIL #1",
         "price": "30.00",
-        "description": "Tray with choice of Shrimp, Beef, Chicken or Beef Broccoli."
+        "description": "Tray with choice of Shrimp, Beef, Chicken, or Beef Broccoli."
       },
       {
         "title": "CHICKEN & SHRIMP",
         "price": "",
-        "description": "Mixed dish with broccoli, potato and sausage; includes snowcrab and lobster tail."
+        "description": "Mixed dish with broccoli, potato, and sausage; includes snowcrab and lobster tail."
       },
       {
         "title": "CHICKEN BROCCOLI",
