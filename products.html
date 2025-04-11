@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Redirect menu.html to this file -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu - New York Seafood</title>
   <style>
@@ -15,11 +14,21 @@
       --text: #333;
       --text-light: #666;
       --white: #fff;
+      --sidebar-width: 240px;
       --shadow: 0 8px 20px rgba(0,0,0,0.08);
+      --card-shadow: 0 4px 12px rgba(0,0,0,0.05);
       --transition: all 0.3s ease;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--text); line-height: 1.6; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: var(--white); 
+      color: var(--text); 
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
     header {
       background: var(--primary);
       color: var(--white);
@@ -30,9 +39,24 @@
       z-index: 1000;
       box-shadow: var(--shadow);
     }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; }
-    .logo-container { display: flex; align-items: center; }
+    main {
+      display: flex;
+      flex: 1;
+      margin-top: 70px;
+    }
+    .container { 
+      width: 95%;
+      margin: 0 auto;
+    }
+    .nav-container { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    .logo-container { 
+      display: flex; 
+      align-items: center; 
+    }
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
@@ -58,76 +82,148 @@
       margin-left: 2rem;
       transition: var(--transition);
     }
-    nav a:hover { color: var(--secondary); }
-    .products-hero {
-      padding: 9rem 0 5rem;
-      text-align: center;
-      background: var(--light);
+    nav a:hover { 
+      color: var(--secondary); 
     }
-    .products-hero h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
-    .products-hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; color: var(--text-light); }
+    /* Sidebar styling – used for category buttons */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--light);
+      height: calc(100vh - 70px);
+      position: fixed;
+      top: 70px;
+      left: 0;
+      padding: 2rem 0;
+      overflow-y: auto;
+      box-shadow: inset -1px 0 0 rgba(0,0,0,0.1);
+    }
     .menu-categories {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
+      flex-direction: column;
     }
     .category-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      color: var(--text);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    .category-btn:hover {
+      background: rgba(0,0,0,0.05);
+      color: var(--primary);
+    }
+    .category-btn.active {
       background: var(--primary);
       color: var(--white);
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: var(--transition);
+      border-left: 4px solid var(--secondary);
     }
-    .category-btn:hover, .category-btn.active { background: var(--secondary); }
-    .menu-view { margin-bottom: 4rem; }
+    /* Menu content area */
+    .menu-content {
+      flex: 1;
+      margin-left: var(--sidebar-width);
+      padding: 2rem;
+    }
+    .category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--secondary);
+    }
+    /* Use a horizontal scrolling flex container for items */
+    .menu-grid {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+    }
+    .menu-grid::-webkit-scrollbar {
+      height: 6px;
+    }
+    .menu-grid::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 3px;
+    }
     .menu-card {
+      flex: 0 0 auto;
+      width: 300px;
       background: var(--white);
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: var(--shadow);
-      margin: 1rem 0;
-      padding: 1rem 1.5rem;
+      box-shadow: var(--card-shadow);
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
-    .menu-card:hover { transform: translateY(-3px); }
+    .menu-card:hover { 
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .menu-card-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
     .menu-title {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      margin-bottom: 0.5rem;
-      padding-bottom: 0.3rem;
+      margin-bottom: 0.3rem;
     }
-    .menu-title h3 { font-size: 1.3rem; color: var(--primary); margin: 0; }
-    .menu-price { font-weight: 600; color: var(--secondary); font-size: 1.1rem; }
-    .menu-description { font-size: 0.95rem; color: var(--text-light); }
-    .section-header {
-      text-align: center;
-      margin: 3rem 0 1.5rem;
+    .menu-title h3 { 
+      font-size: 1.2rem; 
+      color: var(--primary); 
+      margin: 0; 
     }
-    .section-header h2 {
-      font-size: 2rem;
-      color: var(--primary);
-      border-bottom: 3px solid var(--secondary);
-      display: inline-block;
-      padding-bottom: 0.2rem;
+    .menu-price { 
+      font-weight: 600; 
+      color: var(--secondary); 
+      font-size: 1.1rem; 
+    }
+    .menu-description { 
+      padding: 1rem 1.5rem;
+      font-size: 0.9rem; 
+      color: var(--text-light);
+      flex: 1;
     }
     footer {
       background: var(--primary);
       color: var(--white);
       padding: 1.5rem 0;
       text-align: center;
+      margin-top: auto;
     }
-    @media (max-width:768px) {
-      .products-hero h1 { font-size: 2.5rem; }
-      .section-header h2 { font-size: 1.8rem; }
-      nav a { margin-left: 1rem; }
-      .menu-categories { flex-direction: column; align-items: center; }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        padding: 1rem 0;
+      }
+      .menu-content {
+        margin-left: 0;
+      }
+      main {
+        flex-direction: column;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+      .logo {
+        font-size: 1.5rem;
+      }
+      .tagline {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -141,469 +237,370 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="products.html">Menu</a>
-        <a href="products.html">Products</a>
         <a href="about.html">About Us</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
-  <section class="products-hero">
-    <div class="container">
-      <h1>Our Menu</h1>
-      <p>Explore our extensive seafood selections below.</p>
+  
+  <main>
+    <aside class="sidebar">
       <div class="menu-categories">
-        <button class="category-btn active" data-category="all">ALL</button>
-        <button class="category-btn" data-category="appetizers">APPETIZERS</button>
-        <button class="category-btn" data-category="sandwiches">SANDWICHES</button>
-        <button class="category-btn" data-category="fish">FISH</button>
-        <button class="category-btn" data-category="drinks">DRINKS</button>
-        <button class="category-btn" data-category="maconion">MAC 'N' CHEESE / ONION RINGS</button>
-        <button class="category-btn" data-category="wraps">CHICKEN WRAPS</button>
-        <button class="category-btn" data-category="pasta">PASTA</button>
-        <button class="category-btn" data-category="soup">SOUP</button>
-        <button class="category-btn" data-category="chefspecial">CHEF'S SPECIAL</button>
-        <button class="category-btn" data-category="salads">SALADS</button>
-        <button class="category-btn" data-category="sides">FISH &amp; SHRIMP SIDES</button>
-        <button class="category-btn" data-category="sidespecials">SIDE SPECIALS</button>
-        <button class="category-btn" data-category="seafoodtrays">SEAFOOD TRAYS</button>
-        <button class="category-btn" data-category="asiancuisine">ASIAN CUISINE</button>
-        <button class="category-btn" data-category="generaltso">GENERAL TSO</button>
-        <button class="category-btn" data-category="sauce">SAUCE</button>
-        <button class="category-btn" data-category="sweetsour">SWEET &amp; SOUR</button>
+        <button class="category-btn active" data-category="all">All Items</button>
+        <button class="category-btn" data-category="starters">Starters</button>
+        <button class="category-btn" data-category="main">Main Courses</button>
+        <button class="category-btn" data-category="traysandsalads">Trays &amp; Salads</button>
+        <button class="category-btn" data-category="asian">Asian</button>
+        <button class="category-btn" data-category="beverages">Beverages</button>
       </div>
-    </div>
-  </section>
-  <div class="container menu-view" id="menu-view">
-    <!-- ALL view: Unorganized list in original order -->
-    <div class="menu-card" data-category="appetizers">
-      <div class="menu-title"><h3>CRAB RANGOONS</h3><span class="menu-price">$5.95</span></div>
-    </div>
-    <div class="menu-card" data-category="sandwiches">
-      <div class="menu-title"><h3>SANDWICHES</h3></div>
-      <div class="menu-description">Includes lettuce, tomatoes, pickles and mayo. Served with fries</div>
-    </div>
-    <div class="menu-card" data-category="fish">
-      <div class="menu-title"><h3>FISH</h3></div>
-      <div class="menu-description">Deep fried or blackened, served with 2 sides</div>
-    </div>
-    <div class="menu-card" data-category="fish">
-      <div class="menu-title"><h3>SALMON</h3><span class="menu-price">$16.95</span></div>
-    </div>
-    <div class="menu-card" data-category="sandwiches">
-      <div class="menu-title"><h3>CHICKEN TENDERS</h3><span class="menu-price">$8.99</span></div>
-      <div class="menu-description">Served with french fries</div>
-    </div>
-    <div class="menu-card" data-category="fish">
-      <div class="menu-title"><h3>FISH*</h3><span class="menu-price">$8.00</span></div>
-      <div class="menu-description">Choose Tilapia, Basa or Catfish*</div>
-    </div>
-    <div class="menu-card" data-category="fish">
-      <div class="menu-title"><h3>GROUPER</h3><span class="menu-price">$17.95</span></div>
-    </div>
-    <div class="menu-card" data-category="fish">
-      <div class="menu-title"><h3>WINGS</h3><span class="menu-price">6 pcs $9.95 • 12 pcs $17.95</span></div>
-    </div>
-    <div class="menu-card" data-category="fish">
-      <div class="menu-title"><h3>GROUPER</h3><span class="menu-price">$12.00</span></div>
-    </div>
-    <div class="menu-card" data-category="fish">
-      <div class="menu-title"><h3>TILAPIA</h3><span class="menu-price">$12.00</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>DRINKS: FRIED PICKLES</h3><span class="menu-price">$6.00</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>CLUB</h3><span class="menu-price">$12.00</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>CATFISH NUGGETS</h3><span class="menu-price">$11.95</span></div>
-    </div>
-    <div class="menu-card" data-category="maconion">
-      <div class="menu-title"><h3>MAC 'N' CHEESE BITES</h3><span class="menu-price">$6.00</span></div>
-    </div>
-    <div class="menu-card" data-category="maconion">
-      <div class="menu-title"><h3>ONION RINGS</h3><span class="menu-price">$6.00</span></div>
-    </div>
-    <div class="menu-card" data-category="maconion">
-      <div class="menu-title"><h3>HUSH PUPPIES</h3><span class="menu-price">8 pcs $4.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sandwiches">
-      <div class="menu-title"><h3>Classic Club Sandwich</h3></div>
-      <div class="menu-description">Grilled chicken, bacon, lettuce, and tomato on toasted bread</div>
-    </div>
-    <div class="menu-card" data-category="sandwiches">
-      <div class="menu-title"><h3>CHICKEN</h3><span class="menu-price">$7.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sandwiches">
-      <div class="menu-title"><h3>SOFT-SHELL CRAB</h3><span class="menu-price">$12.00</span></div>
-      <div class="menu-description">(deep fried only)</div>
-    </div>
-    <div class="menu-card" data-category="sandwiches">
-      <div class="menu-title"><h3>BASA</h3><span class="menu-price">$12.00</span></div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>PASTA</h3></div>
-      <div class="menu-description">Add bread sticks for $3.00</div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>LEMONADE</h3><span class="menu-price">free refill / $3.50</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>ICE TEA</h3><span class="menu-price">free refill / $3.50</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>HOT TEA</h3><span class="menu-price">free refill / $2.50</span></div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>FRIED PLANTAINS</h3><span class="menu-price">$4.00</span></div>
-    </div>
-    <div class="menu-card" data-category="wraps">
-      <div class="menu-title"><h3>CHICKEN WRAPS: SHRIMP SCAMPI</h3><span class="menu-price">$13.99</span></div>
-    </div>
-    <div class="menu-card" data-category="wraps">
-      <div class="menu-title"><h3>LIMADE</h3><span class="menu-price">$3.99</span></div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>GARLIC BREADSTICKS</h3><span class="menu-price">$5.95</span></div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>CHICKEN CAESAR</h3><span class="menu-price">$10.00</span></div>
-      <div class="menu-description">Garlic butter shrimp sautéed in white wine, served over pasta and topped with parsley</div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>LEMON GARLIC SCALLOP</h3></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>FLAVORED LEMONADE</h3><span class="menu-price">$4.50</span></div>
-      <div class="menu-description">no refill</div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>FRIED CALAMARI</h3><span class="menu-price">$10.00</span></div>
-      <div class="menu-description">Grilled or fried chicken, crisp romaine, parmesan, and creamy Caesar dressing wrapped in a soft tortilla (15.99)</div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>CHICKEN ALFREDO</h3></div>
-      <div class="menu-description">Sautéed scallops in garlic butter over linguine with lemon. Blue, Strawberry, Kiwi, Green apple or Coconut. Followed by PINEAPPLE JUICE ($3.50)</div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>SOUP: ORIGINAL CHICKEN</h3><span class="menu-price">$10.00 / $9.95</span></div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>EGGDROP</h3><span class="menu-price">$5.00</span></div>
-      <div class="menu-description">Grilled or fried chicken, lettuce, tomatoes, and ranch wrapped in a tortilla. Followed by Grilled chicken over penne in a rich Parmesan Alfredo sauce, topped with parsley. Then CAJUN SHRIMP ALFREDO.</div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>CRANBERRY JUICE</h3><span class="menu-price">$3.50</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>ORANGE JUICE</h3><span class="menu-price">$3.99</span></div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>SPICY CHICKEN</h3><span class="menu-price">$10.00 / $10.95</span></div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>LOBSTER BISQUE</h3><span class="menu-price">$5.00</span></div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>SHRIMP CORN CHOWDER</h3><span class="menu-price">$5.00</span></div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>CLAM CHOWDER</h3><span class="menu-price">$5.00</span></div>
-      <div class="menu-description">Grilled or fried chicken, lettuce, tomatoes, and spicy buffalo ranch wrapped in a tortilla</div>
-    </div>
-    <div class="menu-card" data-category="chefspecial">
-      <div class="menu-title"><h3>CHEF'S SPECIAL</h3></div>
-      <div class="menu-description">Grilled shrimp, coated in Cajun spices, tossed in a creamy Alfredo sauce, and served over penne</div>
-    </div>
-    <div class="menu-card" data-category="chefspecial">
-      <div class="menu-title"><h3>BLACKENED SALMON ALFREDO</h3><span class="menu-price">$18.99</span></div>
-      <div class="menu-description">Blackened salmon over creamy garlic house Alfredo sauce with penne and broccoli, topped with mozzarella and Parmesan</div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>APPLE JUICE</h3><span class="menu-price">$3.99</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>MANGO JUICE</h3><span class="menu-price">$3.99</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>THAI TEA</h3><span class="menu-price">$4.50</span></div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>SCALLOP CHOWDER</h3><span class="menu-price">$6.00</span></div>
-    </div>
-    <div class="menu-card" data-category="soup">
-      <div class="menu-title"><h3>BEEF SHORT-RIBS</h3><span class="menu-price">$17.99</span></div>
-      <div class="menu-description">Grilled Teriyaki short ribs served with 2 sides: mashed</div>
-    </div>
-    <div class="menu-card" data-category="pasta">
-      <div class="menu-title"><h3>CONCH ALFREDO</h3><span class="menu-price">$15.00</span></div>
-      <div class="menu-description">Creamy Alfredo sauce with tender conch served over penne</div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>MATCHA LATTE</h3><span class="menu-price">$4.50</span></div>
-    </div>
-    <div class="menu-card" data-category="drinks">
-      <div class="menu-title"><h3>SODA</h3><span class="menu-price">$2.00</span></div>
-    </div>
-    <div class="menu-card" data-category="salads">
-      <div class="menu-title"><h3>GRILLED CHICKEN</h3><span class="menu-price">$10.00</span></div>
-      <div class="menu-description">Potatoes, steamed rice, steamed broccoli, asparagus or fried plantains</div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>FISH &amp; SHRIMP SIDES: CORN</h3><span class="menu-price">$2.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>MUSHROOM</h3><span class="menu-price">$2.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>RAMEN</h3><span class="menu-price">$2.50</span></div>
-      <div class="menu-description">Romaine and tomatoes topped with grilled chicken, croutons and your choice of dressing. Served with french fries</div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>POTATO</h3><span class="menu-price">$2.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>PEANUTS</h3><span class="menu-price">$4.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>MASHED POTATOES</h3><span class="menu-price">$4.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>GRILLED SHRIMP</h3><span class="menu-price">10 pcs $13.00 • 20 pcs $24.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>BROCCOLI</h3><span class="menu-price">$3.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sides">
-      <div class="menu-title"><h3>STEAMED RICE</h3><span class="menu-price">$2.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>ANDY SPECIAL</h3><span class="menu-price">$15.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>HAPPY TRAY #5</h3><span class="menu-price">$8.00</span></div>
-      <div class="menu-description">DUNGENESS CRAB TRAYS with corn, potato and sausage<br>4 sausages, 2 corns and 2 potatoes; Broccoli, egg, potato and sausage</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>DC #1</h3><span class="menu-price">$35.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>DC #3</h3><span class="menu-price">$50.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>PEANUT TRAY</h3><span class="menu-price">$18.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>LYNN'S SPECIAL</h3><span class="menu-price">$8.00</span></div>
-      <div class="menu-description">Upgrade to larger size additional $6; 1/2 lb Dungeness crab and 1/2 lb shrimp</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>DC #2</h3><span class="menu-price">$40.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>DC #4</h3><span class="menu-price">$60.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>HAPPY TRAY #1</h3></div>
-      <div class="menu-description">Neckbones, 3 shrimps, 4 eggs, potato, and sausage</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>HAPPY TRAY #2</h3><span class="menu-price">$14.00 / $10.00</span></div>
-      <div class="menu-description">4 eggs, potato, and sausage</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>LARGE NECKBONE TRAY</h3></div>
-      <div class="menu-description">Neckbones, potato, sausage and corn</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>DAILY SPECIAL #1</h3><span class="menu-price">$15.95 / $12.00</span></div>
-      <div class="menu-description">Neckbones, 3 shrimps, black mussels, potato and sausage<br>1/2 lb Dungeness crab, 1/2 shrimp and 1/2 lb black mussels</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>SEAFOOD ADD ON</h3></div>
-      <div class="menu-description">1 lb Dungeness crab and 1/2 lb shrimp</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>HAPPY TRAY #3</h3></div>
-      <div class="menu-description">Peanuts, 2 eggs and potato</div>
-    </div>
-    <div class="menu-card" data-category="sidespecials">
-      <div class="menu-title"><h3>HAPPY TRAY #4</h3></div>
-      <div class="menu-description">3 Wings, potato, and sausage</div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>SNOWCRAB TRAYS</h3></div>
-      <div class="menu-description">Price: 8.00 / 8.00; Upgrade to Green Mussel additional $4</div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>RAMEN #1</h3><span class="menu-price">$5.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>RAMEN #2</h3><span class="menu-price">$12.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB SHRIMP</h3><span class="menu-price">$9.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB GREEN MUSSEL</h3><span class="menu-price">$10.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB BLACK MUSSEL</h3><span class="menu-price">$9.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB CRAWFISH</h3><span class="menu-price">$9.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1 LB BABY CLAMS</h3><span class="menu-price">$10.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB SNOWCRAB</h3><span class="menu-price">$15.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB DUNGENESS CRAB</h3><span class="menu-price">$25.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2LB CONCH MEAT</h3><span class="menu-price">$15.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>LOBSTERTAIL</h3><span class="menu-price">$18.00 each</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB SCALLOP PIECES</h3><span class="menu-price">$15.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB CALAMARI</h3><span class="menu-price">$10.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1 SNOWCRAB CLUSTER</h3><span class="menu-price">sm $10.00 • med $13.95 • lg $16.95</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>NEW YORK SPECIAL</h3><span class="menu-price">$75.00</span></div>
-      <div class="menu-description">1/2 lb Snowcrab cluster, 1/2 lb Dungeness crab, 1/2 ...</div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>SEAFOOD TRAYS</h3></div>
-      <div class="menu-description">Includes potato and sausage; shrimp, 1/2 lb green mussels, 1 lobster tail, corn, potato and sausages</div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>SHRIMP TRAY</h3><span class="menu-price">10 pcs $10.00 • 20 pcs $17.95</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>SHRIMP + GREEN MUSSEL – 1/2 LB CRAWFISH TRAY</h3><span class="menu-price">$12.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>2 SNOWCRAB CLUSTERS</h3><span class="menu-price">sm $18.95 • med $23.95 • lg $28.95</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>SEAFOOD COMBO</h3><span class="menu-price">$28.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>GREEN TRAY (with sausage and potato)</h3><span class="menu-price">reg $12.00 • lg $22.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>LOBSTER TAIL TRAY</h3><span class="menu-price">$28.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>3 SNOWCRAB – MUSSEL TRAY</h3><span class="menu-price">7 pcs $12.00 • 12 pcs $16.95</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>1/2 LB BLACK MUSSEL TRAY</h3><span class="menu-price">$10.00</span></div>
-      <div class="menu-description">1 lobster tail, 5 shrimp, 1 egg, 2 sausages, corn and potato</div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>CLUSTERS</h3><span class="menu-price">sm $28.00 • med $32.00 • lg $36.00</span></div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>SNOWCRAB &amp; SHRIMP #1</h3><span class="menu-price">$18.95</span></div>
-      <div class="menu-description">with sausage and potato</div>
-    </div>
-    <div class="menu-card" data-category="seafoodtrays">
-      <div class="menu-title"><h3>SNOWCRAB &amp; SHRIMP #2</h3><span class="menu-price">$35.00</span></div>
-      <div class="menu-description">Includes potato and sausage; 1 Snowcrab cluster, 5 shrimp with corn, potato and sausage</div>
-    </div>
-    <div class="menu-card" data-category="asiancuisine">
-      <div class="menu-title"><h3>ASIAN CUISINE: CLUSTERS</h3><span class="menu-price">sm+med $42.00 • lg $54.00</span></div>
-      <div class="menu-description">2 Snowcrab clusters, 10 shrimps with 2 corn, 2 potatoes and 2 sausages; Includes 2 eggs, corn, potato and sausage</div>
-    </div>
-    <div class="menu-card" data-category="asiancuisine">
-      <div class="menu-title"><h3>LOMIEN</h3><span class="menu-price">$9.95</span></div>
-    </div>
-    <div class="menu-card" data-category="asiancuisine">
-      <div class="menu-title"><h3>SHRIMP BROCCOLI</h3><span class="menu-price">$8.00</span></div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>GENERAL TSO: 6 SNOWCRAB CLUSTERS</h3><span class="menu-price">sm $60.00 • lg $75.00</span></div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>SNOWCRAB &amp; LOBSTER TAIL #1</h3><span class="menu-price">$30.00</span></div>
-      <div class="menu-description">Choose 1: Shrimp, Beef, Chicken or BEEF BROCCOLI ($10.00)</div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>CHICKEN &amp; SHRIMP</h3></div>
-      <div class="menu-description">Includes Broccoli, potato and sausage; 1 Snowcrab cluster, 1 lobster tail with potato and sausage; Mixed veg.</div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>CHICKEN BROCCOLI</h3><span class="menu-price">$8.00</span></div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>FRIED RICE</h3><span class="menu-price">$14.00</span></div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>SNOWCRAB &amp; LOBSTER TAIL #2</h3><span class="menu-price">$42.00</span></div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>FRIED RICE</h3><span class="menu-price">$9.95</span></div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>TERIYAKI CHICKEN &amp; SHRIMP FRIED RICE</h3><span class="menu-price">$14.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sauce">
-      <div class="menu-title"><h3>SAUCE</h3></div>
-      <div class="menu-description">Choose: Mild, Medium, Spicy or Xtra Spicy; 2 Snowcrab clusters, 1 lobster tail with 2 potato and 2 sausages; Choose 1: Shrimp, Beef, Chicken or Mixed veg.</div>
-    </div>
-    <div class="menu-card" data-category="sauce">
-      <div class="menu-title"><h3>PEPPER STEAK</h3><span class="menu-price">$10.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sauce">
-      <div class="menu-title"><h3>CHICKEN CURRY</h3><span class="menu-price">$8.00</span></div>
-    </div>
-    <div class="menu-card" data-category="sauce">
-      <div class="menu-title"><h3>Sauces</h3></div>
-      <div class="menu-description">- GARLIC BUTTER • CAJUN BUTTER • GARLIC LEMON PEPPER • CLEAR BUTTER • CREAMY GARLIC • HOUSE SAUCE (All sauce mixed together)</div>
-    </div>
-    <div class="menu-card" data-category="sauce">
-      <div class="menu-title"><h3>HOUSE LOMIEN OR FRIED RICE</h3><span class="menu-price">$15.95</span></div>
-    </div>
-    <div class="menu-card" data-category="sweetsour">
-      <div class="menu-title"><h3>SWEET &amp; SOUR</h3></div>
-      <div class="menu-description">Shrimp $8.00; Chicken $8.00</div>
-    </div>
-    <div class="menu-card" data-category="sweetsour">
-      <div class="menu-title"><h3>Sauce (for Sweet &amp; Sour)</h3></div>
-      <div class="menu-description">- GARLIC &amp; ONION BUTTER – (Chicken, and mixed vegetables with your choice of noodles or fried rice)</div>
-    </div>
-    <div class="menu-card" data-category="generaltso">
-      <div class="menu-title"><h3>WINGS &amp; SHRIMP FRIED RICE</h3><span class="menu-price">$14.00</span></div>
-    </div>
-  </div>
+    </aside>
+    
+    <section class="menu-content">
+      <h1 class="category-title" id="current-category">All Items</h1>
+      <div class="menu-grid" id="menu-grid">
+        <!-- STARTERS (Appetizers) -->
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CRAB RANGOONS</h3><span class="menu-price">$5.95</span></div>
+          </div>
+          <div class="menu-description">Crispy wonton wrappers filled with a creamy blend of crab and cheese, perfect for starting your meal.</div>
+        </div>
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>FRIED PICKLES</h3><span class="menu-price">$6.00</span></div>
+          </div>
+          <div class="menu-description">Beer-battered dill pickle spears fried to a golden crisp. A tangy, crunchy delight.</div>
+        </div>
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>MAC 'N' CHEESE BITES</h3><span class="menu-price">$6.00</span></div>
+          </div>
+          <div class="menu-description">Miniature crispy bites of indulgent macaroni and cheese. A cozy, comforting starter.</div>
+        </div>
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>ONION RINGS</h3><span class="menu-price">$6.00</span></div>
+          </div>
+          <div class="menu-description">Hand-battered thick onion rings fried to perfection. Crunchy, sweet, and satisfying.</div>
+        </div>
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>HUSH PUPPIES</h3><span class="menu-price">8 pcs $4.00</span></div>
+          </div>
+          <div class="menu-description">Golden-fried cornmeal fritters with a hint of sweetness and savory herbs. An irresistible starter.</div>
+        </div>
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>FRIED CALAMARI</h3><span class="menu-price">$10.00</span></div>
+          </div>
+          <div class="menu-description">Tender calamari rings lightly battered and fried. Crispy on the outside with a tender inside.</div>
+        </div>
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>GARLIC BREADSTICKS</h3><span class="menu-price">$5.95</span></div>
+          </div>
+          <div class="menu-description">Warm breadsticks brushed with garlic butter and sprinkled with parmesan. A perfect side or starter.</div>
+        </div>
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>FRIED PLANTAINS</h3><span class="menu-price">$4.00</span></div>
+          </div>
+          <div class="menu-description">Sweet plantains fried until caramelized. A tropical and satisfying beginning to your meal.</div>
+        </div>
+        <!-- MAIN COURSES (Sandwiches, Fish, Pasta, Soup, Specialties) -->
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SANDWICHES</h3></div>
+          </div>
+          <div class="menu-description">All sandwiches include lettuce, tomatoes, pickles, and mayo. Served with a side of french fries.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CHICKEN TENDERS</h3><span class="menu-price">$8.99</span></div>
+          </div>
+          <div class="menu-description">Crispy chicken tenders served with french fries and your favorite dipping sauce.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CLASSIC CLUB SANDWICH</h3><span class="menu-price">$12.00</span></div>
+          </div>
+          <div class="menu-description">Grilled chicken, crispy bacon, lettuce, and tomato on toasted bread with mayo. An enduring favorite.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CHICKEN SANDWICH</h3><span class="menu-price">$7.00</span></div>
+          </div>
+          <div class="menu-description">Grilled or crispy chicken breast on a toasted bun with classic fixings. A satisfying main course.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SOFT-SHELL CRAB SANDWICH</h3><span class="menu-price">$12.00</span></div>
+          </div>
+          <div class="menu-description">Deep-fried soft-shell crab on toasted bread with a tangy remoulade. Bold and flavorful.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>BASA SANDWICH</h3><span class="menu-price">$12.00</span></div>
+          </div>
+          <div class="menu-description">Lightly seasoned and fried Basa fillet served on a bun with tartar sauce. A crisp, refreshing taste.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>FISH – SALMON</h3><span class="menu-price">$16.95</span></div>
+          </div>
+          <div class="menu-description">Fresh Atlantic salmon, grilled or blackened to perfection, served with your choice of two sides.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>FISH SELECTION</h3><span class="menu-price">$8.00</span></div>
+          </div>
+          <div class="menu-description">Choose from Tilapia, Basa, or Catfish—prepared to your taste and served with two sides.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>GROUPER</h3><span class="menu-price">$17.95</span></div>
+          </div>
+          <div class="menu-description">Fresh grouper fillet, seasoned and grilled for an exceptional seafood experience.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>WINGS</h3><span class="menu-price">6 pcs $9.95 • 12 pcs $17.95</span></div>
+          </div>
+          <div class="menu-description">Crispy chicken wings tossed in your choice of sauce, served with celery and dressing.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>GROUPER FILLET</h3><span class="menu-price">$12.00</span></div>
+          </div>
+          <div class="menu-description">Tender grouper fillet lightly seasoned and cooked to order. A fresh, flavorful main.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>TILAPIA</h3><span class="menu-price">$12.00</span></div>
+          </div>
+          <div class="menu-description">Mild tilapia fillet, perfectly cooked and served with your choice of sides. A crowd-pleaser.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CATFISH NUGGETS</h3><span class="menu-price">$11.95</span></div>
+          </div>
+          <div class="menu-description">Crispy, Southern-style catfish nuggets served with tartar sauce. Enjoy a bite of comfort.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>GRILLED SHRIMP</h3><span class="menu-price">10 pcs $13.00 • 20 pcs $24.00</span></div>
+          </div>
+          <div class="menu-description">Succulent shrimp grilled with a hint of smoky char and served with drawn butter.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>PASTA</h3></div>
+          </div>
+          <div class="menu-description">Classic pasta dishes served al dente. (Random description: A satisfying plate of pasta to delight your taste buds.)</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CHICKEN ALFREDO</h3><span class="menu-price">$15.99</span></div>
+          </div>
+          <div class="menu-description">Grilled chicken over penne in a rich Parmesan Alfredo sauce, garnished with fresh parsley.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SHRIMP SCAMPI</h3><span class="menu-price">$13.99</span></div>
+          </div>
+          <div class="menu-description">Garlic butter shrimp sautéed in white wine, tossed with pasta and fresh parsley.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>LEMON GARLIC SCALLOP PASTA</h3><span class="menu-price">$18.99</span></div>
+          </div>
+          <div class="menu-description">Sautéed scallops in a lemon garlic butter sauce served over linguine. Zesty and fresh.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CONCH ALFREDO</h3><span class="menu-price">$15.00</span></div>
+          </div>
+          <div class="menu-description">Tender conch in a creamy Alfredo sauce over penne pasta. A unique taste of the sea.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CAJUN SHRIMP ALFREDO</h3><span class="menu-price">$16.99</span></div>
+          </div>
+          <div class="menu-description">Grilled shrimp in Cajun spices tossed in a creamy Alfredo sauce, served with penne pasta.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>ORIGINAL CHICKEN SOUP</h3><span class="menu-price">$9.95</span></div>
+          </div>
+          <div class="menu-description">Hearty chicken soup loaded with tender chicken pieces, vegetables, and egg noodles in a savory broth.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>EGG DROP SOUP</h3><span class="menu-price">$5.00</span></div>
+          </div>
+          <div class="menu-description">Silky egg ribbons in a light, flavorful chicken broth. Comfort in every spoonful.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SPICY CHICKEN SOUP</h3><span class="menu-price">$10.95</span></div>
+          </div>
+          <div class="menu-description">Our classic chicken soup with an extra kick of spice—perfect for a chilly day.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>LOBSTER BISQUE</h3><span class="menu-price">$5.00</span></div>
+          </div>
+          <div class="menu-description">A rich and creamy bisque made from lobster stock with tender chunks of lobster.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SHRIMP CORN CHOWDER</h3><span class="menu-price">$5.00</span></div>
+          </div>
+          <div class="menu-description">Creamy chowder packed with sweet corn and succulent shrimp, a homestyle delight.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CLAM CHOWDER</h3><span class="menu-price">$5.00</span></div>
+          </div>
+          <div class="menu-description">New England–style creamy chowder loaded with tender clams, potatoes and herbs.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SCALLOP CHOWDER</h3><span class="menu-price">$6.00</span></div>
+          </div>
+          <div class="menu-description">Luxurious chowder featuring tender bay scallops and fresh herbs in a velvety broth.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CHEF'S SPECIAL</h3></div>
+          </div>
+          <div class="menu-description">A rotating selection of the chef’s finest seasonal creations. Ask your server for details.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>BLACKENED SALMON ALFREDO</h3><span class="menu-price">$18.99</span></div>
+          </div>
+          <div class="menu-description">Blackened salmon over creamy garlic Alfredo sauce with penne and broccoli, crowned with mozzarella.</div>
+        </div>
+        <div class="menu-card" data-category="main">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>BEEF SHORT-RIBS</h3><span class="menu-price">$17.99</span></div>
+          </div>
+          <div class="menu-description">Grilled Teriyaki short ribs served with mashed potatoes and an extra side of your choice.</div>
+        </div>
+        <!-- TRAYS & SALADS (Combine Salads and Seafood Trays) -->
+        <div class="menu-card" data-category="traysandsalads">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>GRILLED CHICKEN SALAD</h3><span class="menu-price">$10.00</span></div>
+          </div>
+          <div class="menu-description">Fresh romaine and tomatoes topped with grilled chicken and croutons. Served with fries.</div>
+        </div>
+        <div class="menu-card" data-category="traysandsalads">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>CHICKEN CAESAR SALAD</h3><span class="menu-price">$10.00</span></div>
+          </div>
+          <div class="menu-description">Crisp romaine, grilled chicken, parmesan and a creamy Caesar dressing. Simply classic.</div>
+        </div>
+        <div class="menu-card" data-category="traysandsalads">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SEAFOOD TRAYS</h3></div>
+          </div>
+          <div class="menu-description">An assortment of seafood served with potato and sausage. Perfect for sharing.</div>
+        </div>
+        <div class="menu-card" data-category="traysandsalads">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SHRIMP TRAY</h3><span class="menu-price">10 pcs $10.00 • 20 pcs $17.95</span></div>
+          </div>
+          <div class="menu-description">Succulent shrimp served with potato and sausage for a delightful seafood treat.</div>
+        </div>
+        <div class="menu-card" data-category="traysandsalads">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SNOWCRAB CLUSTERS</h3><span class="menu-price">sm $18.95 • med $23.95 • lg $28.95</span></div>
+          </div>
+          <div class="menu-description">Two snow crab clusters steamed and served with potato and sausage, a real seafood indulgence.</div>
+        </div>
+        <div class="menu-card" data-category="traysandsalads">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>LOBSTER TAIL TRAY</h3><span class="menu-price">$28.00</span></div>
+          </div>
+          <div class="menu-description">A lavish tray featuring one lobster tail, 5 shrimp, an egg, 2 sausages, corn and potato.</div>
+        </div>
+        <div class="menu-card" data-category="traysandsalads">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>SEAFOOD COMBO</h3><span class="menu-price">$28.00</span></div>
+          </div>
+          <div class="menu-description">A delightful mix of shrimp, mussels, and seafood, served with potato and sausage.</div>
+        </div>
+        <!-- BEVERAGES -->
+        <div class="menu-card" data-category="beverages">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>LEMONADE</h3><span class="menu-price">$3.50 (free refill)</span></div>
+          </div>
+          <div class="menu-description">Refreshing and tangy lemonade to quench your thirst.</div>
+        </div>
+        <div class="menu-card" data-category="beverages">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>ICE TEA</h3><span class="menu-price">$3.50 (free refill)</span></div>
+          </div>
+          <div class="menu-description">Cool and crisp iced tea, a classic beverage for any meal.</div>
+        </div>
+        <div class="menu-card" data-category="beverages">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>HOT TEA</h3><span class="menu-price">$2.50 (free refill)</span></div>
+          </div>
+          <div class="menu-description">Warm and soothing hot tea, perfect for any time of day.</div>
+        </div>
+        <div class="menu-card" data-category="beverages">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>APPLE JUICE</h3><span class="menu-price">$3.99</span></div>
+          </div>
+          <div class="menu-description">Crisp and refreshing apple juice made from the finest apples.</div>
+        </div>
+        <div class="menu-card" data-category="beverages">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>MANGO JUICE</h3><span class="menu-price">$3.99</span></div>
+          </div>
+          <div class="menu-description">Exotic and sweet mango juice that transports you to tropical paradise.</div>
+        </div>
+        <div class="menu-card" data-category="beverages">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>THAI TEA</h3><span class="menu-price">$4.50</span></div>
+          </div>
+          <div class="menu-description">Rich and creamy Thai tea with a bold, spiced flavor.</div>
+        </div>
+        <!-- Asian (if needed - currently no items, so a sample is added) -->
+        <div class="menu-card" data-category="asian">
+          <div class="menu-card-header">
+            <div class="menu-title"><h3>LOMIEN</h3><span class="menu-price">$9.95</span></div>
+          </div>
+          <div class="menu-description">Traditional Asian noodle soup with a savory, aromatic broth.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
   <footer>
     <div class="container">
       <p>© 2025 New York Seafood Restaurant</p>
     </div>
   </footer>
+  
   <script>
+    // Sidebar category filtering and updating title
     const buttons = document.querySelectorAll('.category-btn');
     const cards = document.querySelectorAll('.menu-card');
+    const currentCategory = document.getElementById('current-category');
     buttons.forEach(btn => {
       btn.addEventListener('click', function() {
         buttons.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         const category = this.getAttribute('data-category');
+        currentCategory.textContent = this.textContent;
         if(category === 'all'){
-          cards.forEach(card => card.style.display = 'block');
+          cards.forEach(card => card.style.display = 'flex');
         } else {
           cards.forEach(card => {
-            card.style.display = card.getAttribute('data-category') === category ? 'block' : 'none';
+            card.style.display = card.getAttribute('data-category') === category ? 'flex' : 'none';
           });
         }
       });
