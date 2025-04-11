@@ -1,0 +1,682 @@
+[
+  {
+    "category": "Appetizers",
+    "items": [
+      {
+        "title": "CRAB RANGOONS",
+        "price": "5.95",
+        "description": "Crispy wonton wrappers filled with a creamy blend of crab and cheese."
+      }
+    ]
+  },
+  {
+    "category": "Sandwiches & Chicken",
+    "items": [
+      {
+        "title": "SANDWICHES",
+        "price": "",
+        "description": "Includes lettuce, tomatoes, pickles and mayo. Served with fries."
+      },
+      {
+        "title": "CHICKEN TENDERS",
+        "price": "8.99",
+        "description": "Crispy chicken tenders served with french fries."
+      },
+      {
+        "title": "CHICKEN",
+        "price": "7.00",
+        "description": "A classic chicken sandwich with simple seasonings."
+      },
+      {
+        "title": "SOFT-SHELL CRAB",
+        "price": "12.00",
+        "description": "Deep-fried soft-shell crab (fried only) served on a bun."
+      },
+      {
+        "title": "BASA",
+        "price": "12.00",
+        "description": "Lightly seasoned fried Basa fillet served with tartar sauce."
+      },
+      {
+        "title": "CHICKEN WRAPS",
+        "price": "",
+        "description": "Chicken wraps with assorted fillings and a fresh crunch."
+      },
+      {
+        "title": "SHRIMP SCAMPI",
+        "price": "13.99",
+        "description": "Shrimp scampi sautéed in garlic butter and white wine, served over a bed of pasta."
+      },
+      {
+        "title": "LIMADE",
+        "price": "3.99",
+        "description": "A light citrus beverage crafted to complement your wrap."
+      },
+      {
+        "title": "CLASSIC CLUB SANDWICH",
+        "price": "12.00",
+        "description": "Grilled chicken, bacon, lettuce, and tomato on toasted bread with mayo."
+      }
+    ]
+  },
+  {
+    "category": "Fish & Seafood",
+    "items": [
+      {
+        "title": "FISH",
+        "price": "",
+        "description": "Fish options that are deep fried or blackened, served with two sides."
+      },
+      {
+        "title": "SALMON",
+        "price": "16.95",
+        "description": "Fresh salmon fillet prepared to order."
+      },
+      {
+        "title": "FISH*",
+        "price": "8.00",
+        "description": "Choose Tilapia, Basa or Catfish as your fish option."
+      },
+      {
+        "title": "GROUPER",
+        "price": "17.95",
+        "description": "Flavorful grouper fillet, seared and perfectly cooked."
+      },
+      {
+        "title": "WINGS",
+        "price": "6 pcs $9.95 • 12 pcs $17.95",
+        "description": "Crispy chicken wings tossed in your choice of sauce."
+      },
+      {
+        "title": "GROUPER (Secondary)",
+        "price": "12.00",
+        "description": "A second preparation of grouper with a milder seasoning."
+      },
+      {
+        "title": "TILAPIA",
+        "price": "12.00",
+        "description": "Mild, flaky tilapia fillet, fried to a light crisp."
+      }
+    ]
+  },
+  {
+    "category": "Sides & Additional Appetizers",
+    "items": [
+      {
+        "title": "FRIED PICKLES",
+        "price": "6.00",
+        "description": "Crunchy, beer‐battered dill pickles with a tangy dip."
+      },
+      {
+        "title": "CLUB",
+        "price": "12.00",
+        "description": "A club style item (check with server for details)."
+      },
+      {
+        "title": "CATFISH NUGGETS",
+        "price": "11.95",
+        "description": "Southern‐style catfish nuggets with a crispy coating."
+      },
+      {
+        "title": "MAC 'N' CHEESE BITES",
+        "price": "6.00",
+        "description": "Bite-sized portions of creamy macaroni and cheese, fried to perfection."
+      },
+      {
+        "title": "ONION RINGS",
+        "price": "6.00",
+        "description": "Thick-cut onion rings, hand‐battered and fried until golden."
+      },
+      {
+        "title": "HUSH PUPPIES",
+        "price": "8 pcs $4.00",
+        "description": "Traditional southern cornmeal fritters with a subtle sweetness."
+      }
+    ]
+  },
+  {
+    "category": "Pasta & Light Italian-Inspired",
+    "items": [
+      {
+        "title": "PASTA",
+        "price": "",
+        "description": "Classic pasta dishes. (Optional breadsticks available for $3.00 extra.)"
+      },
+      {
+        "title": "GARLIC BREADSTICKS",
+        "price": "5.95",
+        "description": "Toasted breadsticks generously brushed with garlic butter and sprinkled with parmesan."
+      },
+      {
+        "title": "CHICKEN CAESAR",
+        "price": "10.00",
+        "description": "A fusion of Caesar salad and sandwich—garlic butter shrimp sautéed in white wine served over pasta, topped with parsley."
+      },
+      {
+        "title": "LEMON GARLIC SCALLOP",
+        "price": "",
+        "description": "Delicately seared scallops in a lemon garlic butter sauce."
+      },
+      {
+        "title": "FLAVORED LEMONADE",
+        "price": "4.50",
+        "description": "A uniquely flavored lemonade—no refill offered."
+      },
+      {
+        "title": "FRIED CALAMARI",
+        "price": "10.00",
+        "description": "Lightly battered calamari rings served with marinara."
+      },
+      {
+        "title": "CHICKEN ALFREDO",
+        "price": "",
+        "description": "Grilled chicken on penne drenched in a rich Parmesan Alfredo sauce; flavor options include Blue, Strawberry, Kiwi, Green Apple or Coconut."
+      },
+      {
+        "title": "PINEAPPLE JUICE",
+        "price": "3.50",
+        "description": "A tropical, freshly pressed pineapple juice."
+      }
+    ]
+  },
+  {
+    "category": "Soups",
+    "items": [
+      {
+        "title": "ORIGINAL CHICKEN SOUP",
+        "price": "10.00 / 9.95",
+        "description": "A classic chicken soup with tender chicken pieces, vegetables, and egg noodles."
+      },
+      {
+        "title": "EGGDROP",
+        "price": "5.00",
+        "description": "Traditional egg drop soup with silky egg ribbons in savory broth."
+      },
+      {
+        "title": "CAJUN SHRIMP ALFREDO",
+        "price": "",
+        "description": "A spicy twist on shrimp Alfredo with a Cajun kick."
+      },
+      {
+        "title": "LOBSTER BISQUE",
+        "price": "5.00",
+        "description": "Rich and creamy bisque made with succulent lobster meat."
+      },
+      {
+        "title": "SHRIMP CORN CHOWDER",
+        "price": "5.00",
+        "description": "A hearty chowder bursting with sweet corn and shrimp."
+      },
+      {
+        "title": "CLAM CHOWDER",
+        "price": "5.00",
+        "description": "New England–style creamy clam chowder loaded with tender clams and potatoes."
+      },
+      {
+        "title": "SCALLOP CHOWDER",
+        "price": "6.00",
+        "description": "A velvety chowder featuring fresh bay scallops and aromatic herbs."
+      }
+    ]
+  },
+  {
+    "category": "Chef's Specials & Premium Mains",
+    "items": [
+      {
+        "title": "CHEF'S SPECIAL",
+        "price": "",
+        "description": "A rotating selection of the chef’s finest seasonal creations."
+      },
+      {
+        "title": "BLACKENED SALMON ALFREDO",
+        "price": "18.99",
+        "description": "Blackened salmon served over creamy garlic house Alfredo sauce with penne and broccoli, topped with mozzarella and Parmesan."
+      },
+      {
+        "title": "BEEF SHORT-RIBS",
+        "price": "17.99",
+        "description": "Grilled Teriyaki short ribs served with mashed potatoes and an extra side."
+      },
+      {
+        "title": "CONCH ALFREDO",
+        "price": "15.00",
+        "description": "Tender conch in a luxurious Alfredo sauce served over penne."
+      },
+      {
+        "title": "MATCHA LATTE",
+        "price": "4.50",
+        "description": "A smooth and earthy matcha latte."
+      },
+      {
+        "title": "SODA",
+        "price": "2.00",
+        "description": "A classic carbonated beverage."
+      }
+    ]
+  },
+  {
+    "category": "Salads & Light Fare",
+    "items": [
+      {
+        "title": "GRILLED CHICKEN (Salad)",
+        "price": "10.00",
+        "description": "Romaine and tomatoes topped with grilled chicken, served with a side of potatoes, steamed rice, broccoli, asparagus or fried plantains."
+      }
+    ]
+  },
+  {
+    "category": "Fish & Shrimp Sides",
+    "items": [
+      {
+        "title": "CORN",
+        "price": "2.00",
+        "description": "Steamed sweet corn."
+      },
+      {
+        "title": "MUSHROOM",
+        "price": "2.00",
+        "description": "Sautéed mushrooms lightly seasoned."
+      },
+      {
+        "title": "RAMEN",
+        "price": "2.50",
+        "description": "Ramen noodles topped with grilled chicken and croutons, served with french fries."
+      },
+      {
+        "title": "POTATO",
+        "price": "2.00",
+        "description": "Seasoned potato side dish."
+      },
+      {
+        "title": "PEANUTS",
+        "price": "4.00",
+        "description": "Salted peanuts, a crunchy snack."
+      },
+      {
+        "title": "MASHED POTATOES",
+        "price": "4.00",
+        "description": "Creamy mashed potatoes."
+      },
+      {
+        "title": "GRILLED SHRIMP (Side)",
+        "price": "",
+        "description": "Juicy grilled shrimp served as a side over fresh greens."
+      },
+      {
+        "title": "CHICKEN TENDER SALAD",
+        "price": "10.00 / 12.00",
+        "description": "Crispy chicken tenders on a bed of salad with your choice of dressing."
+      },
+      {
+        "title": "6 PCS FISH + 6 PCS SHRIMP",
+        "price": "",
+        "description": "A combo plate – choose from Tilapia, Basa or Catfish."
+      },
+      {
+        "title": "FRIED OR BLACKENED",
+        "price": "13.95",
+        "description": "Your choice of fried or blackened preparation."
+      },
+      {
+        "title": "SAUSAGE",
+        "price": "3.00",
+        "description": "Grilled sausage links, perfectly seasoned."
+      },
+      {
+        "title": "EGGS",
+        "price": "2 for 3.00",
+        "description": "Fresh eggs, cooked as you prefer."
+      },
+      {
+        "title": "SMOKED NECKBONES",
+        "price": "4.00",
+        "description": "Smoky neckbones with a rich, savory flavor."
+      },
+      {
+        "title": "FRENCH FRIES",
+        "price": "3.00",
+        "description": "Crispy golden fries."
+      },
+      {
+        "title": "ASPARAGUS",
+        "price": "4.00",
+        "description": "Lightly steamed asparagus spears."
+      },
+      {
+        "title": "SHRIMP (Side)",
+        "price": "10 pcs $13.00 / 20 pcs $24.00",
+        "description": "Assorted shrimp served as a side dish."
+      },
+      {
+        "title": "BROCCOLI",
+        "price": "3.00",
+        "description": "Steamed broccoli florets."
+      },
+      {
+        "title": "STEAMED RICE",
+        "price": "2.00",
+        "description": "Simple steamed white rice."
+      }
+    ]
+  },
+  {
+    "category": "Side Specials",
+    "items": [
+      {
+        "title": "ANDY SPECIAL",
+        "price": "15.00",
+        "description": "A unique specialty side created by Andy."
+      },
+      {
+        "title": "HAPPY TRAY #5",
+        "price": "8.00",
+        "description": "Dungeness crab tray with corn, potato and sausage; includes 4 sausages, 2 corns, 2 potatoes, broccoli, egg, potato and sausage."
+      },
+      {
+        "title": "DC #1",
+        "price": "35.00",
+        "description": "Special tray DC #1."
+      },
+      {
+        "title": "DC #3",
+        "price": "50.00",
+        "description": "Special tray DC #3."
+      },
+      {
+        "title": "PEANUT TRAY",
+        "price": "18.00",
+        "description": "Tray containing peanuts, 5 shrimps, potato, sausage, corn and egg."
+      },
+      {
+        "title": "LYNN'S SPECIAL",
+        "price": "8.00",
+        "description": "Neckbones, 3 shrimps, potato and sausage; upgrade available for an extra $6."
+      },
+      {
+        "title": "DC #2",
+        "price": "40.00",
+        "description": "Tray with 1/2 lb Dungeness crab and 1/2 lb shrimp."
+      },
+      {
+        "title": "DC #4",
+        "price": "60.00",
+        "description": "Special tray DC #4."
+      },
+      {
+        "title": "HAPPY TRAY #1",
+        "price": "",
+        "description": "Tray with neckbones, 3 shrimps, 4 eggs, potato, and sausage."
+      },
+      {
+        "title": "HAPPY TRAY #2",
+        "price": "14.00 / 10.00",
+        "description": "Tray with 4 eggs, potato, and sausage."
+      },
+      {
+        "title": "LARGE NECKBONE TRAY",
+        "price": "",
+        "description": "Tray featuring neckbones, potato, sausage and corn."
+      },
+      {
+        "title": "DAILY SPECIAL #1",
+        "price": "15.95 / 12.00",
+        "description": "Tray with neckbones, 3 shrimps, black mussels, potato and sausage; includes 1/2 lb Dungeness crab, 1/2 shrimp and 1/2 lb black mussels."
+      },
+      {
+        "title": "SEAFOOD ADD ON",
+        "price": "",
+        "description": "Add 1 lb Dungeness crab and 1/2 lb shrimp to your tray."
+      },
+      {
+        "title": "HAPPY TRAY #3",
+        "price": "",
+        "description": "Tray with peanuts, 2 eggs and potato."
+      },
+      {
+        "title": "HAPPY TRAY #4",
+        "price": "",
+        "description": "Tray with 3 wings, potato, and sausage."
+      }
+    ]
+  },
+  {
+    "category": "Snowcrab & Seafood Trays",
+    "items": [
+      {
+        "title": "SNOWCRAB TRAYS",
+        "price": "8.00 / 8.00",
+        "description": "Snowcrab trays; upgrade to Green Mussel for an additional $4."
+      },
+      {
+        "title": "RAMEN #1",
+        "price": "5.00",
+        "description": "Ramen with 3 shrimps and 1 egg."
+      },
+      {
+        "title": "RAMEN #2",
+        "price": "12.00",
+        "description": "Ramen with neckbones, egg, potato and sausage."
+      },
+      {
+        "title": "1/2 LB SHRIMP",
+        "price": "9.00",
+        "description": "Half-pound of shrimp."
+      },
+      {
+        "title": "1/2 LB GREEN MUSSEL",
+        "price": "10.00",
+        "description": "Half-pound of green mussels."
+      },
+      {
+        "title": "1/2 LB BLACK MUSSEL",
+        "price": "9.00",
+        "description": "Half-pound of black mussels."
+      },
+      {
+        "title": "1/2 LB CRAWFISH",
+        "price": "9.00",
+        "description": "Half-pound of crawfish."
+      },
+      {
+        "title": "1 LB BABY CLAMS",
+        "price": "10.00",
+        "description": "One pound of baby clams."
+      },
+      {
+        "title": "1/2 LB SNOWCRAB",
+        "price": "15.00",
+        "description": "Half-pound of snowcrab."
+      },
+      {
+        "title": "1/2 LB DUNGENESS CRAB",
+        "price": "25.00",
+        "description": "Half-pound of Dungeness crab."
+      },
+      {
+        "title": "1/2 LB CONCH MEAT",
+        "price": "15.00",
+        "description": "Half-pound of conch meat."
+      },
+      {
+        "title": "LOBSTERTAIL",
+        "price": "18.00 each",
+        "description": "Lobster tail (each)."
+      },
+      {
+        "title": "1/2 LB SCALLOP PIECES",
+        "price": "15.00",
+        "description": "Half-pound of scallop pieces."
+      },
+      {
+        "title": "1/2 LB CALAMARI",
+        "price": "10.00",
+        "description": "Half-pound of calamari."
+      },
+      {
+        "title": "1 SNOWCRAB CLUSTER",
+        "price": "sm $10.00 • med $13.95 • lg $16.95",
+        "description": "Snowcrab cluster available in three sizes."
+      },
+      {
+        "title": "NEW YORK SPECIAL",
+        "price": "75.00",
+        "description": "Half-pound snowcrab cluster, half-pound Dungeness crab, and half-pound additional seafood."
+      },
+      {
+        "title": "SEAFOOD TRAYS",
+        "price": "",
+        "description": "Trays including potato, sausage, shrimp, 1/2 lb green mussels, 1 lobster tail, corn, potato and sausages."
+      },
+      {
+        "title": "SHRIMP TRAY",
+        "price": "10.00 / 17.95",
+        "description": "Shrimp tray available in 10 or 20 pieces."
+      },
+      {
+        "title": "SHRIMP + GREEN MUSSEL – 1/2 LB CRAWFISH TRAY",
+        "price": "12.00",
+        "description": "Tray combining shrimp, green mussels, and crawfish."
+      },
+      {
+        "title": "2 SNOWCRAB CLUSTERS",
+        "price": "sm $18.95 • med $23.95 • lg $28.95",
+        "description": "Two snowcrab clusters served with potato and sausage."
+      },
+      {
+        "title": "SEAFOOD COMBO",
+        "price": "28.00",
+        "description": "Combination tray: 1 snowcrab cluster, 8 black mussels, 4 green mussels with sausage and potato."
+      },
+      {
+        "title": "GREEN TRAY",
+        "price": "reg $12.00 • lg $22.00",
+        "description": "Tray with potato and sausage."
+      },
+      {
+        "title": "LOBSTER TAIL TRAY",
+        "price": "28.00",
+        "description": "Tray featuring lobster tails."
+      },
+      {
+        "title": "3 SNOWCRAB – MUSSEL TRAY",
+        "price": "7 pcs $12.00 • 12 pcs $16.95",
+        "description": "Tray combining snowcrab and mussels."
+      },
+      {
+        "title": "1/2 LB BLACK MUSSEL TRAY",
+        "price": "10.00",
+        "description": "Tray with 1/2 lb black mussels, 1 lobster tail, 5 shrimp, 1 egg, 2 sausages, corn and potato."
+      },
+      {
+        "title": "CLUSTERS",
+        "price": "sm $28.00 • med $32.00 • lg $36.00",
+        "description": "Assorted seafood clusters in three sizes."
+      },
+      {
+        "title": "SNOWCRAB & SHRIMP #1",
+        "price": "18.95",
+        "description": "Tray with snowcrab and shrimp, served with potato and sausage."
+      },
+      {
+        "title": "SNOWCRAB & SHRIMP #2",
+        "price": "35.00",
+        "description": "Alternate tray with snowcrab and shrimp plus potato and sausage."
+      }
+    ]
+  },
+  {
+    "category": "Asian & General Tso",
+    "items": [
+      {
+        "title": "ASIAN CUISINE",
+        "price": "",
+        "description": "Assorted Asian-inspired seafood clusters and noodle dishes."
+      },
+      {
+        "title": "LOMIEN",
+        "price": "9.95",
+        "description": "Traditional Asian noodle soup with aromatic broth."
+      },
+      {
+        "title": "SHRIMP BROCCOLI",
+        "price": "8.00",
+        "description": "Stir-fried shrimp and broccoli in a light sauce."
+      },
+      {
+        "title": "GENERAL TSO",
+        "price": "",
+        "description": "A spicy, tangy dish featuring 6 snowcrab clusters (sm $60.00 • lg $75.00)."
+      },
+      {
+        "title": "SNOWCRAB & LOBSTER TAIL #1",
+        "price": "30.00",
+        "description": "Tray with your choice of Shrimp, Beef, Chicken, or Beef Broccoli."
+      },
+      {
+        "title": "CHICKEN & SHRIMP",
+        "price": "",
+        "description": "Mixed dish with broccoli, potato, and sausage; includes 1 snowcrab cluster and 1 lobster tail."
+      },
+      {
+        "title": "CHICKEN BROCCOLI",
+        "price": "8.00",
+        "description": "Grilled chicken served with steamed broccoli."
+      },
+      {
+        "title": "FRIED RICE (Large)",
+        "price": "14.00",
+        "description": "A hearty plate of fried rice with assorted vegetables and protein."
+      },
+      {
+        "title": "SNOWCRAB & LOBSTER TAIL #2",
+        "price": "42.00",
+        "description": "Another option of tray with snowcrab and lobster tail."
+      },
+      {
+        "title": "FRIED RICE (Small)",
+        "price": "9.95",
+        "description": "A smaller portion of classic fried rice."
+      },
+      {
+        "title": "TERIYAKI CHICKEN & SHRIMP FRIED RICE",
+        "price": "14.00",
+        "description": "Fried rice with teriyaki chicken and shrimp."
+      }
+    ]
+  },
+  {
+    "category": "Sauce & Extras",
+    "items": [
+      {
+        "title": "SAUCE",
+        "price": "",
+        "description": "Choose: Mild, Medium, Spicy or Xtra Spicy; includes 2 snowcrab clusters, 1 lobster tail with 2 potatoes and 2 sausages; option of Shrimp, Beef, Chicken or Mixed veg."
+      },
+      {
+        "title": "PEPPER STEAK",
+        "price": "10.00",
+        "description": "Grilled pepper steak with a savory char."
+      },
+      {
+        "title": "CHICKEN CURRY",
+        "price": "8.00",
+        "description": "Spicy chicken curry with aromatic spices."
+      },
+      {
+        "title": "HOUSE LOMIEN OR FRIED RICE",
+        "price": "15.95",
+        "description": "A combination dish featuring beef, shrimp and more with your choice of noodles or fried rice."
+      },
+      {
+        "title": "SWEET & SOUR",
+        "price": "",
+        "description": "Sweet and sour dish: shrimp 8.00, chicken 8.00."
+      },
+      {
+        "title": "WINGS & SHRIMP FRIED RICE",
+        "price": "14.00",
+        "description": "Fried rice infused with flavors from wings and shrimp."
+      }
+    ]
+  }
+]
