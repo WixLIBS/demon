@@ -3,7 +3,7 @@
 <head> 
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>About Us - New York Seafood Restaurant - St. Petersburg</title> 
+<title>Menu & Products - New York Seafood Restaurant - St. Petersburg</title> 
 <style> 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap'); 
 :root { 
@@ -103,47 +103,227 @@ header {
 .nav-links a:hover::after { 
   width: 100%; 
 } 
-.about-hero { 
-  padding: 0; 
+
+.products-hero { 
+  padding: 9rem 0 5rem; 
   text-align: center; 
   position: relative; 
-  margin-bottom: 4rem; 
-  height: 500px;
-  background-image: url('https://artisticpoolscorp.com/wp-content/uploads/Our-Story-Banner.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--light);
 } 
-.about-hero::before {
+
+.products-hero h1 { 
+  font-size: 3rem; 
+  margin-bottom: 1rem; 
+  color: var(--primary); 
+} 
+
+.products-hero p { 
+  font-size: 1.1rem; 
+  max-width: 700px; 
+  margin: 0 auto;
+  color: var(--text-light);
+} 
+
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.category-btn {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.category-btn:hover {
+  background-color: var(--secondary);
+}
+
+.category-btn.active {
+  background-color: var(--secondary);
+}
+
+.menu-section {
+  padding: 3rem 0;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.menu-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.menu-title h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin: 0;
+}
+
+.menu-price {
+  font-weight: 600;
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
+.menu-description {
+  padding: 1rem 1.5rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.section-title-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-subtitle {
+  color: var(--secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.section-title::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.about-hero-content { 
-  max-width: 800px; 
-  margin: 0 auto; 
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-} 
-.about-hero h1 { 
-  font-size: 3.5rem; 
-  margin-bottom: 1.5rem; 
+
+.category-section {
+  padding: 3rem 0;
+  background-color: var(--white);
+}
+
+.category-section:nth-child(even) {
+  background-color: var(--light);
+}
+
+.sidebar-toggle {
+  display: none;
+}
+
+.contact-section { 
+  background-color: var(--primary); 
   color: var(--white); 
-  line-height: 1.2; 
+  position: relative; 
+  padding: 5rem 0;
 } 
-.about-hero p { 
-  font-size: 1.25rem; 
-  max-width: 700px; 
-  margin: 0 auto 2.5rem; 
-  color: var(--white);
+
+.contact-content { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 3rem; 
 } 
+
+.contact-info h3 { 
+  font-size: 1.3rem; 
+  margin-bottom: 1.2rem; 
+  color: var(--white); 
+  position: relative; 
+  padding-bottom: 12px; 
+} 
+
+.contact-info h3:after { 
+  content: ''; 
+  position: absolute; 
+  width: 40px; 
+  height: 2px; 
+  background-color: var(--secondary); 
+  bottom: 0; 
+  left: 0; 
+} 
+
+.contact-info p, .contact-info a { 
+  line-height: 1.8; 
+  color: rgba(255, 255, 255, 0.8); 
+  display: block; 
+  margin-bottom: 0.7rem; 
+  text-decoration: none; 
+  transition: var(--transition); 
+} 
+
+.contact-info a:hover { 
+  color: var(--secondary); 
+} 
+
+.contact-item { 
+  display: flex; 
+  align-items: flex-start; 
+  margin-bottom: 1rem; 
+} 
+
+.contact-icon { 
+  margin-right: 12px; 
+  font-size: 1.1rem; 
+  color: var(--secondary); 
+} 
+
+.hours-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+} 
+
+.hours-table tr { 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+} 
+
+.hours-table tr:last-child { 
+  border-bottom: none; 
+} 
+
+.hours-table td { 
+  padding: 6px 0; 
+  color: rgba(255, 255, 255, 0.8); 
+} 
+
+.hours-table td:last-child { 
+  text-align: right; 
+} 
+
 .btn { 
   background-color: var(--secondary); 
   color: var(--white); 
@@ -159,319 +339,89 @@ header {
   letter-spacing: 1px; 
   font-size: 0.9rem; 
 } 
+
 .btn:hover { 
   background-color: #c1121f; 
   transform: translateY(-3px); 
   box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3); 
 } 
-.section-spacing { 
-  padding: 5rem 0; 
-} 
-.section-title-container { 
-  text-align: center; 
-  margin-bottom: 3rem; 
-} 
-.section-subtitle { 
-  color: var(--secondary); 
-  font-weight: 600; 
-  text-transform: uppercase; 
-  letter-spacing: 2px; 
-  font-size: 0.9rem; 
-  margin-bottom: 0.5rem; 
-} 
-.section-title { 
-  font-size: 2.5rem; 
-  position: relative; 
-  display: inline-block; 
-  margin-bottom: 1rem;
-} 
-.section-title::after { 
-  content: ''; 
-  position: absolute; 
-  width: 60px; 
-  height: 3px; 
-  background-color: var(--secondary); 
-  bottom: -10px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-} 
-.story-section { 
-  background-color: var(--light); 
-} 
-.story-content { 
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 4rem; 
-  align-items: center; 
-} 
-.story-image { 
-  position: relative; 
-  border-radius: 8px; 
-  overflow: hidden; 
-  box-shadow: var(--shadow); 
-} 
-.story-image img { 
-  width: 100%; 
-  height: auto; 
-  object-fit: cover; 
-  display: block; 
-  border-radius: 8px; 
-} 
-.story-text h2 { 
-  font-size: 2.2rem; 
-  margin-bottom: 1.5rem; 
-  color: var(--primary); 
-} 
-.story-text p { 
-  margin-bottom: 1.5rem; 
-  color: var(--text-light); 
-  line-height: 1.8; 
-} 
-.timeline { 
-  margin: 4rem 0; 
-  position: relative; 
-} 
-.timeline::before { 
-  content: ''; 
-  position: absolute; 
-  width: 2px; 
-  background-color: var(--primary); 
-  top: 0; 
-  bottom: 0; 
-  left: 50%; 
-  margin-left: -1px; 
-} 
-.timeline-item { 
-  padding: 2rem 0; 
-  position: relative; 
-  width: 50%; 
-  box-sizing: border-box; 
-} 
-.timeline-item:nth-child(odd) { 
-  left: 0; 
-  padding-right: 40px; 
-  text-align: right; 
-} 
-.timeline-item:nth-child(even) { 
-  left: 50%; 
-  padding-left: 40px; 
-} 
-.timeline-content { 
-  padding: 20px; 
-  background-color: var(--white); 
-  position: relative; 
-  border-radius: 6px; 
-  box-shadow: var(--shadow); 
-} 
-.timeline-date { 
-  display: inline-block; 
-  color: var(--secondary); 
-  font-weight: 600; 
-  margin-bottom: 0.5rem; 
-} 
-.timeline-title { 
-  margin-bottom: 0.5rem; 
-  font-size: 1.3rem; 
-} 
-.timeline-text { 
-  color: var(--text-light); 
-} 
-.timeline-point { 
-  position: absolute; 
-  width: 16px; 
-  height: 16px; 
-  background-color: var(--secondary); 
-  border-radius: 50%; 
-  top: 50%; 
-  margin-top: -8px; 
-} 
-.timeline-item:nth-child(odd) .timeline-point { 
-  right: -8px; 
-} 
-.timeline-item:nth-child(even) .timeline-point { 
-  left: -8px; 
-} 
-.values-section { 
-  background-color: var(--white); 
-} 
-.values-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 2rem; 
-} 
-.value-item { 
-  padding: 2rem; 
-  border-radius: 8px; 
-  background-color: var(--light); 
-  transition: var(--transition); 
-  box-shadow: var(--shadow); 
-  text-align: center; 
-} 
-.value-item:hover { 
-  transform: translateY(-5px); 
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); 
-} 
-.value-icon { 
-  font-size: 2.5rem; 
-  color: var(--secondary); 
-  margin-bottom: 1.2rem; 
-} 
-.value-title { 
-  font-size: 1.3rem; 
-  margin-bottom: 0.8rem; 
-  color: var(--primary); 
-} 
-.value-text { 
-  color: var(--text-light); 
-  font-size: 0.95rem; 
-  line-height: 1.7; 
-} 
-.contact-section { 
-  background-color: var(--primary); 
-  color: var(--white); 
-  position: relative; 
-} 
-.contact-content { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 3rem; 
-} 
-.contact-info h3 { 
-  font-size: 1.3rem; 
-  margin-bottom: 1.2rem; 
-  color: var(--white); 
-  position: relative; 
-  padding-bottom: 12px; 
-} 
-.contact-info h3:after { 
-  content: ''; 
-  position: absolute; 
-  width: 40px; 
-  height: 2px; 
-  background-color: var(--secondary); 
-  bottom: 0; 
-  left: 0; 
-} 
-.contact-info p, .contact-info a { 
-  line-height: 1.8; 
-  color: rgba(255, 255, 255, 0.8); 
-  display: block; 
-  margin-bottom: 0.7rem; 
-  text-decoration: none; 
-  transition: var(--transition); 
-} 
-.contact-info a:hover { 
-  color: var(--secondary); 
-} 
-.contact-item { 
-  display: flex; 
-  align-items: flex-start; 
-  margin-bottom: 1rem; 
-} 
-.contact-icon { 
-  margin-right: 12px; 
-  font-size: 1.1rem; 
-  color: var(--secondary); 
-} 
-.hours-table { 
-  width: 100%; 
-  border-collapse: collapse; 
-} 
-.hours-table tr { 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-} 
-.hours-table tr:last-child { 
-  border-bottom: none; 
-} 
-.hours-table td { 
-  padding: 6px 0; 
-  color: rgba(255, 255, 255, 0.8); 
-} 
-.hours-table td:last-child { 
-  text-align: right; 
-} 
+
 footer { 
   background-color: #00264d; 
   color: rgba(255, 255, 255, 0.7); 
   padding: 1.5rem 0; 
   text-align: center; 
 } 
+
 .footer-content { 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
   flex-wrap: wrap; 
 } 
+
 .footer-links { 
   display: flex; 
   gap: 2rem; 
 } 
+
 .footer-links a { 
   color: rgba(255, 255, 255, 0.7); 
   text-decoration: none; 
   transition: var(--transition); 
 } 
+
 .footer-links a:hover { 
   color: var(--secondary); 
 } 
-@media (max-width: 992px) { 
-  .story-content { 
-    grid-template-columns: 1fr; 
-  } 
-  .timeline::before { 
-    left: 40px; 
-  } 
-  .timeline-item { 
-    width: 100%; 
-    padding-left: 80px; 
-    padding-right: 0; 
-  } 
-  .timeline-item:nth-child(odd) { 
-    text-align: left; 
-  } 
-  .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { 
-    left: 0; 
-  } 
-  .timeline-item:nth-child(odd) .timeline-point { 
-    left: 30px; 
-    right: auto; 
-  } 
-} 
-@media (max-width: 768px) { 
-  .about-hero h1 { 
-    font-size: 2.5rem; 
-  } 
-  .section-title { 
-    font-size: 2rem; 
-  } 
-  .nav-links { 
-    gap: 1rem; 
-  } 
-  .tagline { 
-    display: none; 
-  } 
-} 
-@media (max-width: 576px) { 
-  .about-hero { 
-    height: 400px;
-  } 
-  .about-hero h1 { 
-    font-size: 2rem; 
-  } 
-  .about-hero p { 
-    font-size: 1rem; 
-  } 
-  .section-title { 
-    font-size: 1.8rem; 
-  } 
-  .story-text h2 { 
-    font-size: 1.8rem; 
-  } 
-  .footer-content { 
-    flex-direction: column; 
-    gap: 1rem; 
-  } 
-} 
+
+@media (max-width: 992px) {
+  .menu-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .products-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .tagline {
+    display: none;
+  }
+  
+  .menu-categories {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .products-hero {
+    padding-top: 8rem;
+  }
+  
+  .products-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 </style> 
 </head> 
 <body> 
@@ -484,168 +434,444 @@ footer {
 <nav class="nav-links"> 
 <a href="index.html">Home</a> 
 <a href="menu.html">Menu</a> 
+<a href="products.html">Products</a> 
 <a href="about.html">About Us</a> 
 <a href="#contact">Contact</a> 
 </nav> 
 </div> 
-</header> 
-<section class="about-hero"> 
-<div class="container about-hero-content"> 
-<h1>Our Story</h1> 
-<p>Learn about the passion and dedication behind New York Seafood Restaurant and our commitment to bringing authentic flavors to St. Petersburg</p> 
-</div> 
-</section> 
-<section class="story-section section-spacing"> 
-<div class="container story-content"> 
-<div class="story-text"> 
-<p class="section-subtitle">Our History</p> 
-<h2>The New York Seafood Journey</h2> 
-<p>Founded in 2007, New York Seafood Restaurant was born from a passion for authentic New York-style seafood cuisine. Our founder, Chef Michael Harris, spent over 15 years perfecting his craft in some of New York's most celebrated seafood establishments before bringing these exceptional flavors to St. Petersburg.</p> 
-<p>What started as a small take-out counter and market has blossomed into one of St. Petersburg's hidden culinary gems, beloved by locals and visitors alike. We've maintained our commitment to quality, freshness, and authentic taste that honors both New York tradition and Gulf Coast bounty.</p> 
-<p>Today, we continue to serve our community with pride, offering a dining experience that combines the bold flavors of New York with the warm hospitality of Florida's Gulf Coast.</p> 
-</div> 
-<div class="story-image"> 
-<img src="https://i.ibb.co/wFR5T9sG/52434-B73-0-E63-4-F11-B687-B6-B905134-DA5.webp" alt="New York Seafood Restaurant"> 
-</div> 
-</div> 
-</section> 
-<section class="values-section section-spacing"> 
-<div class="container"> 
-<div class="section-title-container"> 
-<p class="section-subtitle">What Drives Us</p> 
-<h2 class="section-title">Our Core Values</h2> 
-</div> 
-<div class="values-grid"> 
-<div class="value-item"> 
-<div class="value-icon">🐟</div> 
-<h3 class="value-title">Quality & Freshness</h3> 
-<p class="value-text">We source only the freshest seafood available, working directly with local fishermen and trusted suppliers to ensure every dish represents the highest quality.</p> 
-</div> 
-<div class="value-item"> 
-<div class="value-icon">👨‍🍳</div> 
-<h3 class="value-title">Authentic Experience</h3> 
-<p class="value-text">Our recipes and techniques come straight from New York's seafood scene, bringing genuine big city flavor to St. Petersburg while incorporating local influences.</p> 
-</div> 
-<div class="value-item"> 
-<div class="value-icon">🤝</div> 
-<h3 class="value-title">Community</h3> 
-<p class="value-text">We're proud to be part of the St. Petersburg community and strive to create a welcoming environment for everyone who walks through our doors.</p> 
-</div> 
-</div> 
-</div> 
-</section> 
-<section class="section-spacing"> 
-<div class="container"> 
-<div class="section-title-container"> 
-<p class="section-subtitle">Our Journey</p> 
-<h2 class="section-title">How We've Grown</h2> 
-</div> 
-<div class="timeline"> 
-<div class="timeline-item"> 
-<div class="timeline-content"> 
-<span class="timeline-date">2007</span> 
-<h3 class="timeline-title">The Beginning</h3> 
-<p class="timeline-text">New York Seafood Restaurant originated as a small take out counter & market on 34th street, bringing tasty seafood and fresh seafood to St. Petersburg tables.</p> 
-</div> 
-<div class="timeline-point"></div> 
-</div> 
-<div class="timeline-item"> 
-<div class="timeline-content"> 
-<span class="timeline-date">2020</span> 
-<h3 class="timeline-title">Community Focus</h3> 
-<p class="timeline-text">During challenging times, we pivoted to support our community with affordable family meals and donations to essential workers.</p> 
-</div> 
-<div class="timeline-point"></div> 
-</div> 
-<div class="timeline-item"> 
-<div class="timeline-content"> 
-<span class="timeline-date">2022</span> 
-<h3 class="timeline-title">Culinary Innovation</h3> 
-<p class="timeline-text">Continuing to innovate our menu while remaining true to our roots and the authentic flavors that made us who we are.</p> 
-</div> 
-<div class="timeline-point"></div> 
-</div> 
-<div class="timeline-item"> 
-<div class="timeline-content"> 
-<span class="timeline-date">2024</span> 
-<h3 class="timeline-title">Community Milestone</h3> 
-<p class="timeline-text">Reached over 300 positive reviews across platforms, with customers praising our commitment to quality and authentic flavors.</p> 
-</div> 
-<div class="timeline-point"></div> 
-</div> 
-<div class="timeline-item"> 
-<div class="timeline-content"> 
-<span class="timeline-date">2025</span> 
-<h3 class="timeline-title">Expansion</h3> 
-<p class="timeline-text">Growing demand led to our expansion, adding a full-service dining room to enhance the customer experience.</p> 
-</div> 
-<div class="timeline-point"></div> 
-</div> 
-</div> 
-</div> 
-</section> 
-<section id="contact" class="contact-section section-spacing"> 
-<div class="container"> 
-<div class="section-title-container"> 
-<p class="section-subtitle">Get In Touch</p> 
-<h2 class="section-title" style="color: white;">Visit Us Today</h2> 
-</div> 
-<div class="contact-content"> 
-<div class="contact-info"> 
-<h3>Our Location</h3> 
-<div class="contact-item"> 
-<span class="contact-icon">📍</span> 
-<div> 
-<p>2801 34th St S</p> 
-<p>St. Petersburg, FL 33711</p> 
-</div> 
-</div> 
-<div class="contact-item"> 
-<span class="contact-icon">📱</span> 
-<div> 
-<a href="tel:+17278676666">(727) 867-6666</a> 
-</div> 
-</div> 
-<div class="contact-item"> 
-<span class="contact-icon">✉️</span> 
-<div> 
-<a href="mailto:nyseafoodmarket@gmail.com">nyseafoodmarket@gmail.com</a> 
-</div> 
-</div> 
-</div> 
-<div class="contact-info"> 
-<h3>Opening Hours</h3> 
-<table class="hours-table"> 
-<tr> 
-<td>Monday - Thursday</td> 
-<td>11:00 AM - 9:00 PM</td> 
-</tr> 
-<tr> 
-<td>Friday - Saturday</td> 
-<td>11:00 AM - 10:00 PM</td> 
-</tr> 
-<tr> 
-<td>Sunday</td> 
-<td>12:00 PM - 8:00 PM</td> 
-</tr> 
-</table> 
-</div> 
-<div class="contact-info"> 
-<h3>Reserve a Table</h3> 
-<p>Make a reservation for a special dining experience with us. Large groups welcome with advance notice.</p> 
-<a href="tel:+17278676666" class="btn">Call (727) 867-6666</a> 
-</div> 
-</div> 
-</div> 
-</section> 
-<footer> 
-<div class="container footer-content"> 
-<p>&copy; 2025 New York Seafood Restaurant. All Rights Reserved.</p> 
-<div class="footer-links"> 
-<a href="privacy.html">Privacy Policy</a> 
-<a href="terms.html">Terms of Service</a> 
-</div> 
-</div> 
-</footer> 
-</body> 
-</html>
+</header>
+
+<section class="products-hero">
+  <div class="container">
+    <h1>Our Menu</h1>
+    <p>Explore our extensive selection of fresh seafood options and delicious dishes prepared with authentic New York style and flavor.</p>
+    
+    <div class="menu-categories">
+      <button class="category-btn active" data-category="appetizers">Appetizers</button>
+      <button class="category-btn" data-category="salads">Salads & Soups</button>
+      <button class="category-btn" data-category="sandwiches">Sandwiches</button>
+      <button class="category-btn" data-category="fish">Fish</button>
+      <button class="category-btn" data-category="pasta">Pasta</button>
+      <button class="category-btn" data-category="wraps">Wraps</button>
+      <button class="category-btn" data-category="seafood">Seafood Trays</button>
+      <button class="category-btn" data-category="sides">Sides & Specials</button>
+      <button class="category-btn" data-category="asian">Asian Cuisine</button>
+      <button class="category-btn" data-category="drinks">Drinks</button>
+    </div>
+  </div>
+</section>
+
+<section id="appetizers" class="category-section">
+  <div class="container">
+    <div class="section-title-container">
+      <p class="section-subtitle">Start Your Meal</p>
+      <h2 class="section-title">Appetizers</h2>
+    </div>
+    <div class="menu-container">
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Crab Rangoons</h3>
+          <span class="menu-price">$5.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Crispy wontons filled with a creamy crab and cheese filling.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Chicken Tenders</h3>
+          <span class="menu-price">$8.99</span>
+        </div>
+        <div class="menu-description">
+          <p>Served with french fries.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Wings</h3>
+          <span class="menu-price">6 pcs $9.95 • 12 pcs $17.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Crispy chicken wings tossed in your choice of sauce.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Fried Pickles</h3>
+          <span class="menu-price">$6.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Crispy breaded dill pickle slices.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Mac 'N' Cheese Bites</h3>
+          <span class="menu-price">$6.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Crispy breaded macaroni and cheese bites.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Onion Rings</h3>
+          <span class="menu-price">$6.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Golden fried onion rings.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Hush Puppies</h3>
+          <span class="menu-price">8 pcs $4.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Southern-style cornmeal fritters.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Fried Plantains</h3>
+          <span class="menu-price">$4.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Sweet and savory fried plantains.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Garlic Breadsticks</h3>
+          <span class="menu-price">$5.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Warm breadsticks topped with garlic butter.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Fried Calamari</h3>
+          <span class="menu-price">$10.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Lightly breaded calamari, fried to perfection.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="salads" class="category-section">
+  <div class="container">
+    <div class="section-title-container">
+      <p class="section-subtitle">Fresh & Flavorful</p>
+      <h2 class="section-title">Salads & Soups</h2>
+    </div>
+    <div class="menu-container">
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Grilled Chicken Salad</h3>
+          <span class="menu-price">$10.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Romaine and tomatoes topped with grilled chicken, croutons and your choice of dressing.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Grilled Shrimp Salad</h3>
+          <span class="menu-price">$10.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Juicy grilled shrimp on a bed of Romaine, tomatoes and croutons.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Chicken Tender Salad</h3>
+          <span class="menu-price">$12.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Crispy chicken tenders over lettuce, tomatoes and cheese.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Egg Drop Soup</h3>
+          <span class="menu-price">$5.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Traditional Chinese soup with wispy beaten eggs.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Lobster Bisque</h3>
+          <span class="menu-price">$5.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Creamy soup made from lobster stock, heavy cream, and sherry.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Shrimp Corn Chowder</h3>
+          <span class="menu-price">$5.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Rich and creamy soup with shrimp and sweet corn.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Clam Chowder</h3>
+          <span class="menu-price">$5.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Traditional creamy New England style clam chowder.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Scallop Chowder</h3>
+          <span class="menu-price">$6.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Creamy chowder with tender scallops.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sandwiches" class="category-section">
+  <div class="container">
+    <div class="section-title-container">
+      <p class="section-subtitle">Hand-Crafted</p>
+      <h2 class="section-title">Sandwiches</h2>
+      <p>Includes lettuce, tomatoes, pickles and mayo. Served with fries.</p>
+    </div>
+    <div class="menu-container">
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Fish Sandwich</h3>
+          <span class="menu-price">$8.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Choose Tilapia, Basa or Catfish.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Grouper Sandwich</h3>
+          <span class="menu-price">$12.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Fresh grouper fillet on a toasted bun.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Club Sandwich</h3>
+          <span class="menu-price">$12.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Classic club sandwich with grilled chicken, bacon, lettuce, and tomato on toasted bread.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Chicken Sandwich</h3>
+          <span class="menu-price">$7.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Grilled or fried chicken breast on a toasted bun.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Soft-Shell Crab Sandwich</h3>
+          <span class="menu-price">$12.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Lightly breaded soft-shell crab on a toasted bun.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fish" class="category-section">
+  <div class="container">
+    <div class="section-title-container">
+      <p class="section-subtitle">Ocean Fresh</p>
+      <h2 class="section-title">Fish Entrées</h2>
+      <p>Deep fried or blackened, served with 2 sides.</p>
+    </div>
+    <div class="menu-container">
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Salmon</h3>
+          <span class="menu-price">$16.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Fresh salmon fillet prepared to your preference.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Grouper</h3>
+          <span class="menu-price">$17.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Tender grouper fillet prepared to your preference.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Tilapia</h3>
+          <span class="menu-price">$12.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Mild flavored tilapia fillet prepared to your preference.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Catfish Nuggets</h3>
+          <span class="menu-price">$11.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Deep fried only. Southern-style catfish nuggets.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Basa</h3>
+          <span class="menu-price">$12.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Mild, tender basa fillet prepared to your preference.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Fish & Shrimp Combo</h3>
+          <span class="menu-price">$13.95</span>
+        </div>
+        <div class="menu-description">
+          <p>6 pcs fish + 6 pcs shrimp. Choose Tilapia, Basa or Catfish. Served with french fries.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Fried or Blackened Shrimp</h3>
+          <span class="menu-price">10 pcs $13.00 • 20 pcs $24.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Your choice of preparation. Served with french fries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pasta" class="category-section">
+  <div class="container">
+    <div class="section-title-container">
+      <p class="section-subtitle">Pasta Perfection</p>
+      <h2 class="section-title">Pasta Dishes</h2>
+      <p>Add bread sticks for $3.00</p>
+    </div>
+    <div class="menu-container">
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Shrimp Scampi</h3>
+          <span class="menu-price">$13.99</span>
+        </div>
+        <div class="menu-description">
+          <p>Garlic butter shrimp sautéed in white wine, served over pasta and topped with parsley.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Lemon Garlic Scallop</h3>
+          <span class="menu-price">$15.99</span>
+        </div>
+        <div class="menu-description">
+          <p>Sautéed scallops in garlic butter over linguine with lemon.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Chicken Alfredo</h3>
+          <span class="menu-price">$9.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Grilled chicken over penne in a rich Parmesan Alfredo sauce, topped with parsley.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Cajun Shrimp Alfredo</h3>
+          <span class="menu-price">$10.95</span>
+        </div>
+        <div class="menu-description">
+          <p>Grilled shrimp, coated in Cajun spices, tossed in a creamy Alfredo sauce, and served over penne.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Blackened Salmon Alfredo</h3>
+          <span class="menu-price">$18.99</span>
+        </div>
+        <div class="menu-description">
+          <p>Blackened salmon over creamy garlic house Alfredo sauce with penne and broccoli, topped with mozzarella and Parmesan.</p>
+        </div>
+      </div>
+      
+      <div class="menu-card">
+        <div class="menu-title">
+          <h3>Conch Alfredo</h3>
+          <span class="menu-price">$15.00</span>
+        </div>
+        <div class="menu-description">
+          <p>Creamy Alfredo sauce with tender conch served over penne.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="wr
