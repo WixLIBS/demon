@@ -145,7 +145,7 @@
       flex: 1;
       margin-left: var(--sidebar-width);
       padding: 2rem;
-      /* Push content below the fixed header */
+      /* Ensure content is pushed down below the fixed header */
       padding-top: calc(2rem + var(--header-height));
     }
 
@@ -156,7 +156,7 @@
       margin-bottom: 1.5rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid var(--secondary);
-      /* Added top margin so title is clearly below the fixed header */
+      /* Extra top margin so title isn’t overlapped by the header */
       margin-top: 1rem;
     }
 
@@ -213,20 +213,21 @@
       flex: 1;
     }
 
-    /* Distinct background hues for each category (Feel free to adjust these hues) */
-    .Appetizers    { border-top: 5px solid #a6e3e9; }
-    .Sandwiches    { border-top: 5px solid #fce38a; }
-    .FishSeafood   { border-top: 5px solid #b8f2e6; }
-    .SidesExtras   { border-top: 5px solid #f9dcc4; }
-    .Pasta         { border-top: 5px solid #fde2e4; }
-    .Soups         { border-top: 5px solid #e2f0fb; }
-    .ChefsSpecials { border-top: 5px solid #d4edda; }
-    .Salads        { border-top: 5px solid #e9ecef; }
-    .Beverages     { border-top: 5px solid #e0f7fa; }
-    .AsianExtras   { border-top: 5px solid #fff0e5; }
-    .SauceExtras   { border-top: 5px solid #ffd1dc; }
+    /* Distinct border accents for each category */
+    .Appetizers            { border-top: 5px solid #a6e3e9; }
+    .SandwichesChicken     { border-top: 5px solid #fce38a; }
+    .FishSeafood           { border-top: 5px solid #b8f2e6; }
+    .SidesExtras           { border-top: 5px solid #f9dcc4; }
+    .PastaItalian          { border-top: 5px solid #fde2e4; }
+    .Soups                 { border-top: 5px solid #e2f0fb; }
+    .ChefsSpecials         { border-top: 5px solid #d4edda; }
+    .SaladsLight           { border-top: 5px solid #e9ecef; }
+    .FishShrimpSides       { border-top: 5px solid #e0f7fa; }
+    .SideSpecials          { border-top: 5px solid #ffd1dc; }
+    .SnowcrabSeafoodTrays  { border-top: 5px solid #cce5ff; }
+    .AsianGeneralTso       { border-top: 5px solid #d1e7dd; }
+    .SauceExtras           { border-top: 5px solid #f8d7da; }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .sidebar {
         width: 100%;
@@ -269,40 +270,39 @@
       </nav>
     </div>
   </header>
-
   <main>
     <aside class="sidebar">
       <div class="menu-categories">
         <button class="category-btn active" data-category="all">All Items</button>
         <button class="category-btn" data-category="Appetizers">Appetizers</button>
-        <button class="category-btn" data-category="Sandwiches">Sandwiches &amp; Chicken</button>
+        <button class="category-btn" data-category="SandwichesChicken">Sandwiches &amp; Chicken</button>
         <button class="category-btn" data-category="FishSeafood">Fish &amp; Seafood</button>
-        <button class="category-btn" data-category="SidesExtras">Sides &amp; Extras</button>
-        <button class="category-btn" data-category="Pasta">Pasta &amp; Italian-Inspired</button>
+        <button class="category-btn" data-category="SidesExtras">Sides &amp; Additional Appetizers</button>
+        <button class="category-btn" data-category="PastaItalian">Pasta &amp; Light Italian-Inspired</button>
         <button class="category-btn" data-category="Soups">Soups</button>
-        <button class="category-btn" data-category="ChefsSpecials">Chef's Specials</button>
-        <button class="category-btn" data-category="Salads">Salads &amp; Light Fare</button>
-        <button class="category-btn" data-category="Beverages">Beverages</button>
-        <button class="category-btn" data-category="AsianExtras">Asian &amp; General Tso</button>
+        <button class="category-btn" data-category="ChefsSpecials">Chef's Specials &amp; Premium Mains</button>
+        <button class="category-btn" data-category="SaladsLight">Salads &amp; Light Fare</button>
+        <button class="category-btn" data-category="FishShrimpSides">Fish &amp; Shrimp Sides</button>
+        <button class="category-btn" data-category="SideSpecials">Side Specials</button>
+        <button class="category-btn" data-category="SnowcrabSeafoodTrays">Snowcrab &amp; Seafood Trays</button>
+        <button class="category-btn" data-category="AsianGeneralTso">Asian &amp; General Tso</button>
         <button class="category-btn" data-category="SauceExtras">Sauce &amp; Extras</button>
       </div>
     </aside>
     <section class="menu-content">
       <h1 class="category-title" id="current-category">All Items</h1>
       <div id="menu-container" class="menu-grid">
-        <!-- The menu items will be dynamically loaded here -->
+        <!-- Menu items will be inserted here dynamically -->
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container">
       <p>© 2025 New York Seafood Restaurant</p>
     </div>
   </footer>
-
   <script>
-    // Helper function to create a menu card element
+    // Helper function to create a menu card
     function createCard(item, categoryClass) {
       const card = document.createElement('div');
       card.className = `menu-card ${categoryClass}`;
@@ -318,17 +318,16 @@
       return card;
     }
 
-    // Function to load and build menu items from menu.json
+    // Load menu data from menu.json and display it
     function loadMenu() {
       fetch('menu.json')
         .then(response => response.json())
         .then(data => {
           const menuContainer = document.getElementById('menu-container');
-          menuContainer.innerHTML = ''; // clear the container
-          
-          // Loop through every category section in the JSON
+          menuContainer.innerHTML = "";
+          // Loop through each category section in the JSON
           data.forEach(section => {
-            // Use a simplified CSS class name (remove spaces) for color styling
+            // Create a simplified CSS class name (remove spaces) for styling
             const categoryClass = section.category.replace(/\s+/g, '');
             section.items.forEach(item => {
               const card = createCard(item, categoryClass);
@@ -336,10 +335,10 @@
             });
           });
         })
-        .catch(error => console.error('Error loading menu:', error));
+        .catch(error => console.error("Error loading menu:", error));
     }
 
-    // Sidebar category filtering
+    // Setup sidebar filtering
     const buttons = document.querySelectorAll('.category-btn');
     buttons.forEach(btn => {
       btn.addEventListener('click', function() {
@@ -347,23 +346,22 @@
         this.classList.add('active');
         const selectedCat = this.getAttribute('data-category');
         document.getElementById('current-category').textContent = this.textContent;
-
         const allCards = document.querySelectorAll('.menu-card');
-        if(selectedCat === 'all'){
-          allCards.forEach(card => card.style.display = 'flex');
+        if(selectedCat === "all") {
+          allCards.forEach(card => card.style.display = "flex");
         } else {
           allCards.forEach(card => {
             if(card.classList.contains(selectedCat)) {
-              card.style.display = 'flex';
+              card.style.display = "flex";
             } else {
-              card.style.display = 'none';
+              card.style.display = "none";
             }
           });
         }
       });
     });
 
-    // Initialize the menu on page load
+    // Initialize on page load
     loadMenu();
   </script>
 </body>
