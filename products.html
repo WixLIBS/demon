@@ -1,368 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - New York Seafood Restaurant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New York Seafood Restaurant - Full Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #003b6f;
-      --secondary: #e63946;
-      --light: #f8f9fa;
-      --white: #fff;
-      --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --transition: all 0.3s ease;
-      /* Card Dimensions */
-      --card-width: 400px;
-      --card-padding: 1.2rem;
-      /* Sidebar */
-      --sidebar-width: 280px;
-      /* Header height */
-      --header-height: 70px;
-    }
+      --color-primary: #003b6f;
+      --color-secondary: #e63946;
+      --color-accent: #f8f9fa;
+      --color-text: #333;
+      --color-white: #fff;
 
+      --header-height: 70px;
+      --sidebar-width: 300px;
+
+      --transition: 0.3s ease;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
     * {
-      margin: 0;
-      padding: 0;
+      margin: 0; 
+      padding: 0; 
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--white);
-      color: #333;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
+      color: var(--color-text);
+      line-height: 1.5;
       min-height: 100vh;
-    }
-
-    header {
-      background: var(--primary);
-      color: var(--white);
-      padding: 1rem 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow);
-    }
-
-    .container {
-      width: 95%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--white);
-      text-decoration: none;
-      transition: var(--transition);
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
-
-    .tagline {
-      margin-left: 10px;
-      padding-left: 10px;
-      border-left: 1px solid rgba(255, 255, 255, 0.3);
-      font-size: 0.9rem;
-      font-style: italic;
-      color: rgba(255,255,255,0.8);
-    }
-
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      margin-left: 1.5rem;
-      transition: var(--transition);
-    }
-
-    nav a:hover {
-      color: var(--secondary);
-    }
-
-    /* Sidebar for Categories */
-    .sidebar {
-      width: var(--sidebar-width);
-      background: var(--light);
-      height: calc(100vh - var(--header-height));
-      position: fixed;
-      top: var(--header-height);
-      left: 0;
-      padding: 1.5rem 0;
-      overflow-y: auto;
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .menu-categories {
       display: flex;
       flex-direction: column;
+      background: var(--color-white);
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; 
+      width: 100%;
+      height: var(--header-height);
+      background: var(--color-primary);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 0 1rem;
+    }
+    header .logo {
+      font-weight: 600;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--color-white);
+    }
+    .tagline {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-style: italic;
     }
 
-    .category-btn {
-      background: transparent;
-      border: none;
-      text-align: left;
-      padding: 0.8rem 1.5rem;
-      color: #333;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1rem;
-    }
-
-    .category-btn:hover {
-      background: rgba(0, 0, 0, 0.05);
-      color: var(--primary);
-    }
-
-    .category-btn.active {
-      background: var(--primary);
-      color: var(--white);
-      border-left: 4px solid var(--secondary);
-    }
-
-    /* Main Content */
-    .menu-content {
-      flex: 1;
-      margin-left: var(--sidebar-width);
-      padding: 2rem;
-      /* Ensure content is pushed down below the fixed header */
-      padding-top: calc(2rem + var(--header-height));
-    }
-
-    .category-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--secondary);
-      /* Extra top margin so title isn’t overlapped by the header */
-      margin-top: 1rem;
-    }
-
-    .menu-grid {
+    main {
+      margin-top: var(--header-height);
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
     }
 
-    .menu-card {
-      width: var(--card-width);
-      background: var(--white);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #ddd;
+    /* MAIN COLUMN (left) */
+    .main-menu {
+      flex: 1 1 60%;
+      padding: 2rem;
+      min-width: 300px;
     }
 
-    .menu-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    /* SIDEBAR / SPECIALS (right) */
+    .sidebar {
+      width: var(--sidebar-width);
+      padding: 2rem 1.5rem;
+      background: var(--color-accent);
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+      flex: 1 1 300px;
     }
 
-    .menu-card-header {
-      padding: var(--card-padding);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    .category {
+      margin-bottom: 2rem;
     }
-
-    .menu-title {
+    .category h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-secondary);
+      padding-bottom: 0.2rem;
+    }
+    .menu-item {
+      margin-bottom: 0.7rem;
+    }
+    .menu-item h3 {
+      font-size: 1.1rem;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.3rem;
+      color: var(--color-text);
+      margin-bottom: 0.2rem;
+      font-weight: 500;
     }
-
-    .menu-title h3 {
-      font-size: 1.4rem;
-      color: var(--primary);
-    }
-
-    .menu-price {
+    .price {
+      color: var(--color-secondary);
       font-weight: 600;
-      color: var(--secondary);
-      font-size: 1.2rem;
     }
-
-    .menu-description {
-      padding: var(--card-padding);
-      font-size: 1rem;
+    .desc {
+      font-size: 0.9rem;
       color: #666;
-      flex: 1;
+      margin-left: 0.5rem;
     }
 
-    /* Distinct border accents for each category */
-    .Appetizers            { border-top: 5px solid #a6e3e9; }
-    .SandwichesChicken     { border-top: 5px solid #fce38a; }
-    .FishSeafood           { border-top: 5px solid #b8f2e6; }
-    .SidesExtras           { border-top: 5px solid #f9dcc4; }
-    .PastaItalian          { border-top: 5px solid #fde2e4; }
-    .Soups                 { border-top: 5px solid #e2f0fb; }
-    .ChefsSpecials         { border-top: 5px solid #d4edda; }
-    .SaladsLight           { border-top: 5px solid #e9ecef; }
-    .FishShrimpSides       { border-top: 5px solid #e0f7fa; }
-    .SideSpecials          { border-top: 5px solid #ffd1dc; }
-    .SnowcrabSeafoodTrays  { border-top: 5px solid #cce5ff; }
-    .AsianGeneralTso       { border-top: 5px solid #d1e7dd; }
-    .SauceExtras           { border-top: 5px solid #f8d7da; }
-
-    @media (max-width: 768px) {
+    /* Make sure everything stacks vertically on smaller screens */
+    @media(max-width: 992px) {
+      .main-menu {
+        flex: 1 1 100%;
+      }
       .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-right: none;
-      }
-      .menu-content {
-        margin-left: 0;
-        padding: 2rem 1rem;
-      }
-      .menu-grid {
-        justify-content: center;
-      }
-      nav a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
-      }
-      .logo {
-        font-size: 1.5rem;
-      }
-      .tagline {
-        display: none;
+        flex: 1 1 100%;
+        order: -1; /* Show the sidebar below main menu if you prefer, or remove to show it above */
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <div class="container nav-container">
-      <div class="logo-container">
-        <a href="index.html" class="logo">New York Seafood</a>
-        <span class="tagline">Authentic Taste of the Sea</span>
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Menu</a>
-        <a href="about.html">About Us</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <a href="#" class="logo">New York Seafood</a>
+    <span class="tagline">Authentic Taste of the Sea</span>
   </header>
+
   <main>
-    <aside class="sidebar">
-      <div class="menu-categories">
-        <button class="category-btn active" data-category="all">All Items</button>
-        <button class="category-btn" data-category="Appetizers">Appetizers</button>
-        <button class="category-btn" data-category="SandwichesChicken">Sandwiches &amp; Chicken</button>
-        <button class="category-btn" data-category="FishSeafood">Fish &amp; Seafood</button>
-        <button class="category-btn" data-category="SidesExtras">Sides &amp; Additional Appetizers</button>
-        <button class="category-btn" data-category="PastaItalian">Pasta &amp; Light Italian-Inspired</button>
-        <button class="category-btn" data-category="Soups">Soups</button>
-        <button class="category-btn" data-category="ChefsSpecials">Chef's Specials &amp; Premium Mains</button>
-        <button class="category-btn" data-category="SaladsLight">Salads &amp; Light Fare</button>
-        <button class="category-btn" data-category="FishShrimpSides">Fish &amp; Shrimp Sides</button>
-        <button class="category-btn" data-category="SideSpecials">Side Specials</button>
-        <button class="category-btn" data-category="SnowcrabSeafoodTrays">Snowcrab &amp; Seafood Trays</button>
-        <button class="category-btn" data-category="AsianGeneralTso">Asian &amp; General Tso</button>
-        <button class="category-btn" data-category="SauceExtras">Sauce &amp; Extras</button>
+    <!-- MAIN MENU (Left Column) -->
+    <section class="main-menu">
+      <!-- APPS -->
+      <div class="category">
+        <h2>Appetizers</h2>
+        <div class="menu-item">
+          <h3>Crab Rangoons <span class="price">5.95</span></h3>
+          <p class="desc">Crispy wontons filled with crab and cream cheese.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Wings <span class="price">6 pcs $9.95 / 12 pcs $17.95</span></h3>
+          <p class="desc">Crispy chicken wings tossed in your choice of sauce.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Fried Pickles <span class="price">6.00</span></h3>
+          <p class="desc">Beer-battered dill pickles served with a tangy dip.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Mac ‘n’ Cheese Bites <span class="price">6.00</span></h3>
+          <p class="desc">Golden fried macaroni & cheese bites.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Calamari <span class="price">7.95</span></h3>
+          <p class="desc">Lightly battered and fried squid rings.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Onion Rings <span class="price">6.00</span></h3>
+          <p class="desc">Thick-cut, crispy onion rings.</p>
+        </div>
       </div>
-    </aside>
-    <section class="menu-content">
-      <h1 class="category-title" id="current-category">All Items</h1>
-      <div id="menu-container" class="menu-grid">
-        <!-- Menu items will be inserted here dynamically -->
+
+      <!-- SANDWICHES & CHICKEN -->
+      <div class="category">
+        <h2>Sandwiches & Chicken</h2>
+        <div class="menu-item">
+          <h3>Chicken Tenders <span class="price">8.99</span></h3>
+          <p class="desc">Served with fries and a side of dipping sauce.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Classic Chicken Sandwich <span class="price">7.00</span></h3>
+          <p class="desc">Includes lettuce, tomato, pickles, and mayo.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Soft-Shell Crab Sandwich <span class="price">12.00</span></h3>
+          <p class="desc">Deep-fried soft-shell crab on a toasted bun.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Basa Sandwich <span class="price">12.00</span></h3>
+          <p class="desc">Lightly fried basa fillet served with fries.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Classic Club Sandwich <span class="price">12.00</span></h3>
+          <p class="desc">Grilled chicken, bacon, lettuce, and tomato on toasted bread.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Chicken Wraps <span class="price">Varies</span></h3>
+          <p class="desc">Grilled or crispy chicken with lettuce & dressing in a tortilla.</p>
+        </div>
+      </div>
+
+      <!-- FISH & SEAFOOD -->
+      <div class="category">
+        <h2>Fish & Seafood</h2>
+        <div class="menu-item">
+          <h3>Salmon <span class="price">16.95</span></h3>
+          <p class="desc">Fresh salmon fillet grilled or blackened, 2 sides included.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Grouper <span class="price">17.95</span></h3>
+          <p class="desc">Flavorful grouper fillet, blackened or fried, 2 sides.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Tilapia <span class="price">12.00</span></h3>
+          <p class="desc">Mild, flaky fillet; choose fried or blackened.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Catfish <span class="price">8.00</span></h3>
+          <p class="desc">Choose Tilapia, Basa or Catfish served with hush puppies.</p>
+        </div>
+        <div class="menu-item">
+          <h3>6 pcs Fish + 6 pcs Shrimp <span class="price">13.95</span></h3>
+          <p class="desc">Combo plate with your choice of fish and shrimp style.</p>
+        </div>
+      </div>
+
+      <!-- SOUPS -->
+      <div class="category">
+        <h2>Soups</h2>
+        <div class="menu-item">
+          <h3>Original Chicken Soup <span class="price">10.00 / 9.95</span></h3>
+          <p class="desc">Classic chicken soup with tender chicken and veggies.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Eggdrop Soup <span class="price">5.00</span></h3>
+          <p class="desc">Silky egg ribbons in a savory broth.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Lobster Bisque <span class="price">5.00</span></h3>
+          <p class="desc">Rich and creamy bisque featuring fresh lobster.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Clam Chowder <span class="price">5.00</span></h3>
+          <p class="desc">Creamy New England clam chowder with potatoes.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Shrimp Corn Chowder <span class="price">5.00</span></h3>
+          <p class="desc">Hearty chowder loaded with corn and shrimp.</p>
+        </div>
+      </div>
+
+      <!-- RAMEN & PASTA -->
+      <div class="category">
+        <h2>Ramen & Pasta</h2>
+        <div class="menu-item">
+          <h3>Ramen #1 <span class="price">5.00</span></h3>
+          <p class="desc">Ramen noodles with 3 shrimps and 1 egg.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Ramen #2 <span class="price">12.00</span></h3>
+          <p class="desc">Ramen with neckbones, egg, potato, and sausage.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Chicken Alfredo <span class="price">Varies</span></h3>
+          <p class="desc">Grilled chicken over creamy penne Alfredo sauce.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Shrimp Scampi <span class="price">13.99</span></h3>
+          <p class="desc">Shrimp in garlic butter sauce served over pasta.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Lemon Garlic Scallop <span class="price">Varies</span></h3>
+          <p class="desc">Seared scallops in lemon garlic sauce over linguine.</p>
+        </div>
+      </div>
+
+      <!-- SALADS -->
+      <div class="category">
+        <h2>Salads</h2>
+        <div class="menu-item">
+          <h3>Grilled Chicken Salad <span class="price">10.00</span></h3>
+          <p class="desc">Romaine and tomatoes topped with seasoned grilled chicken.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Classic Caesar Salad <span class="price">9.00</span></h3>
+          <p class="desc">Crisp romaine tossed in Caesar dressing with croutons.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Garden Salad <span class="price">8.00</span></h3>
+          <p class="desc">Fresh veggies and lettuce tossed with vinaigrette.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Chicken Tender Salad <span class="price">10.00 / 12.00</span></h3>
+          <p class="desc">Crispy chicken tenders over romaine and veggies.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Fruit Salad <span class="price">6.50</span></h3>
+          <p class="desc">Assorted seasonal fruit medley.</p>
+        </div>
+      </div>
+
+      <!-- CHEF'S SPECIAL -->
+      <div class="category">
+        <h2>Chef's Special</h2>
+        <div class="menu-item">
+          <h3>Chef's Special <span class="price">Varies</span></h3>
+          <p class="desc">Ask for our chef’s rotating seasonal creation.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Blackened Salmon Alfredo <span class="price">18.99</span></h3>
+          <p class="desc">Salmon served over creamy Alfredo sauce with penne.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Beef Short-Ribs <span class="price">17.99</span></h3>
+          <p class="desc">Teriyaki short ribs served with mashed potatoes.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Conch Alfredo <span class="price">15.00</span></h3>
+          <p class="desc">Tender conch in a creamy sauce over pasta.</p>
+        </div>
       </div>
     </section>
-  </main>
-  <footer>
-    <div class="container">
-      <p>© 2025 New York Seafood Restaurant</p>
-    </div>
-  </footer>
-  <script>
-    // Helper function to create a menu card
-    function createCard(item, categoryClass) {
-      const card = document.createElement('div');
-      card.className = `menu-card ${categoryClass}`;
-      card.innerHTML = `
-        <div class="menu-card-header">
-          <div class="menu-title">
-            <h3>${item.title}</h3>
-            <span class="menu-price">${item.price}</span>
-          </div>
+
+    <!-- SIDEBAR / SECOND COLUMN -->
+    <aside class="sidebar">
+      <!-- FISH & SHRIMP / SIDES -->
+      <div class="category">
+        <h2>Fish & Shrimp</h2>
+        <div class="menu-item">
+          <h3>6 pcs Fish + 6 pcs Shrimp <span class="price">13.95</span></h3>
+          <p class="desc">Choose Tilapia, Basa, or Catfish.</p>
         </div>
-        <div class="menu-description">${item.description}</div>
-      `;
-      return card;
-    }
+        <div class="menu-item">
+          <h3>Crawfish (1/2 lb) <span class="price">9.00</span></h3>
+          <p class="desc">Classic boiled crawfish.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Grilled Shrimp (Side) <span class="price">Varies</span></h3>
+          <p class="desc">Juicy shrimp over rice or greens.</p>
+        </div>
+      </div>
 
-    // Load menu data from menu.json and display it
-    function loadMenu() {
-      fetch('menu.json')
-        .then(response => response.json())
-        .then(data => {
-          const menuContainer = document.getElementById('menu-container');
-          menuContainer.innerHTML = "";
-          // Loop through each category section in the JSON
-          data.forEach(section => {
-            // Create a simplified CSS class name (remove spaces) for styling
-            const categoryClass = section.category.replace(/\s+/g, '');
-            section.items.forEach(item => {
-              const card = createCard(item, categoryClass);
-              menuContainer.appendChild(card);
-            });
-          });
-        })
-        .catch(error => console.error("Error loading menu:", error));
-    }
+      <div class="category">
+        <h2>Sides</h2>
+        <div class="menu-item">
+          <h3>French Fries <span class="price">3.00</span></h3>
+          <p class="desc">Classic golden fries.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Steamed Rice <span class="price">2.00</span></h3>
+          <p class="desc">Fluffy white rice.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Broccoli <span class="price">3.00</span></h3>
+          <p class="desc">Steamed florets.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Mashed Potatoes <span class="price">4.00</span></h3>
+          <p class="desc">Creamy mashed spuds.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Asparagus <span class="price">4.00</span></h3>
+          <p class="desc">Lightly steamed spears.</p>
+        </div>
+      </div>
 
-    // Setup sidebar filtering
-    const buttons = document.querySelectorAll('.category-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        buttons.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const selectedCat = this.getAttribute('data-category');
-        document.getElementById('current-category').textContent = this.textContent;
-        const allCards = document.querySelectorAll('.menu-card');
-        if(selectedCat === "all") {
-          allCards.forEach(card => card.style.display = "flex");
-        } else {
-          allCards.forEach(card => {
-            if(card.classList.contains(selectedCat)) {
-              card.style.display = "flex";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        }
-      });
-    });
+      <!-- BEVERAGES -->
+      <div class="category">
+        <h2>Beverages</h2>
+        <div class="menu-item">
+          <h3>Lemonade <span class="price">3.50</span></h3>
+          <p class="desc">Free refill on classic lemonade.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Ice Tea <span class="price">3.50</span></h3>
+          <p class="desc">Brewed tea served over ice.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Hot Tea <span class="price">2.50</span></h3>
+          <p class="desc">Simple and comforting brew.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Soda <span class="price">2.00</span></h3>
+          <p class="desc">Coca-Cola, Sprite, or Fanta.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Matcha Latte <span class="price">4.50</span></h3>
+          <p class="desc">Smooth green tea latte.</p>
+        </div>
+      </div>
 
-    // Initialize on page load
-    loadMenu();
-  </script>
+      <!-- SIDE SPECIALS / SEAFOOD TRAYS -->
+      <div class="category">
+        <h2>Side Specials & Trays</h2>
+        <div class="menu-item">
+          <h3>Andy Special <span class="price">15.00</span></h3>
+          <p class="desc">A unique combination side by Andy.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Happy Tray #5 <span class="price">8.00</span></h3>
+          <p class="desc">Crab tray with corn, potato, sausage.</p>
+        </div>
+        <div class="menu-item">
+          <h3>DC #1 <span class="price">35.00</span></h3>
+          <p class="desc">Dungeness crab tray #1.</p>
+        </div>
+        <div class="menu-item">
+          <h3>DC #4 <span class="price">60.00</span></h3>
+          <p class="desc">Dungeness crab tray #4.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Ramen #2 <span class="price">12.00</span></h3>
+          <p class="desc">Neckbones, egg, potato, sausage with ramen.</p>
+        </div>
+      </div>
+
+      <!-- ASIAN CUISINE, SAUCES, ETC. -->
+      <div class="category">
+        <h2>Asian Cuisine & Sauces</h2>
+        <div class="menu-item">
+          <h3>House Lo Mein <span class="price">15.95</span></h3>
+          <p class="desc">Combination of beef, shrimp, and veggies in noodles.</p>
+        </div>
+        <div class="menu-item">
+          <h3>General Tso <span class="price">Varies</span></h3>
+          <p class="desc">Spicy-sweet dish with your choice of protein.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Teriyaki Chicken & Shrimp Fried Rice <span class="price">14.00</span></h3>
+          <p class="desc">Savory fried rice with teriyaki sauce.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Sauce <span class="price">Mild/Med/Spicy</span></h3>
+          <p class="desc">Choice of Cajun Butter, Garlic Butter, Lemon Pepper, or House Mix.</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
 </body>
 </html>
