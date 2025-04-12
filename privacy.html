@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - New York Seafood Restaurant</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+      :root {
+        --primary: #003b6f;
+        --secondary: #e63946;
+        --light: #f1faee;
+        --dark: #1d3557;
+        --text: #333333;
+        --text-light: #666666;
+        --white: #ffffff;
+        --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --transition: all 0.3s ease;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--white);
+        color: var(--text);
+        line-height: 1.6;
+        background-image: url("https://www.transparenttextures.com/patterns/water.png");
+      }
+      h1, h2, h3, h4, h5 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      header {
+        background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+        background-blend-mode: multiply;
+        background-color: var(--primary);
+        color: var(--white);
+        padding: 1.2rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+        text-decoration: none;
+        transition: var(--transition);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      }
+      .tagline {
+        margin-left: 10px;
+        padding-left: 10px;
+        border-left: 1px solid rgba(255,255,255,0.3);
+        font-size: 0.9rem;
+        font-style: italic;
+        color: rgba(255,255,255,0.8);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: var(--transition);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .privacy-header {
+        padding: 10rem 0 3rem;
+        text-align: center;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://panapesca.com/wp-content/uploads/2022/03/shutterstock_1661871151.jpg") center/cover;
+        color: var(--white);
+        margin-bottom: 4rem;
+      }
+      .privacy-content {
+        background-color: var(--white);
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        margin-bottom: 4rem;
+      }
+      .privacy-section {
+        margin-bottom: 2.5rem;
+      }
+      .privacy-section:last-child {
+        margin-bottom: 0;
+      }
+      .privacy-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+        color: var(--primary);
+        position: relative;
+        padding-bottom: 10px;
+      }
+      .privacy-section h2:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background-color: var(--secondary);
+        bottom: 0;
+        left: 0;
+      }
+      .privacy-section p {
+        margin-bottom: 1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+      .privacy-section ul {
+        margin-left: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+      }
+      .privacy-section li {
+        margin-bottom: 0.7rem;
+      }
+      .last-updated {
+        font-style: italic;
+        color: var(--text-light);
+        text-align: right;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+      }
+      footer {
+        background-color: #00264d;
+        color: rgba(255,255,255,0.7);
+        padding: 1.8rem 0;
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+      }
+      .footer-links a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+      @media (max-width: 992px) {
+        .privacy-content {
+          padding: 2rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .privacy-header h1 {
+          font-size: 2.5rem;
+        }
+        .nav-links {
+          gap: 1rem;
+        }
+        .tagline {
+          display: none;
+        }
+      }
+      @media (max-width: 576px) {
+        .privacy-header {
+          padding: 8rem 0 3rem;
+        }
+        .privacy-header h1 {
+          font-size: 2rem;
+        }
+        .privacy-content {
+          padding: 1.5rem;
+        }
+        .privacy-section h2 {
+          font-size: 1.5rem;
+        }
+        .footer-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav-container">
+        <div class="logo-container">
+          <a href="index.html" class="logo">New York Seafood</a>
+          <span class="tagline">Authentic Taste of the Sea</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Menu</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="privacy-header">
+      <div class="container">
+        <h1>Privacy Policy</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="privacy-content">
+        <div class="privacy-section">
+          <h2>Introduction</h2>
+          <p>Welcome to New York Seafood Restaurant's Privacy Policy. This policy outlines how we collect, use, and protect your personal information when you visit our website, dine at our restaurant, or interact with us in any way.</p>
+          <p>At New York Seafood, we are committed to protecting your privacy and ensuring the security of your personal information. We understand the importance of privacy and strive to be transparent about our data practices.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Information We Collect</h2>
+          <p>We may collect the following types of information:</p>
+          <ul>
+            <li><strong>Personal Information:</strong> Name, email address, phone number, and mailing address when you make reservations, place orders, or sign up for our newsletter.</li>
+            <li><strong>Payment Information:</strong> Credit card details or other payment method information when you pay for our services (this information is processed securely through our payment processors).</li>
+            <li><strong>Reservation Details:</strong> Date, time, party size, and special requests when you make a reservation.</li>
+            <li><strong>Website Usage Information:</strong> IP address, browser type, operating system, referring URLs, and actions taken on our website.</li>
+            <li><strong>Customer Feedback:</strong> Comments, suggestions, and reviews that you provide about our services.</li>
+          </ul>
+        </div>
+
+        <div class="privacy-section">
+          <h2>How We Use Your Information</h2>
+          <p>We use the information we collect for the following purposes:</p>
+          <ul>
+            <li>To process and confirm your reservations and orders</li>
+            <li>To provide and improve our services to you</li>
+            <li>To communicate with you about your reservations, orders, or inquiries</li>
+            <li>To send you promotional offers, newsletters, and information about special events (if you have opted in)</li>
+            <li>To analyze and improve our website functionality and user experience</li>
+            <li>To comply with legal obligations</li>
+            <li>To prevent fraud and protect the security of our website and services</li>
+          </ul>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Information Sharing and Disclosure</h2>
+          <p>We do not sell, trade, or otherwise transfer your personal information to outside parties except in the following circumstances:</p>
+          <ul>
+            <li><strong>Service Providers:</strong> We may share information with trusted third parties who assist us in operating our website, conducting our business, or servicing you (such as payment processors or reservation systems).</li>
+            <li><strong>Legal Requirements:</strong> We may disclose information when required by law, to protect our rights, or in response to a legal request.</li>
+            <li><strong>Business Transfers:</strong> If our restaurant is sold or merged with another company, your information may be transferred to the new owners.</li>
+          </ul>
+          <p>All third parties with whom we share your information are required to protect your personal information in a manner consistent with this policy.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Cookies and Tracking Technologies</h2>
+          <p>Our website may use cookies and similar tracking technologies to enhance your experience and collect information about how you use our website. You can control cookies through your browser settings. However, disabling cookies may limit your ability to use certain features of our website.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Data Security</h2>
+          <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Your Rights</h2>
+          <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+          <ul>
+            <li>The right to access and receive a copy of your personal information</li>
+            <li>The right to rectify or update your personal information</li>
+            <li>The right to delete your personal information</li>
+            <li>The right to restrict or object to the processing of your personal information</li>
+            <li>The right to withdraw consent at any time (where processing is based on consent)</li>
+          </ul>
+          <p>To exercise these rights, please contact us using the information provided in the "Contact Us" section.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Children's Privacy</h2>
+          <p>Our website and services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us so that we can delete such information.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Changes to This Privacy Policy</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will post the updated Privacy Policy on this page with a new "Last Updated" date. We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h2>Contact Us</h2>
+          <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+          <p>
+            New York Seafood Restaurant<br>
+            2801 34th St S<br>
+            St. Petersburg, FL 33711<br>
+            Phone: (727) 867-6666<br>
+            Email: nyseafoodmarket@gmail.com
+          </p>
+        </div>
+
+        <p class="last-updated">Last Updated: April 11, 2025</p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container footer-content">
+        <p>&copy; 2025 New York Seafood Restaurant. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
