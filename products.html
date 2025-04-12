@@ -86,15 +86,14 @@
       font-size: 2rem;
       color: var(--secondary);
     }
-    /* Grid container using 4 columns per row, with increased card width */
+    /* Grid container: 3 cards per row using row dense flow */
     .grid-container {
       display: grid;
-      /* Each column has a minimum width of 250px, but stretches (1fr) to fill space */
-      grid-template-columns: repeat(4, minmax(250px, 1fr));
-      gap: 0.8rem;  /* Reduced gap between cards */
-      justify-items: stretch; /* Make sure each card fills its cell horizontally */
-      align-items: start; /* Each card’s height follows its own content */
-      grid-auto-flow: dense; /* Fill in gaps automatically */
+      grid-template-columns: repeat(3, minmax(250px, 1fr));
+      gap: 0.8rem;
+      grid-auto-flow: row dense;
+      justify-items: stretch;
+      align-items: start;
       max-width: 1200px;
       margin: 0 auto 2rem;
       padding: 0 1rem;
@@ -107,7 +106,7 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       transition: transform var(--transition);
       overflow: hidden;
-      width: 100%;  /* Ensure the card takes the full width of its grid cell */
+      width: 100%;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -119,7 +118,7 @@
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
-    /* Container for menu items inside a card as a grid with 3 columns */
+    /* Menu items inside each card arranged in a 3-column grid */
     .menu-items {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -142,7 +141,7 @@
       font-weight: 600;
       text-align: right;
     }
-    /* Calculator styling */
+    /* Calculator Styling */
     .calc-container {
       position: fixed;
       top: 80px;
@@ -252,7 +251,7 @@
     <h1>Full Menu</h1>
   </div>
 
-  <!-- Grid Container: 4 cards per row with improved card width -->
+  <!-- Grid Container: 3 cards per row with row dense auto-filling -->
   <div class="grid-container">
     <!-- Appetizers Card -->
     <div class="card" data-name="Appetizers">
@@ -922,7 +921,6 @@
     <div class="card" data-name="Sauce">
       <h2>Sauce</h2>
       <div class="menu-items">
-        <!-- Each sauce option is now a separate menu item -->
         <div class="menu-item">
           <h3>Mild Sauce</h3>
           <div class="price">$5.00</div>
@@ -975,7 +973,6 @@
   <div class="calc-container">
     <h2>Order Calculator</h2>
     <input type="text" id="calc-search" class="calc-search" placeholder="Search for an item...">
-    <!-- Suggestions dropdown -->
     <div id="suggestions" class="suggestions"></div>
     <div class="order-list"></div>
     <p class="total">Total: $<span class="total-price">0.00</span></p>
@@ -1020,13 +1017,12 @@
 
     // Menu and Order functionality
     const menuData = [];
-    // Gather menu items from all cards (each card may have multiple items)
     document.querySelectorAll('.card').forEach(card => {
       card.querySelectorAll('.menu-item').forEach(item => {
         const name = item.querySelector('h3').textContent.trim();
         const priceText = item.querySelector('.price').textContent.trim().replace('$', '').split(" ")[0];
         const price = parseFloat(priceText) || 0;
-        menuData.push({name, price});
+        menuData.push({ name, price });
       });
     });
 
@@ -1049,7 +1045,6 @@
       totalPriceEl.textContent = total.toFixed(2);
     }
 
-    // Show suggestions as user types
     searchInput.addEventListener('input', function() {
       const query = searchInput.value.trim().toLowerCase();
       suggestionsEl.innerHTML = '';
@@ -1069,7 +1064,6 @@
       });
     });
 
-    // Allow adding item via Enter if there is an exact match
     searchInput.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
         const query = searchInput.value.trim().toLowerCase();
@@ -1083,7 +1077,6 @@
       }
     });
 
-    // Remove item from order list
     orderList.addEventListener('click', function(e) {
       if (e.target.classList.contains('remove-btn')) {
         const idx = e.target.getAttribute('data-index');
