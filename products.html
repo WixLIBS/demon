@@ -86,7 +86,7 @@
       font-size: 2rem;
       color: var(--secondary);
     }
-    /* Grid container: 3 cards per row */
+    /* Grid container now with 3 columns per row and items aligned at the start */
     .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -94,6 +94,7 @@
       max-width: 1200px;
       margin: 0 auto 2rem;
       padding: 0 1rem;
+      align-items: start; /* Prevents items from stretching to equal row height */
     }
     .card {
       background: var(--card-bg);
@@ -120,7 +121,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
-    /* Allow title to wrap instead of clipping */
+    /* Allow text to wrap rather than being cut off */
     .menu-item h3 {
       font-size: 0.9rem;
       font-weight: 500;
@@ -913,7 +914,7 @@
     <div class="card" data-name="Sauce">
       <h2>Sauce</h2>
       <div class="menu-items">
-        <!-- Heat Levels -->
+        <!-- Each sauce option is now a separate menu item -->
         <div class="menu-item">
           <h3>Mild Sauce</h3>
           <div class="price">$5.00</div>
@@ -930,7 +931,6 @@
           <h3>Xtra Spicy Sauce</h3>
           <div class="price">$5.00</div>
         </div>
-        <!-- Butter Options -->
         <div class="menu-item">
           <h3>Garlic Butter</h3>
           <div class="price">$5.00</div>
@@ -1016,7 +1016,7 @@
     document.querySelectorAll('.card').forEach(card => {
       card.querySelectorAll('.menu-item').forEach(item => {
         const name = item.querySelector('h3').textContent.trim();
-        const priceText = item.querySelector('.price').textContent.trim().replace('$','').split(" ")[0];
+        const priceText = item.querySelector('.price').textContent.trim().replace('$', '').split(" ")[0];
         const price = parseFloat(priceText) || 0;
         menuData.push({name, price});
       });
@@ -1045,7 +1045,7 @@
     searchInput.addEventListener('input', function() {
       const query = searchInput.value.trim().toLowerCase();
       suggestionsEl.innerHTML = '';
-      if(query.length === 0) return;
+      if (query.length === 0) return;
       const matches = menuData.filter(item => item.name.toLowerCase().includes(query));
       matches.forEach(item => {
         const div = document.createElement('div');
@@ -1063,12 +1063,12 @@
 
     // Allow adding item via Enter if there is an exact match
     searchInput.addEventListener('keypress', function(e) {
-      if(e.key === 'Enter') {
+      if (e.key === 'Enter') {
         const query = searchInput.value.trim().toLowerCase();
         const found = menuData.find(item => item.name.toLowerCase() === query);
-        if(found) { 
-          order.push(found); 
-          updateOrder(); 
+        if (found) {
+          order.push(found);
+          updateOrder();
         }
         searchInput.value = '';
         suggestionsEl.innerHTML = '';
@@ -1077,7 +1077,7 @@
 
     // Remove item from order list
     orderList.addEventListener('click', function(e) {
-      if(e.target.classList.contains('remove-btn')) {
+      if (e.target.classList.contains('remove-btn')) {
         const idx = e.target.getAttribute('data-index');
         order.splice(idx, 1);
         updateOrder();
