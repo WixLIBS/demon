@@ -17,7 +17,7 @@
         --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         --transition: all 0.3s ease;
         --video-outline: 3px solid var(--secondary);
-        --gallery-overlay-bg: rgba(0, 0, 0, 0.7);
+        --gallery-overlay-bg: rgba(0, 0, 0, 0.6);
       }
       
       * {
@@ -126,16 +126,17 @@
       .page-header {
         padding: 10rem 0 4rem;
         text-align: center;
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://panapesca.com/wp-content/uploads/2022/03/shutterstock_1661871151.jpg") center/cover;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://s3.envato.com/files/348107488/03-5.jpg") center/cover;
         color: var(--white);
         margin-bottom: 4rem;
       }
       
+      /* Changed header title color for better contrast */
       .page-header h1 {
         font-size: 3.2rem;
         margin-bottom: 1.5rem;
         line-height: 1.2;
-        color: var(--secondary);
+        color: var(--light-blue);
         text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       }
       
@@ -262,11 +263,12 @@
       .filter-btn:hover {
         background-color: var(--secondary);
         color: var(--white);
-        box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+        box-shadow: 0 4px 8px rgba(230,57,70,0.3);
       }
       
       .gallery-container {
         display: grid;
+        /* Change aspect ratio to be more vertical using aspect-ratio property */
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 25px;
       }
@@ -278,48 +280,49 @@
         box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         cursor: pointer;
         transition: var(--transition);
-        height: 240px;
-      }
-      
-      .gallery-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        /* Use an aspect ratio that creates a vertical rectangle */
+        aspect-ratio: 2 / 3;
       }
       
       .gallery-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease;
+        transition: transform 0.5s ease, filter 0.5s ease;
       }
       
+      /* On hover, blur the image */
       .gallery-item:hover img {
+        filter: blur(4px);
         transform: scale(1.08);
       }
       
+      /* Overlay covers entire image with centered white text */
       .gallery-overlay {
         position: absolute;
-        bottom: 0;
+        top: 0;
         left: 0;
         width: 100%;
-        padding: 12px;
+        height: 100%;
         background: var(--gallery-overlay-bg);
         color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        transition: var(--transition);
         opacity: 0;
-        transform: translateY(10px);
+        transition: opacity 0.5s ease;
       }
       
       .gallery-item:hover .gallery-overlay {
         opacity: 1;
-        transform: translateY(0);
       }
       
       .gallery-title {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         font-weight: 500;
         margin: 0;
+        padding: 0 10px;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
       }
       
@@ -330,7 +333,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0,0,0,0.9);
         display: none;
         justify-content: center;
         align-items: center;
@@ -487,124 +490,118 @@
           <p class="section-subtitle">Visual Feast</p>
           <h2 class="section-title">Gallery</h2>
         </div>
-        
         <div class="gallery-filter">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="seafood">Seafood</button>
           <button class="filter-btn" data-filter="maincourses">Main Courses</button>
         </div>
-        
         <div class="gallery-container">
-          <!-- Seafood Category (unchanged) -->
+          <!-- Seafood Category -->
           <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Shrimp Scampi', 'Garlic butter shrimp scampi with white wine sauce')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImU0NGQ1YTg1LTE2ODAtMTFmMC05Y2Q4LTdhZTU2MzkyMTAxYiJ9.nmGhyiTC9o_q4RGVFNddHetNFbJts9jXHAqiVVUpZVE&h=e44d5a85-1680-11f0-9cd8-7ae56392101b" alt="Shrimp Scampi"/>
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImU0NGQ1YTg1LTE2ODAtMTFmMC05Y2Q4LTdhZTU2MzkyMTAxYiJ9.nmGhyiTC9o_q4RGVFNddHetNFbJts9jXHAqiVVUpZVE&h=e44d5a85-1680-11f0-9cd8-7ae56392101b" alt="Shrimp Scampi">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Shrimp Scampi</h3>
             </div>
           </div>
-          
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Platter', 'A selection of today's freshest catch')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImFhYzQ2ZTA3LTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.p1Pd1Bu-0PqIa8Y0xNVGENZVxRunrnQnUHh8i38rbcA&h=aac46e07-1681-11f0-9786-96d07a933552" alt="Fresh Seafood Platter"/>
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Platter', 'A selection of today’s freshest catch')">
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImFhYzQ2ZTA3LTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.p1Pd1Bu-0PqIa8Y0xNVGENZVxRunrnQnUHh8i38rbcA&h=aac46e07-1681-11f0-9786-96d07a933552" alt="Fresh Seafood Platter">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Fresh Seafood Platter</h3>
             </div>
           </div>
-          
           <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Grilled Fish', 'Fresh fish grilled to perfection')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjcyNzBmZGE1LTE2ODEtMTFmMC05Zjg4LTlhMzY5OTVkYTNjYyJ9.CJV01lms02_ypzfU2fLYu3JUJpVgD02oCBJBMx0Zib8&h=7270fda5-1681-11f0-9f88-9a36995da3cc" alt="Grilled Fish"/>
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjcyNzBmZGE1LTE2ODEtMTFmMC05Zjg4LTlhMzY5OTVkYTNjYyJ9.CJV01lms02_ypzfU2fLYu3JUJpVgD02oCBJBMx0Zib8&h=7270fda5-1681-11f0-9f88-9a36995da3cc" alt="Grilled Fish">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Grilled Fish</h3>
             </div>
           </div>
-          
           <!-- Main Courses Category -->
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Chicken n Steak Special', '')">
-            <img src="https://i.postimg.cc/GTpw19Zn/IMG-2884.jpg" alt="Chicken n Steak Special"/>
+            <img src="https://i.postimg.cc/GTpw19Zn/IMG-2884.jpg" alt="Chicken n Steak Special">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Chicken n Steak Special</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Keep what u got', '')">
-            <img src="https://i.postimg.cc/1nQsbmmy/IMG-2895.jpg" alt="Keep what u got"/>
+            <img src="https://i.postimg.cc/1nQsbmmy/IMG-2895.jpg" alt="Snow Crab Tray">
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Keep what u got</h3>
+              <h3 class="gallery-title">Snow Crab Tray #1</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Not Lobster Make it Seafood Takeout #1', '')">
-            <img src="https://i.postimg.cc/pyVtj1yc/IMG-2947.jpg" alt="Not Lobster Make it Seafood Takeout #1"/>
+            <img src="https://i.postimg.cc/pyVtj1yc/IMG-2947.jpg" alt="Not Lobster Make it Seafood Takeout #1">
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Not Lobster Make it Seafood Takeout #1</h3>
+              <h3 class="gallery-title">Seafood Takeout #1</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Seafood Takeout #2', '')">
-            <img src="https://i.postimg.cc/9rK3vmbs/IMG-2948.jpg" alt="Seafood Takeout #2"/>
+            <img src="https://i.postimg.cc/9rK3vmbs/IMG-2948.jpg" alt="Seafood Takeout #2">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Seafood Takeout #2</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Seafood Combo Tray #1', '')">
-            <img src="https://i.postimg.cc/Wqpjb5qK/IMG-2961.jpg" alt="Seafood Combo Tray #1"/>
+            <img src="https://i.postimg.cc/Wqpjb5qK/IMG-2961.jpg" alt="Seafood Combo Tray #1">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Seafood Combo Tray #1</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Shrimp n Short Rib Fried Rice #1', '')">
-            <img src="https://i.postimg.cc/fJwQxqLg/IMG-3078.jpg" alt="Shrimp n Short Rib Fried Rice #1"/>
+            <img src="https://i.postimg.cc/fJwQxqLg/IMG-3078.jpg" alt="Shrimp n Short Rib Fried Rice #1">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Shrimp n Short Rib Fried Rice #1</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Shrimp n Short Rib Fried Rice #2', '')">
-            <img src="https://i.postimg.cc/XGQmx4XH/IMG-3079.jpg" alt="Shrimp n Short Rib Fried Rice #2"/>
+            <img src="https://i.postimg.cc/XGQmx4XH/IMG-3079.jpg" alt="Shrimp n Short Rib Fried Rice #2">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Shrimp n Short Rib Fried Rice #2</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Shrimp n Short Rib Fried Rice #3', '')">
-            <img src="https://i.postimg.cc/f3XMHthH/IMG-3080.jpg" alt="Shrimp n Short Rib Fried Rice #3"/>
-                        <div class="gallery-overlay">
+            <img src="https://i.postimg.cc/f3XMHthH/IMG-3080.jpg" alt="Shrimp n Short Rib Fried Rice #3">
+            <div class="gallery-overlay">
               <h3 class="gallery-title">Shrimp n Short Rib Fried Rice #3</h3>
             </div>
           </div>
-          <!-- Continue with remaining Main Courses items -->
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Lobster Tail Tray #1', '')">
-            <img src="https://i.postimg.cc/xXMZhKcb/IMG-3088.jpg" alt="Lobster Tail Tray #1"/>
+            <img src="https://i.postimg.cc/xXMZhKcb/IMG-3088.jpg" alt="Lobster Tail Tray #1">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Lobster Tail Tray #1</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Lobster Tail Tray #2', '')">
-            <img src="https://i.postimg.cc/PpQTjgJY/IMG-3090.jpg" alt="Lobster Tail Tray #2"/>
+            <img src="https://i.postimg.cc/PpQTjgJY/IMG-3090.jpg" alt="Lobster Tail Tray #2">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Lobster Tail Tray #2</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Homemade Pork and Rice', '')">
-            <img src="https://i.postimg.cc/JsH8nDt1/IMG-3284.jpg" alt="Homemade Pork and Rice"/>
+            <img src="https://i.postimg.cc/JsH8nDt1/IMG-3284.jpg" alt="Homemade Pork and Rice">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Homemade Pork and Rice</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Short Ribs and Rice', '')">
-            <img src="https://i.postimg.cc/Dmwt0JYt/IMG-3285.jpg" alt="Short Ribs and Rice"/>
+            <img src="https://i.postimg.cc/Dmwt0JYt/IMG-3285.jpg" alt="Short Ribs and Rice">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Short Ribs and Rice</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Signature Sandwiches', '')">
-            <img src="https://i.postimg.cc/nMdfGYDF/IMG-3348.jpg" alt="Signature Sandwiches"/>
+            <img src="https://i.postimg.cc/nMdfGYDF/IMG-3348.jpg" alt="Signature Sandwiches">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Signature Sandwiches</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Chef’s Special', '')">
-            <img src="https://i.postimg.cc/fkq19zGk/IMG-3368.jpg" alt="Chef’s Special"/>
+            <img src="https://i.postimg.cc/fkq19zGk/IMG-3368.jpg" alt="Chef’s Special">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Chef’s Special</h3>
             </div>
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Fish Combo #1', '')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjBmNTgzNjAyLTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.5IVaZ8calWpsNEl1MBrEa5EV_zcyP2JkXRha2uCqw98&h=0f583602-1681-11f0-9786-96d07a933552" alt="Fish Combo #1"/>
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjBmNTgzNjAyLTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.5IVaZ8calWpsNEl1MBrEa5EV_zcyP2JkXRha2uCqw98&h=0f583602-1681-11f0-9786-96d07a933552" alt="Fish Combo #1">
             <div class="gallery-overlay">
               <h3 class="gallery-title">Fish Combo #1</h3>
             </div>
