@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NY Seafood - Menu & Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - New York Seafood</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -17,6 +17,8 @@
       --blur: 10px;
       --transition: 0.3s ease-in-out;
       --border-radius: 12px;
+      /* Calculator background: semi-transparent gray */
+      --calc-bg: rgba(128, 128, 128, 0.85);
     }
     * {
       margin: 0;
@@ -97,8 +99,6 @@
       padding: 1.5rem;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       transition: transform var(--transition);
-      display: flex;
-      flex-direction: column;
       overflow: hidden;
     }
     .card:hover {
@@ -111,46 +111,47 @@
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
+    /* Container to hold all menu items inside a card in a grid with 3 columns */
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
     .menu-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px;
+      border-radius: 8px;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .menu-item:last-child {
-      border-bottom: none;
-    }
-    .menu-item > div {
-      flex: 1;
     }
     .menu-item h3 {
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 500;
+      margin-bottom: 4px;
+      text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .menu-item .price {
-      color: var(--secondary);
-      font-weight: 600;
-      margin-left: 0.5rem;
     }
     .menu-item p {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #ccc;
-      margin-left: 0.5rem;
+      margin-bottom: 4px;
     }
-    /* Calculator container (enlarged, rounded, cleaner) */
+    .menu-item .price {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      font-weight: 600;
+      text-align: right;
+    }
+    /* Calculator container (positioned top-right, cleaner and with a gray background) */
     .calc-container {
       position: fixed;
       top: 80px;
       right: 20px;
       width: 320px;
       padding: 1rem;
-      background: var(--card-bg);
-      backdrop-filter: blur(var(--blur));
+      background: var(--calc-bg);
       border-radius: var(--border-radius);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       z-index: 3000;
@@ -251,763 +252,668 @@
     <!-- Appetizers Card -->
     <div class="card" data-name="Appetizers">
       <h2>Appetizers</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>CRAB RANGOONS</h3>
-          <p>Crispy wonton wrappers with crab and cheese.</p>
+          <p>Crispy wonton wrappers with crab & cheese.</p>
+          <div class="price">$5.95</div>
         </div>
-        <span class="price">$5.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CHICKEN TENDERS</h3>
           <p>Served with french fries.</p>
+          <div class="price">$8.99</div>
         </div>
-        <span class="price">$8.99</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>WINGS</h3>
           <p>6 pcs $9.95 / 12 pcs $17.95</p>
+          <div class="price">Varies</div>
         </div>
-        <span class="price">Varies</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>FRIED PICKLES</h3>
           <p>Beer‑battered dill pickles.</p>
+          <div class="price">$6.00</div>
         </div>
-        <span class="price">$6.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>MAC 'N' CHEESE BITES</h3>
-          <p>Fried bite‑sized macaroni and cheese.</p>
+          <p>Fried bite‑sized macaroni & cheese.</p>
+          <div class="price">$6.00</div>
         </div>
-        <span class="price">$6.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>ONION RINGS</h3>
           <p>Thick, crispy rings.</p>
+          <div class="price">$6.00</div>
         </div>
-        <span class="price">$6.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>HUSH PUPPIES</h3>
           <p>8 pcs $4.00</p>
+          <div class="price">$4.00</div>
         </div>
-        <span class="price">$4.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>FRIED PLANTAINS</h3>
           <p>Sweet fried plantains.</p>
+          <div class="price">$4.00</div>
         </div>
-        <span class="price">$4.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>GARLIC BREADSTICKS</h3>
           <p>Garlic butter breadsticks.</p>
+          <div class="price">$5.95</div>
         </div>
-        <span class="price">$5.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>FRIED CALAMARI</h3>
           <p>Lightly battered calamari rings.</p>
+          <div class="price">$10.00</div>
         </div>
-        <span class="price">$10.00</span>
       </div>
     </div>
+
     <!-- Soup Card -->
     <div class="card" data-name="Soup">
       <h2>Soup</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>EGGDROP</h3>
           <p>Silky egg drop soup.</p>
+          <div class="price">$5.00</div>
         </div>
-        <span class="price">$5.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>LOBSTER BISQUE</h3>
-          <p>Rich and creamy bisque.</p>
+          <p>Rich & creamy bisque.</p>
+          <div class="price">$5.00</div>
         </div>
-        <span class="price">$5.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SHRIMP CORN CHOWDER</h3>
-          <p>Chowder with shrimp and corn.</p>
+          <p>Chowder with shrimp & corn.</p>
+          <div class="price">$5.00</div>
         </div>
-        <span class="price">$5.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CLAM CHOWDER</h3>
           <p>Creamy clam chowder.</p>
+          <div class="price">$5.00</div>
         </div>
-        <span class="price">$5.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SCALLOP CHOWDER</h3>
           <p>Chowder with bay scallops.</p>
+          <div class="price">$6.00</div>
         </div>
-        <span class="price">$6.00</span>
       </div>
     </div>
+
     <!-- Salads Card -->
     <div class="card" data-name="Salads">
       <h2>Salads</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>GRILLED CHICKEN</h3>
-          <p>Romaine topped with grilled chicken, croutons & dressing.</p>
+          <p>Romaine w/ grilled chicken, croutons & dressing.</p>
+          <div class="price">$10.00</div>
         </div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>GRILLED SHRIMP</h3>
-          <p>Romaine with grilled shrimp, tomatoes & croutons.</p>
+          <p>Romaine w/ grilled shrimp, tomatoes & croutons.</p>
+          <div class="price">$10.00</div>
         </div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CHICKEN TENDER SALAD</h3>
-          <p>Crispy chicken tenders over lettuce, tomatoes & cheese.</p>
+          <p>Crispy chicken tenders on lettuce, tomatoes & cheese.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
       </div>
     </div>
+
     <!-- Fish & Shrimp Card -->
     <div class="card" data-name="Fish & Shrimp">
       <h2>Fish & Shrimp</h2>
       <p style="font-size:0.9rem; margin-bottom:0.8rem;">served with french fries</p>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>6 PCS FISH + 6 PCS SHRIMP</h3>
           <p>Choose Tilapia, Basa or Catfish.</p>
+          <div class="price">$13.95</div>
         </div>
-        <span class="price">$13.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>FRIED/BLACKENED SHRIMP</h3>
           <p>10 pcs $13.00 / 20 pcs $24.00</p>
+          <div class="price">Varies</div>
         </div>
-        <span class="price">Varies</span>
       </div>
     </div>
+
     <!-- Chef's Special Card -->
     <div class="card" data-name="Chefs Special">
       <h2>Chef's Special</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>BEEF SHORT-RIBS</h3>
-          <p>Grilled Teriyaki short ribs with 2 sides (mashed, rice, broccoli, asparagus or plantains).</p>
+          <p>Grilled Teriyaki short ribs with 2 sides.</p>
+          <div class="price">$17.99</div>
         </div>
-        <span class="price">$17.99</span>
       </div>
     </div>
+
     <!-- Chicken Wraps Card -->
     <div class="card" data-name="Chicken Wraps">
       <h2>Chicken Wraps</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>CHICKEN CAESAR</h3>
-          <p>Chicken, romaine, parmesan & Caesar dressing in a tortilla.</p>
+          <p>Chicken, romaine, parmesan & Caesar dressing.</p>
+          <div class="price">$10.00</div>
         </div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>ORIGINAL CHICKEN</h3>
-          <p>Chicken, lettuce, tomatoes & ranch in a tortilla.</p>
+          <p>Chicken, lettuce, tomatoes & ranch.</p>
+          <div class="price">$10.00</div>
         </div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SPICY CHICKEN</h3>
-          <p>Chicken with lettuce, tomatoes & spicy buffalo ranch in a tortilla.</p>
+          <p>Chicken w/ lettuce, tomatoes & spicy buffalo ranch.</p>
+          <div class="price">$10.00</div>
         </div>
-        <span class="price">$10.00</span>
       </div>
     </div>
+
     <!-- Sandwiches Card -->
     <div class="card" data-name="Sandwiches">
       <h2>Sandwiches</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>SANDWICHES</h3>
           <p>Includes lettuce, tomatoes, pickles & mayo. Served with fries.</p>
+          <div class="price"></div>
         </div>
-        <span class="price"></span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>FISH*</h3>
           <p>Choose Tilapia, Basa or Catfish.</p>
+          <div class="price">$8.00</div>
         </div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>GROUPER</h3>
           <p>Classic grouper sandwich.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CLUB</h3>
-          <p>Club sandwich with chicken, bacon, lettuce & tomato.</p>
+          <p>Club sandwich w/ chicken, bacon, lettuce & tomato.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CHICKEN</h3>
           <p>Simple chicken sandwich.</p>
+          <div class="price">$7.00</div>
         </div>
-        <span class="price">$7.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SOFT-SHELL CRAB</h3>
           <p>Deep-fried soft-shell crab on a bun.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
       </div>
     </div>
+
     <!-- Fish Card -->
     <div class="card" data-name="Fish">
       <h2>Fish</h2>
       <p style="font-size:0.9rem; margin-bottom:0.8rem;">deep fried or blackened, served with 2 sides</p>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>SALMON</h3>
           <p>Fresh salmon fillet.</p>
+          <div class="price">$16.95</div>
         </div>
-        <span class="price">$16.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>GROUPER</h3>
           <p>Flavorful grouper.</p>
+          <div class="price">$17.95</div>
         </div>
-        <span class="price">$17.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>TILAPIA</h3>
           <p>Mild, flaky tilapia.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CATFISH NUGGETS</h3>
           <p>(deep fried only)</p>
+          <div class="price">$11.95</div>
         </div>
-        <span class="price">$11.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>BASA</h3>
           <p>Lightly seasoned fried Basa.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
       </div>
     </div>
+
     <!-- Pasta Card -->
     <div class="card" data-name="Pasta">
       <h2>Pasta</h2>
       <p style="font-size:0.9rem; margin-bottom:0.8rem;">Add bread sticks for $3.00</p>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>SHRIMP SCAMPI</h3>
           <p>Garlic butter shrimp over pasta.</p>
+          <div class="price">$13.99</div>
         </div>
-        <span class="price">$13.99</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>LEMON GARLIC SCALLOP</h3>
           <p>Scallops in garlic butter over linguine.</p>
+          <div class="price">$15.99</div>
         </div>
-        <span class="price">$15.99</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CHICKEN ALFREDO</h3>
           <p>Grilled chicken over penne in Alfredo sauce.</p>
+          <div class="price">$9.95</div>
         </div>
-        <span class="price">$9.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CAJUN SHRIMP ALFREDO</h3>
           <p>Grilled shrimp in Cajun Alfredo over penne.</p>
+          <div class="price">$10.95</div>
         </div>
-        <span class="price">$10.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>BLACKENED SALMON ALFREDO</h3>
           <p>Blackened salmon over creamy Alfredo with penne & broccoli.</p>
+          <div class="price">$18.99</div>
         </div>
-        <span class="price">$18.99</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>CONCH ALFREDO</h3>
           <p>Creamy Alfredo with tender conch over penne.</p>
+          <div class="price">$15.00</div>
         </div>
-        <span class="price">$15.00</span>
       </div>
     </div>
+
     <!-- Sides Card -->
     <div class="card" data-name="Sides">
       <h2>Sides</h2>
-      <div class="menu-item">
-        <div><h3>CORN</h3></div>
-        <span class="price">$2.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>POTATO</h3></div>
-        <span class="price">$2.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>SAUSAGE</h3></div>
-        <span class="price">$3.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>EGGS</h3></div>
-        <span class="price">$2 for 3.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>BROCCOLI</h3></div>
-        <span class="price">$3.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>MUSHROOM</h3></div>
-        <span class="price">$2.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>PEANUTS</h3></div>
-        <span class="price">$4.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>SMOKED NECKBONES</h3></div>
-        <span class="price">$4.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>FRENCH FRIES</h3></div>
-        <span class="price">$3.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>STEAMED RICE</h3></div>
-        <span class="price">$2.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>RAMEN</h3></div>
-        <span class="price">$2.50</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>MASHED POTATOES</h3></div>
-        <span class="price">$4.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>ASPARAGUS</h3></div>
-        <span class="price">$4.00</span>
+      <div class="menu-items">
+        <div class="menu-item">
+          <h3>CORN</h3>
+          <div class="price">$2.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>POTATO</h3>
+          <div class="price">$2.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>SAUSAGE</h3>
+          <div class="price">$3.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>EGGS</h3>
+          <div class="price">$2 for 3.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>BROCCOLI</h3>
+          <div class="price">$3.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>MUSHROOM</h3>
+          <div class="price">$2.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>PEANUTS</h3>
+          <div class="price">$4.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>SMOKED NECKBONES</h3>
+          <div class="price">$4.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>FRENCH FRIES</h3>
+          <div class="price">$3.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>STEAMED RICE</h3>
+          <div class="price">$2.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>RAMEN</h3>
+          <div class="price">$2.50</div>
+        </div>
+        <div class="menu-item">
+          <h3>MASHED POTATOES</h3>
+          <div class="price">$4.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>ASPARAGUS</h3>
+          <div class="price">$4.00</div>
+        </div>
       </div>
     </div>
+
     <!-- Drinks Card -->
     <div class="card" data-name="Drinks">
       <h2>Drinks</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>LEMONADE</h3>
           <p>free refill</p>
+          <div class="price">$3.50</div>
         </div>
-        <span class="price">$3.50</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>ICE TEA</h3>
           <p>free refill</p>
+          <div class="price">$3.50</div>
         </div>
-        <span class="price">$3.50</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>HOT TEA</h3>
           <p>free refill</p>
+          <div class="price">$2.50</div>
         </div>
-        <span class="price">$2.50</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>LIMADE</h3></div>
-        <span class="price">$3.99</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
+          <h3>LIMADE</h3>
+          <div class="price">$3.99</div>
+        </div>
+        <div class="menu-item">
           <h3>FLAVORED LEMONADE</h3>
           <p>no refill</p>
+          <div class="price">$4.50</div>
         </div>
-        <span class="price">$4.50</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>PINEAPPLE JUICE</h3></div>
-        <span class="price">$3.50</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>CRANBERRY JUICE</h3></div>
-        <span class="price">$3.50</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>ORANGE JUICE</h3></div>
-        <span class="price">$3.99</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>APPLE JUICE</h3></div>
-        <span class="price">$3.99</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>MANGO JUICE</h3></div>
-        <span class="price">$3.99</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>THAI TEA</h3></div>
-        <span class="price">$4.50</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>MATCHA LATTE</h3></div>
-        <span class="price">$4.50</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>SODA</h3></div>
-        <span class="price">$2.00</span>
+        <div class="menu-item">
+          <h3>PINEAPPLE JUICE</h3>
+          <div class="price">$3.50</div>
+        </div>
+        <div class="menu-item">
+          <h3>CRANBERRY JUICE</h3>
+          <div class="price">$3.50</div>
+        </div>
+        <div class="menu-item">
+          <h3>ORANGE JUICE</h3>
+          <div class="price">$3.99</div>
+        </div>
+        <div class="menu-item">
+          <h3>APPLE JUICE</h3>
+          <div class="price">$3.99</div>
+        </div>
+        <div class="menu-item">
+          <h3>MANGO JUICE</h3>
+          <div class="price">$3.99</div>
+        </div>
+        <div class="menu-item">
+          <h3>THAI TEA</h3>
+          <div class="price">$4.50</div>
+        </div>
+        <div class="menu-item">
+          <h3>MATCHA LATTE</h3>
+          <div class="price">$4.50</div>
+        </div>
+        <div class="menu-item">
+          <h3>SODA</h3>
+          <div class="price">$2.00</div>
+        </div>
       </div>
     </div>
+
     <!-- Side Specials Card -->
     <div class="card" data-name="Side Specials">
       <h2>Side Specials</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>ANDY SPECIAL</h3>
           <p>4 sausages, 2 corns, 2 potatoes.</p>
+          <div class="price">$15.00</div>
         </div>
-        <span class="price">$15.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>PEANUT TRAY</h3>
           <p>Peanuts, 5 shrimps, potato, sausage, corn &amp; egg.</p>
+          <div class="price">$18.00</div>
         </div>
-        <span class="price">$18.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>HAPPY TRAY #1</h3>
           <p>Neckbones, 3 shrimps, 4 eggs, potato &amp; sausage.</p>
+          <div class="price">$14.00</div>
         </div>
-        <span class="price">$14.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>HAPPY TRAY #2</h3>
           <p>4 eggs, potato &amp; sausage.</p>
+          <div class="price">$10.00</div>
         </div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>HAPPY TRAY #3</h3>
           <p>Peanuts, 2 eggs &amp; potato.</p>
+          <div class="price">$8.00</div>
         </div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>HAPPY TRAY #4</h3>
           <p>3 Wings, potato &amp; sausage.</p>
+          <div class="price">$8.00</div>
         </div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>HAPPY TRAY #5</h3>
           <p>Broccoli, egg, potato &amp; sausage.</p>
+          <div class="price">$8.00</div>
         </div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>LYNN'S SPECIAL</h3>
           <p>Neckbones, 3 shrimps, potato &amp; sausage. Upgrade additional $6.</p>
+          <div class="price">$8.00</div>
         </div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>LARGE NECKBONE TRAY</h3>
           <p>Neckbones, potato, sausage &amp; corn.</p>
+          <div class="price">$15.95</div>
         </div>
-        <span class="price">$15.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>DAILY SPECIAL #1</h3>
           <p>Neckbones, 3 shrimps, black mussels, potato &amp; sausage. Upgrade Green Mussel $4.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>RAMEN #1</h3>
           <p>Ramen, 3 shrimps &amp; 1 egg.</p>
+          <div class="price">$5.00</div>
         </div>
-        <span class="price">$5.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>RAMEN #2</h3>
           <p>Ramen, neckbones, egg, potato &amp; sausage.</p>
+          <div class="price">$12.00</div>
         </div>
-        <span class="price">$12.00</span>
       </div>
     </div>
+
     <!-- Dungeness Crab Trays Card -->
     <div class="card" data-name="Dungeness Crab Trays">
       <h2>Dungeness Crab Trays</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>DC #1</h3>
           <p>1/2 lb Dungeness crab &amp; 1/2 lb shrimp.</p>
+          <div class="price">$35.00</div>
         </div>
-        <span class="price">$35.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>DC #2</h3>
           <p>1/2 lb Dungeness crab, 1/2 shrimp &amp; 1/2 lb black mussels.</p>
+          <div class="price">$40.00</div>
         </div>
-        <span class="price">$40.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>DC #3</h3>
           <p>1/2 lb Dungeness crab, 1 lobster tail &amp; 1/2 lb shrimp.</p>
+          <div class="price">$50.00</div>
         </div>
-        <span class="price">$50.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>DC #4</h3>
           <p>1 lb Dungeness crab &amp; 1/2 lb shrimp.</p>
+          <div class="price">$60.00</div>
         </div>
-        <span class="price">$60.00</span>
       </div>
     </div>
+
     <!-- Seafood Add On Card -->
     <div class="card" data-name="Seafood Add On">
       <h2>Seafood Add On</h2>
-      <div class="menu-item">
-        <div><h3>1/2 LB SHRIMP</h3></div>
-        <span class="price">$9.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB GREEN MUSSEL</h3></div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB BLACK MUSSEL</h3></div>
-        <span class="price">$9.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB CRAWFISH</h3></div>
-        <span class="price">$9.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1 LB BABY CLAMS</h3></div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB SNOWCRAB</h3></div>
-        <span class="price">$15.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB DUNGENESS CRAB</h3></div>
-        <span class="price">$25.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB CONCH MEAT</h3></div>
-        <span class="price">$15.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>LOBSTERTAIL</h3></div>
-        <span class="price">$18.00 each</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB SCALLOP PIECES</h3></div>
-        <span class="price">$15.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>1/2 LB CALAMARI</h3></div>
-        <span class="price">$10.00</span>
+      <div class="menu-items">
+        <div class="menu-item">
+          <h3>1/2 LB SHRIMP</h3>
+          <div class="price">$9.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB GREEN MUSSEL</h3>
+          <div class="price">$10.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB BLACK MUSSEL</h3>
+          <div class="price">$9.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB CRAWFISH</h3>
+          <div class="price">$9.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1 LB BABY CLAMS</h3>
+          <div class="price">$10.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB SNOWCRAB</h3>
+          <div class="price">$15.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB DUNGENESS CRAB</h3>
+          <div class="price">$25.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB CONCH MEAT</h3>
+          <div class="price">$15.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>LOBSTERTAIL</h3>
+          <div class="price">$18.00 each</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB SCALLOP PIECES</h3>
+          <div class="price">$15.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>1/2 LB CALAMARI</h3>
+          <div class="price">$10.00</div>
+        </div>
       </div>
     </div>
+
     <!-- Snowcrab Trays Card -->
     <div class="card" data-name="Snowcrab Trays">
       <h2>Snowcrab Trays</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>1 SNOWCRAB CLUSTER</h3>
           <p>Includes potato &amp; sausage.</p>
+          <div class="price">sm $10.00 / med $13.95 / lg $16.95</div>
         </div>
-        <span class="price">sm $10.00 / med $13.95 / lg $16.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>2 SNOWCRAB CLUSTERS</h3>
           <p>Includes potato &amp; sausage.</p>
+          <div class="price">sm $18.95 / med $23.95 / lg $28.95</div>
         </div>
-        <span class="price">sm $18.95 / med $23.95 / lg $28.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>3 SNOWCRAB CLUSTERS</h3>
           <p>Includes potato &amp; sausage.</p>
+          <div class="price">sm $28.00 / med $32.00 / lg $36.00</div>
         </div>
-        <span class="price">sm $28.00 / med $32.00 / lg $36.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>4 SNOWCRAB CLUSTERS</h3>
           <p>Includes 2 eggs, corn, potato &amp; sausage.</p>
+          <div class="price">sm+med $42.00 / lg $54.00</div>
         </div>
-        <span class="price">sm+med $42.00 / lg $54.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>6 SNOWCRAB CLUSTERS</h3>
           <p>Includes broccoli, potato &amp; sausage.</p>
+          <div class="price">sm $60.00 / lg $75.00</div>
         </div>
-        <span class="price">sm $60.00 / lg $75.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>NEW YORK SPECIAL</h3>
           <p>1/2 lb Snowcrab, 1/2 lb Dungeness crab, 1/2 lb shrimp, 1/2 lb green mussels, 1 lobster tail, corn, potato &amp; sausages.</p>
+          <div class="price">$75.00</div>
         </div>
-        <span class="price">$75.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SEAFOOD COMBO</h3>
           <p>1 Snowcrab cluster, 8 pcs black mussels, 4 pcs green mussels, 5 shrimp, corn, potato &amp; sausage.</p>
+          <div class="price">$28.00</div>
         </div>
-        <span class="price">$28.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SNOWCRAB &amp; SHRIMP #1</h3>
           <p>1 Snowcrab cluster, 5 shrimp with corn, potato &amp; sausage.</p>
+          <div class="price">$18.95</div>
         </div>
-        <span class="price">$18.95</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SNOWCRAB &amp; SHRIMP #2</h3>
           <p>2 Snowcrab clusters, 10 shrimps with 2 corn, 2 potatoes &amp; 2 sausages.</p>
+          <div class="price">$35.00</div>
         </div>
-        <span class="price">$35.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SNOWCRAB &amp; LOBSTER TAIL #1</h3>
           <p>1 Snowcrab cluster, 1 lobster tail with potato &amp; sausage.</p>
+          <div class="price">$30.00</div>
         </div>
-        <span class="price">$30.00</span>
-      </div>
-      <div class="menu-item">
-        <div>
+        <div class="menu-item">
           <h3>SNOWCRAB &amp; LOBSTER TAIL #2</h3>
           <p>2 Snowcrab clusters, 1 lobster tail with 2 potato &amp; 2 sausages.</p>
+          <div class="price">$42.00</div>
         </div>
-        <span class="price">$42.00</span>
       </div>
     </div>
+
     <!-- Asian Cuisine Card -->
     <div class="card" data-name="Asian Cuisine">
       <h2>Asian Cuisine</h2>
-      <div class="menu-item">
-        <div><h3>LOMIEN</h3></div>
-        <span class="price">$9.95</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>FRIED RICE</h3></div>
-        <span class="price">$9.95</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>HOUSE LOMIEN OR FRIED RICE</h3></div>
-        <span class="price">$15.95</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>SHRIMP BROCCOLI</h3></div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>BEEF BROCCOLI</h3></div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>CHICKEN BROCCOLI</h3></div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>PEPPER STEAK</h3></div>
-        <span class="price">$10.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>CHICKEN CURRY</h3></div>
-        <span class="price">$8.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>SWEET &amp; SOUR</h3></div>
-        <span class="price">Shrimp $8.00, Chicken $8.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>WINGS &amp; SHRIMP FRIED RICE</h3></div>
-        <span class="price">$14.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>GENERAL TSO / CHICKEN &amp; SHRIMP FRIED RICE</h3></div>
-        <span class="price">$14.00</span>
-      </div>
-      <div class="menu-item">
-        <div><h3>TERIYAKI CHICKEN &amp; SHRIMP FRIED RICE</h3></div>
-        <span class="price">$14.00</span>
+      <div class="menu-items">
+        <div class="menu-item">
+          <h3>LOMIEN</h3>
+          <div class="price">$9.95</div>
+        </div>
+        <div class="menu-item">
+          <h3>FRIED RICE</h3>
+          <div class="price">$9.95</div>
+        </div>
+        <div class="menu-item">
+          <h3>HOUSE LOMIEN OR FRIED RICE</h3>
+          <div class="price">$15.95</div>
+        </div>
+        <div class="menu-item">
+          <h3>SHRIMP BROCCOLI</h3>
+          <div class="price">$8.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>BEEF BROCCOLI</h3>
+          <div class="price">$10.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>CHICKEN BROCCOLI</h3>
+          <div class="price">$8.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>PEPPER STEAK</h3>
+          <div class="price">$10.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>CHICKEN CURRY</h3>
+          <div class="price">$8.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>SWEET &amp; SOUR</h3>
+          <p>Shrimp $8.00, Chicken $8.00</p>
+          <div class="price"></div>
+        </div>
+        <div class="menu-item">
+          <h3>WINGS &amp; SHRIMP FRIED RICE</h3>
+          <div class="price">$14.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>GENERAL TSO / CHICKEN &amp; SHRIMP FRIED RICE</h3>
+          <div class="price">$14.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>TERIYAKI CHICKEN &amp; SHRIMP FRIED RICE</h3>
+          <div class="price">$14.00</div>
+        </div>
       </div>
     </div>
+
     <!-- Sauce Card -->
     <div class="card" data-name="Sauce">
       <h2>Sauce</h2>
-      <div class="menu-item">
-        <div>
+      <div class="menu-items">
+        <div class="menu-item">
           <h3>SAUCE</h3>
           <p>Choose: Mild, Medium, Spicy or Xtra Spicy. Options: Garlic Butter, Cajun Butter, Garlic Lemon Pepper, Garlic &amp; Onion Butter, Clear Butter, Creamy Garlic Butter, House Sauce.</p>
+          <div class="price">$5.00</div>
         </div>
-        <span class="price">$5.00</span>
       </div>
     </div>
   </div>
@@ -1115,9 +1021,9 @@
       if(e.key === 'Enter') {
         const query = searchInput.value.trim().toLowerCase();
         const found = menuData.find(item => item.name.toLowerCase() === query);
-        if(found) {
-          order.push(found);
-          updateOrder();
+        if(found) { 
+          order.push(found); 
+          updateOrder(); 
         }
         searchInput.value = '';
         suggestionsEl.innerHTML = '';
