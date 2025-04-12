@@ -86,7 +86,7 @@
       font-size: 2rem;
       color: var(--secondary);
     }
-    /* Grid container: 3 cards per row using row dense flow */
+    /* Grid container: 3 cards per row with row dense auto-filling */
     .grid-container {
       display: grid;
       grid-template-columns: repeat(3, minmax(250px, 1fr));
@@ -107,6 +107,8 @@
       transition: transform var(--transition);
       overflow: hidden;
       width: 100%;
+      /* Set a minimum height to make all cards more uniform */
+      min-height: 300px;
     }
     .card:hover {
       transform: translateY(-5px);
