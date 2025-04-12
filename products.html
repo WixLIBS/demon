@@ -1,193 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NY Seafood - Menu & Calculator</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --primary: #191970;
-    --secondary: #e63946;
-    --accent: rgba(0, 0, 0, 0.6);
-    --highlight: #001f3f;
-    --text: #fff;
-    --card-bg: rgba(25, 25, 112, 0.6);
-    --blur: 10px;
-    --transition: 0.3s ease-in-out;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: url('https://www.wallpapergap.com/cdn/24/221/animated-koi-fish-wallpaper-1920x1080.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--text);
-    padding-top: 70px;
-  }
-  header {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 70px;
-    background: var(--secondary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    z-index: 2000;
-  }
-  header .logo {
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--text);
-    text-decoration: none;
-  }
-  nav a {
-    color: var(--text);
-    text-decoration: none;
-    margin-left: 1.2rem;
-    font-weight: 500;
-    transition: var(--transition);
-  }
-  nav a:hover { color: var(--highlight); }
-  .page-header {
-    text-align: center;
-    margin: 1rem 0 1.5rem;
-  }
-  .page-header h1 {
-    font-size: 2rem;
-    color: var(--secondary);
-  }
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    max-width: 1200px;
-    margin: 0 auto 2rem;
-    padding: 0 1rem;
-  }
-  .card {
-    background: var(--card-bg);
-    backdrop-filter: blur(var(--blur));
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform var(--transition);
-    display: flex;
-    flex-direction: column;
-    min-height: auto;
-  }
-  .card:hover { transform: translateY(-5px); }
-  .card h2 {
-    font-size: 1.3rem;
-    color: var(--secondary);
-    border-bottom: 2px solid var(--secondary);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  .menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-  }
-  .menu-item:last-child { border-bottom: none; }
-  .menu-item > div { flex: 1; }
-  .menu-item h3 {
-    font-size: 1rem;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .menu-item .price {
-    color: var(--secondary);
-    font-weight: 600;
-    margin-left: 0.5rem;
-  }
-  .menu-item p { font-size: 0.9rem; color: #ccc; margin-left: 0.5rem; }
-  .calc-container {
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    padding: 1rem;
-    background: var(--card-bg);
-    backdrop-filter: blur(var(--blur));
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  }
-  .calc-container h2 {
-    margin-bottom: 1rem;
-    color: var(--secondary);
-    font-size: 1.4rem;
-  }
-  .calc-search {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-  }
-  .order-list { margin-bottom: 1rem; }
-  .order-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-  }
-  .remove-btn {
-    background: transparent;
-    border: none;
-    color: var(--highlight);
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  .total { font-size: 1.1rem; font-weight: 600; }
-  @media (max-width: 800px) {
-    .grid-container { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 500px) {
-    .grid-container { grid-template-columns: 1fr; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NY Seafood - Menu & Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #191970;
+      --secondary: #e63946;
+      --accent: rgba(0, 0, 0, 0.6);
+      --highlight: #001f3f;
+      --text: #fff;
+      /* Updated card background to a semi-transparent black */
+      --card-bg: rgba(0, 0, 0, 0.7);
+      --blur: 10px;
+      --transition: 0.3s ease-in-out;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://www.wallpapergap.com/cdn/24/221/animated-koi-fish-wallpaper-1920x1080.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text);
+      padding-top: 70px;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 70px;
+      background: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      z-index: 2000;
+    }
+    /* Adjust header so that a view count can sit in the middle */
+    header .logo { 
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      flex: 1;
+    }
+    header #viewCount {
+      text-align: center;
+      flex: 1;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    header nav {
+      flex: 1;
+      text-align: right;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 1.2rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    nav a:hover { color: var(--highlight); }
+    .page-header {
+      text-align: center;
+      margin: 1rem 0 1.5rem;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      color: var(--secondary);
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(var(--blur));
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform var(--transition);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; /* Cut off extra space if items don't fill card */
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card h2 {
+      font-size: 1.3rem;
+      color: var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item > div { flex: 1; }
+    .menu-item h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .menu-item .price {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+    .menu-item p { font-size: 0.9rem; color: #ccc; margin-left: 0.5rem; }
+    /* Calculator container positioned top right */
+    .calc-container {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      max-width: 300px;
+      padding: 1rem;
+      background: var(--card-bg);
+      backdrop-filter: blur(var(--blur));
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      z-index: 2000;
+    }
+    .calc-container h2 {
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      font-size: 1.4rem;
+    }
+    .calc-search {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    /* Suggestions dropdown styling */
+    .suggestions {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      margin-bottom: 0.5rem;
+    }
+    .suggestion-item {
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+    .suggestion-item:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    /* Order list now horizontal */
+    .order-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .order-item {
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem 0.8rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .order-item button.remove-btn {
+      background: transparent;
+      border: none;
+      color: var(--highlight);
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+    .total { font-size: 1.1rem; font-weight: 600; }
+    @media (max-width: 800px) {
+      .grid-container { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .grid-container { grid-template-columns: 1fr; }
+      .calc-container { top: 80px; right: 10px; max-width: 90%; }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">New York Seafood</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="products.html">Menu</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-<div class="page-header"><h1>Full Menu</h1></div>
-<div class="grid-container">
-  <div class="card" data-name="Appetizers">
-    <h2>Appetizers</h2>
-    <div class="menu-item">
-      <div>
-        <h3>CRAB RANGOONS</h3>
-        <p>Crispy wonton wrappers with crab and cheese.</p>
+  <header>
+    <a href="index.html" class="logo">New York Seafood</a>
+    <!-- Center view count -->
+    <div id="viewCount">Views: 0</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Menu</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <h1>Full Menu</h1>
+  </div>
+
+  <div class="grid-container">
+    <!-- Example card for Appetizers -->
+    <div class="card" data-name="Appetizers">
+      <h2>Appetizers</h2>
+      <div class="menu-item">
+        <div>
+          <h3>CRAB RANGOONS</h3>
+          <p>Crispy wonton wrappers with crab and cheese.</p>
+        </div>
+        <span class="price">$5.95</span>
       </div>
-      <span class="price">$5.95</span>
+      <div class="menu-item">
+        <div>
+          <h3>CHICKEN TENDERS</h3>
+          <p>Served with french fries.</p>
+        </div>
+        <span class="price">$8.99</span>
+      </div>
+      <!-- More menu items… -->
+      <div class="menu-item">
+        <div>
+          <h3>WINGS</h3>
+          <p>6 pcs $9.95 / 12 pcs $17.95</p>
+        </div>
+        <span class="price">Varies</span>
+      </div>
+      <!-- etc. -->
     </div>
-    <div class="menu-item">
-      <div>
-        <h3>CHICKEN TENDERS</h3>
-        <p>Served with french fries.</p>
-      </div>
-      <span class="price">$8.99</span>
-    </div>
-    <div class="menu-item">
-      <div>
-        <h3>WINGS</h3>
-        <p>6 pcs $9.95 / 12 pcs $17.95</p>
-      </div>
-      <span class="price">Varies</span>
+    <span class="price">Varies</span>
     </div>
     <div class="menu-item">
       <div>
@@ -801,53 +857,126 @@
     </div>
   </div>
 </div>
-<div class="calc-container">
-  <h2>Order Calculator</h2>
-  <input type="text" id="calc-search" class="calc-search" placeholder="Search for an item to add...">
-  <div class="order-list"></div>
-  <p>Total: $<span class="total">0.00</span></p>
-</div>
-<script>
-const menuData = [];
-document.querySelectorAll('.card').forEach(card => {
-  card.querySelectorAll('.menu-item').forEach(item => {
-    const name = item.querySelector('h3').textContent.trim();
-    const priceText = item.querySelector('.price').textContent.trim().replace('$','').split(" ")[0];
-    const price = parseFloat(priceText) || 0;
-    menuData.push({name, price});
-  });
-});
-let order = [];
-const orderList = document.querySelector('.order-list');
-const totalEl = document.querySelector('.total');
-const searchInput = document.getElementById('calc-search');
-function updateOrder() {
-  orderList.innerHTML = '';
-  let total = 0;
-  order.forEach((item, index) => {
-    total += item.price;
-    const div = document.createElement('div');
-    div.className = 'order-item';
-    div.innerHTML = `${item.name} - $${item.price.toFixed(2)} <button class="remove-btn" data-index="${index}">x</button>`;
-    orderList.appendChild(div);
-  });
-  totalEl.textContent = total.toFixed(2);
-}
-searchInput.addEventListener('keypress', function(e) {
-  if(e.key === 'Enter') {
-    const query = searchInput.value.trim().toLowerCase();
-    const found = menuData.find(item => item.name.toLowerCase().includes(query));
-    if(found) { order.push(found); updateOrder(); }
-    searchInput.value = '';
-  }
-});
-orderList.addEventListener('click', function(e) {
-  if(e.target.classList.contains('remove-btn')) {
-    const idx = e.target.getAttribute('data-index');
-    order.splice(idx, 1);
-    updateOrder();
-  }
-});
-</script>
+
+  <div class="calc-container">
+    <h2>Order Calculator</h2>
+    <input type="text" id="calc-search" class="calc-search" placeholder="Search for an item to add...">
+    <!-- Container for autocomplete suggestions -->
+    <div id="suggestions" class="suggestions"></div>
+    <div class="order-list"></div>
+    <p>Total: $<span class="total">0.00</span></p>
+  </div>
+
+  <!-- Firebase scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+  <script type="module">
+    // Initialize Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+    import { getDatabase, ref, get, set, update } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDTATBOCPb_uGYt5Trmx1EZu7doCR0WWvw",
+      authDomain: "spotify-795ab.firebaseapp.com",
+      databaseURL: "https://spotify-795ab-default-rtdb.firebaseio.com",
+      projectId: "spotify-795ab",
+      storageBucket: "spotify-795ab.firebasestorage.app",
+      messagingSenderId: "907464366407",
+      appId: "1:907464366407:web:1c736b0a36c792ffdb1462",
+      measurementId: "G-R6R08XWLMF"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase(app);
+
+    // Simple view counter using Realtime Database at path "views/count"
+    const viewCountEl = document.getElementById("viewCount");
+    const countRef = ref(db, 'views/count');
+    get(countRef).then((snapshot) => {
+      let count = snapshot.exists() ? snapshot.val() : 0;
+      count++;
+      viewCountEl.textContent = "Views: " + count;
+      // Update the count in the database
+      set(countRef, count);
+    }).catch((error) => {
+      console.error("Error updating view count:", error);
+    });
+
+    // Menu and order functionality
+    const menuData = [];
+    document.querySelectorAll('.card').forEach(card => {
+      card.querySelectorAll('.menu-item').forEach(item => {
+        const name = item.querySelector('h3').textContent.trim();
+        const priceText = item.querySelector('.price').textContent.trim().replace('$','').split(" ")[0];
+        const price = parseFloat(priceText) || 0;
+        menuData.push({name, price});
+      });
+    });
+
+    let order = [];
+    const orderList = document.querySelector('.order-list');
+    const totalEl = document.querySelector('.total');
+    const searchInput = document.getElementById('calc-search');
+    const suggestionsEl = document.getElementById('suggestions');
+
+    // Update order list display (order items shown in a row)
+    function updateOrder() {
+      orderList.innerHTML = '';
+      let total = 0;
+      order.forEach((item, index) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'order-item';
+        div.innerHTML = `<span>${item.name} - $${item.price.toFixed(2)}</span> <button class="remove-btn" data-index="${index}">x</button>`;
+        orderList.appendChild(div);
+      });
+      totalEl.textContent = total.toFixed(2);
+    }
+
+    // Display suggestions as the user types
+    searchInput.addEventListener('input', function(e) {
+      const query = searchInput.value.trim().toLowerCase();
+      suggestionsEl.innerHTML = '';
+      if(query.length === 0) { return; }
+      const matches = menuData.filter(item => item.name.toLowerCase().includes(query));
+      matches.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'suggestion-item';
+        div.textContent = item.name;
+        div.addEventListener('click', function() {
+          order.push(item);
+          updateOrder();
+          searchInput.value = '';
+          suggestionsEl.innerHTML = '';
+        });
+        suggestionsEl.appendChild(div);
+      });
+    });
+
+    // Allow adding on Enter if there is an exact match
+    searchInput.addEventListener('keypress', function(e) {
+      if(e.key === 'Enter') {
+        const query = searchInput.value.trim().toLowerCase();
+        const found = menuData.find(item => item.name.toLowerCase() === query);
+        if(found) { 
+          order.push(found); 
+          updateOrder(); 
+        }
+        searchInput.value = '';
+        suggestionsEl.innerHTML = '';
+      }
+    });
+
+    // Remove item from order
+    orderList.addEventListener('click', function(e) {
+      if(e.target.classList.contains('remove-btn')) {
+        const idx = e.target.getAttribute('data-index');
+        order.splice(idx, 1);
+        updateOrder();
+      }
+    });
+  </script>
 </body>
 </html>
