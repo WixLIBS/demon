@@ -56,7 +56,7 @@
       text-decoration: none;
       flex: 1;
     }
-    /* View counter positioned in the center of header */
+    /* View counter in header center */
     header #viewCount {
       flex: 1;
       text-align: center;
@@ -86,10 +86,10 @@
       font-size: 2rem;
       color: var(--secondary);
     }
-    /* Grid container now displays 2 cards per row */
+    /* Grid container: 3 cards per row */
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       max-width: 1200px;
       margin: 0 auto 2rem;
@@ -114,27 +114,18 @@
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
-    /* Container for menu items inside a card; grid with 3 columns */
+    /* Container for menu items inside a card as a grid with 3 columns */
     .menu-items {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
-    .menu-item {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 8px;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+    /* Allow title to wrap instead of clipping */
     .menu-item h3 {
       font-size: 0.9rem;
       font-weight: 500;
       margin-bottom: 4px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
+      white-space: normal;
     }
     .menu-item p {
       font-size: 0.8rem;
@@ -147,7 +138,7 @@
       font-weight: 600;
       text-align: right;
     }
-    /* Calculator container: blurry, semi-transparent white-grayish */
+    /* Calculator styling: blurry, semi-transparent white-grayish */
     .calc-container {
       position: fixed;
       top: 80px;
@@ -238,7 +229,7 @@
 <body>
   <header>
     <a href="index.html" class="logo">New York Seafood</a>
-    <!-- Center view counter -->
+    <!-- View counter -->
     <div id="viewCount">Views: 0</div>
     <nav>
       <a href="index.html">Home</a>
@@ -252,6 +243,7 @@
     <h1>Full Menu</h1>
   </div>
 
+  <!-- Grid Container: 3 cards per row -->
   <div class="grid-container">
     <!-- Appetizers Card -->
     <div class="card" data-name="Appetizers">
@@ -366,7 +358,7 @@
 
     <!-- Fish & Shrimp Card -->
     <div class="card" data-name="Fish & Shrimp">
-      <h2>Fish & Shrimp</h2>
+      <h2>Fish &amp; Shrimp</h2>
       <p style="font-size:0.9rem; margin-bottom:0.8rem;">served with french fries</p>
       <div class="menu-items">
         <div class="menu-item">
@@ -859,34 +851,42 @@
       <div class="menu-items">
         <div class="menu-item">
           <h3>LOMIEN</h3>
+          <p>Traditional noodle dish.</p>
           <div class="price">$9.95</div>
         </div>
         <div class="menu-item">
           <h3>FRIED RICE</h3>
+          <p>Classic fried rice.</p>
           <div class="price">$9.95</div>
         </div>
         <div class="menu-item">
           <h3>HOUSE LOMIEN OR FRIED RICE</h3>
+          <p>Your choice of noodles.</p>
           <div class="price">$15.95</div>
         </div>
         <div class="menu-item">
           <h3>SHRIMP BROCCOLI</h3>
+          <p>Shrimp with broccoli.</p>
           <div class="price">$8.00</div>
         </div>
         <div class="menu-item">
           <h3>BEEF BROCCOLI</h3>
+          <p>Beef with broccoli.</p>
           <div class="price">$10.00</div>
         </div>
         <div class="menu-item">
           <h3>CHICKEN BROCCOLI</h3>
+          <p>Chicken with broccoli.</p>
           <div class="price">$8.00</div>
         </div>
         <div class="menu-item">
           <h3>PEPPER STEAK</h3>
+          <p>Sizzling steak with peppers.</p>
           <div class="price">$10.00</div>
         </div>
         <div class="menu-item">
           <h3>CHICKEN CURRY</h3>
+          <p>Spiced chicken curry.</p>
           <div class="price">$8.00</div>
         </div>
         <div class="menu-item">
@@ -913,9 +913,50 @@
     <div class="card" data-name="Sauce">
       <h2>Sauce</h2>
       <div class="menu-items">
+        <!-- Heat Levels -->
         <div class="menu-item">
-          <h3>SAUCE</h3>
-          <p>Choose: Mild, Medium, Spicy or Xtra Spicy. Options: Garlic Butter, Cajun Butter, Garlic Lemon Pepper, Garlic &amp; Onion Butter, Clear Butter, Creamy Garlic Butter, House Sauce.</p>
+          <h3>Mild Sauce</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Medium Sauce</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Spicy Sauce</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Xtra Spicy Sauce</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <!-- Butter Options -->
+        <div class="menu-item">
+          <h3>Garlic Butter</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Cajun Butter</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Garlic Lemon Pepper</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Garlic &amp; Onion Butter</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Clear Butter</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>Creamy Garlic Butter</h3>
+          <div class="price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <h3>House Sauce</h3>
           <div class="price">$5.00</div>
         </div>
       </div>
