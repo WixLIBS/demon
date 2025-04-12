@@ -299,24 +299,30 @@
       
       /* Overlay covers entire image with centered white text */
       .gallery-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--gallery-overlay-bg);
-        color: var(--white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-      
+      position: absolute;
+      top: 0; /* Ensure it covers the whole image */
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gallery-overlay-bg);
+      color: var(--white);  /* Explicitly white text */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
       .gallery-item:hover .gallery-overlay {
-        opacity: 1;
-      }
+         opacity: 1;
+    }
+      .gallery-title {
+        font-size: 1.5rem; /* Increased size from 1.1rem to 1.5rem */
+        font-weight: 500;
+        margin: 0;
+        padding: 0 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+   }
       
       .gallery-title {
         font-size: 1.3rem;
