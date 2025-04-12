@@ -6,6 +6,7 @@
   <title>Menu - New York Seafood: Soup & Chef's Special | Chicken Wraps & Salads</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Use Google Fonts for typography -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -20,9 +21,6 @@
       --blur: 10px;
       --transition: 0.3s ease-in-out;
       --border-radius: 12px;
-      /* Fixed card size */
-      --card-width: 100%;
-      --card-height: 400px;
     }
     * {
       margin: 0;
@@ -99,7 +97,7 @@
       margin: 0 auto 2rem;
       padding: 0 1rem;
     }
-    /* All cards are fixed to a certain size; contents will scroll if overflowing */
+    /* Cards now grow dynamically with content */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(var(--blur));
@@ -108,15 +106,12 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       transition: transform var(--transition);
       overflow: hidden;
-      width: var(--card-width);
-      height: var(--card-height);
-      display: flex;
-      flex-direction: column;
+      width: 100%;
+      /* Removing fixed height so the card expands based on its content */
     }
     .card:hover {
       transform: translateY(-5px);
     }
-    /* Card titles */
     .card h2 {
       font-size: 1.3rem;
       color: var(--secondary);
@@ -124,20 +119,19 @@
       padding-bottom: 0.5rem;
       margin-bottom: 0.5rem;
     }
-    /* The scrollable content area inside a card */
+    /* Card content area adjusts height with its items */
     .card .card-content {
-      overflow-y: auto;
-      flex: 1;
-      padding-right: 0.5rem; /* allow for scrollbar space */
+      /* No fixed height here; content will push the card to expand */
     }
-    /* Menu items arranged in a grid inside each card */
+    /* Menu items are arranged in a grid inside each card */
     .menu-items {
       display: grid;
+      /* You may adjust the number of columns as needed */
       grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
     }
     .menu-item {
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       padding: 0.3rem;
       border-radius: 8px;
       font-size: 0.85rem;
@@ -301,7 +295,7 @@
             <p>Beer‑battered dill pickles.</p>
             <div class="price">$6.00</div>
           </div>
-          <!-- Additional Appetizers... -->
+          <!-- Additional appetizers can be added here -->
         </div>
       </div>
     </div>
@@ -337,13 +331,12 @@
             <p>Chowder with bay scallops.</p>
             <div class="price">$6.00</div>
           </div>
-          <!-- Chef's Special Items -->
+          <!-- Chef's Special Item -->
           <div class="menu-item">
             <h3>BEEF SHORT-RIBS</h3>
             <p>Grilled Teriyaki short ribs with 2 sides.</p>
             <div class="price">$17.99</div>
           </div>
-          <!-- (You can add more items if needed) -->
         </div>
       </div>
     </div>
