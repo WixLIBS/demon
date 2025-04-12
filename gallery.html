@@ -351,9 +351,37 @@
       .footer-links a:hover {
         color: var(--secondary);
       }
+      .video-gallery {
+        margin-top: 4rem;
+      }
+      .video-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 30px;
+        margin-bottom: 3rem;
+      }
+      .video-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      .video-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      }
+      .video-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       @media (max-width: 992px) {
         .gallery-container {
           grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        .video-container {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         }
       }
       @media (max-width: 768px) {
@@ -372,6 +400,9 @@
         .gallery-container {
           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         }
+        .video-container {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
       }
       @media (max-width: 576px) {
         .page-header {
@@ -388,6 +419,9 @@
         }
         .gallery-container {
           grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+        .video-container {
+          grid-template-columns: 1fr;
         }
         .footer-content {
           flex-direction: column;
@@ -436,103 +470,116 @@
         </div>
         
         <div class="gallery-container">
-          <!-- Seafood Category -->
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Shrimp Scampi', 'Garlic butter shrimp scampi with white wine sauce')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImU0NGQ1YTg1LTE2ODAtMTFmMC05Y2Q4LTdhZTU2MzkyMTAxYiJ9.nmGhyiTC9o_q4RGVFNddHetNFbJts9jXHAqiVVUpZVE&h=e44d5a85-1680-11f0-9cd8-7ae56392101b" alt="Shrimp Scampi"/>
+          <!-- Gallery Items with New Images -->
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Dish', 'Delectable seafood dish with fresh ingredients')">
+            <img src="https://i.postimg.cc/GTpw19Zn/IMG-2884.jpg" alt="Seafood Dish"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Shrimp Scampi</h3>
-              <p class="gallery-desc">Garlic butter shrimp scampi with white wine sauce</p>
+              <h3 class="gallery-title">Fresh Seafood Dish</h3>
+              <p class="gallery-desc">Delectable seafood dish with fresh ingredients</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Platter', 'A selection of today\'s freshest catch')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImFhYzQ2ZTA3LTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.p1Pd1Bu-0PqIa8Y0xNVGENZVxRunrnQnUHh8i38rbcA&h=aac46e07-1681-11f0-9786-96d07a933552" alt="Fresh Seafood Platter"/>
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Seafood Platter', 'Assorted seafood platter with chef\'s special sauce')">
+            <img src="https://i.postimg.cc/1nQsbmmy/IMG-2895.jpg" alt="Seafood Platter"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Fresh Seafood Platter</h3>
-              <p class="gallery-desc">A selection of today's freshest catch</p>
+              <h3 class="gallery-title">Seafood Platter</h3>
+              <p class="gallery-desc">Assorted seafood platter with chef's special sauce</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Grilled Fish', 'Fresh fish grilled to perfection')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjcyNzBmZGE1LTE2ODEtMTFmMC05Zjg4LTlhMzY5OTVkYTNjYyJ9.CJV01lms02_ypzfU2fLYu3JUJpVgD02oCBJBMx0Zib8&h=7270fda5-1681-11f0-9f88-9a36995da3cc" alt="Grilled Fish"/>
+          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Signature Lobster', 'Our signature lobster dish with butter sauce')">
+            <img src="https://i.postimg.cc/pyVtj1yc/IMG-2947.jpg" alt="Signature Lobster"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Grilled Fish</h3>
-              <p class="gallery-desc">Fresh fish grilled to perfection</p>
+              <h3 class="gallery-title">Signature Lobster</h3>
+              <p class="gallery-desc">Our signature lobster dish with butter sauce</p>
             </div>
           </div>
           
-          <!-- Appetizers Category -->
-          <div class="gallery-item" data-category="appetizers" onclick="openLightbox(this, 'Fried Calamari', 'Crispy fried calamari with marinara sauce')">
-            <img src="/api/placeholder/400/400" alt="Fried Calamari"/>
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Catch', 'Today\'s fresh catch prepared by our chef')">
+            <img src="https://i.postimg.cc/9rK3vmbs/IMG-2948.jpg" alt="Fresh Catch"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Fried Calamari</h3>
-              <p class="gallery-desc">Crispy fried calamari with marinara sauce</p>
+              <h3 class="gallery-title">Fresh Catch</h3>
+              <p class="gallery-desc">Today's fresh catch prepared by our chef</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="appetizers" onclick="openLightbox(this, 'Shrimp Cocktail', 'Jumbo shrimp served with cocktail sauce')">
-            <img src="/api/placeholder/400/400" alt="Shrimp Cocktail"/>
+          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Seafood Special', 'Chef\'s special seafood creation')">
+            <img src="https://i.postimg.cc/Wqpjb5qK/IMG-2961.jpg" alt="Seafood Special"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Shrimp Cocktail</h3>
-              <p class="gallery-desc">Jumbo shrimp served with cocktail sauce</p>
+              <h3 class="gallery-title">Seafood Special</h3>
+              <p class="gallery-desc">Chef's special seafood creation</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="appetizers" onclick="openLightbox(this, 'Crab Cakes', 'Homemade crab cakes with remoulade sauce')">
-            <img src="/api/placeholder/400/400" alt="Crab Cakes"/>
+          <div class="gallery-item" data-category="appetizers" onclick="openLightbox(this, 'Seafood Appetizer', 'Delicious starter with fresh ingredients')">
+            <img src="https://i.postimg.cc/fJwQxqLg/IMG-3078.jpg" alt="Seafood Appetizer"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Crab Cakes</h3>
-              <p class="gallery-desc">Homemade crab cakes with remoulade sauce</p>
+              <h3 class="gallery-title">Seafood Appetizer</h3>
+              <p class="gallery-desc">Delicious starter with fresh ingredients</p>
             </div>
           </div>
           
-          <!-- Main Courses Category -->
-          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Lobster Tail', 'Broiled lobster tail with drawn butter')">
-            <img src="/api/placeholder/400/400" alt="Lobster Tail"/>
+          <div class="gallery-item" data-category="appetizers" onclick="openLightbox(this, 'Gourmet Starter', 'Gourmet seafood starter plate')">
+            <img src="https://i.postimg.cc/XGQmx4XH/IMG-3079.jpg" alt="Gourmet Starter"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Lobster Tail</h3>
-              <p class="gallery-desc">Broiled lobster tail with drawn butter</p>
+              <h3 class="gallery-title">Gourmet Starter</h3>
+              <p class="gallery-desc">Gourmet seafood starter plate</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Seafood Pasta', 'Linguine with mixed seafood in a white wine sauce')">
-            <img src="/api/placeholder/400/400" alt="Seafood Pasta"/>
+          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Seafood Delicacy', 'One of our most popular delicacies')">
+            <img src="https://i.postimg.cc/f3XMHthH/IMG-3080.jpg" alt="Seafood Delicacy"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Seafood Pasta</h3>
-              <p class="gallery-desc">Linguine with mixed seafood in a white wine sauce</p>
+              <h3 class="gallery-title">Seafood Delicacy</h3>
+              <p class="gallery-desc">One of our most popular delicacies</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Surf & Turf', 'Filet mignon and lobster tail')">
-            <img src="/api/placeholder/400/400" alt="Surf & Turf"/>
+          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Chef\'s Creation', 'Special creation by our head chef')">
+            <img src="https://i.postimg.cc/xXMZhKcb/IMG-3088.jpg" alt="Chef's Creation"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Surf & Turf</h3>
-              <p class="gallery-desc">Filet mignon and lobster tail</p>
+              <h3 class="gallery-title">Chef's Creation</h3>
+              <p class="gallery-desc">Special creation by our head chef</p>
             </div>
           </div>
           
-          <!-- Desserts Category -->
-          <div class="gallery-item" data-category="desserts" onclick="openLightbox(this, 'New York Cheesecake', 'Classic New York style cheesecake')">
-            <img src="/api/placeholder/400/400" alt="New York Cheesecake"/>
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Seafood Delight', 'A delightful seafood plate for seafood lovers')">
+            <img src="https://i.postimg.cc/PpQTjgJY/IMG-3090.jpg" alt="Seafood Delight"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">New York Cheesecake</h3>
-              <p class="gallery-desc">Classic New York style cheesecake</p>
+              <h3 class="gallery-title">Seafood Delight</h3>
+              <p class="gallery-desc">A delightful seafood plate for seafood lovers</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="desserts" onclick="openLightbox(this, 'Key Lime Pie', 'Authentic Florida Key Lime Pie')">
-            <img src="/api/placeholder/400/400" alt="Key Lime Pie"/>
+          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Premium Dish', 'Our premium seafood dish served with vegetables')">
+            <img src="https://i.postimg.cc/JsH8nDt1/IMG-3284.jpg" alt="Premium Dish"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Key Lime Pie</h3>
-              <p class="gallery-desc">Authentic Florida Key Lime Pie</p>
+              <h3 class="gallery-title">Premium Dish</h3>
+              <p class="gallery-desc">Our premium seafood dish served with vegetables</p>
             </div>
           </div>
           
-          <div class="gallery-item" data-category="desserts" onclick="openLightbox(this, 'Chocolate Lava Cake', 'Warm chocolate cake with a molten center')">
-            <img src="/api/placeholder/400/400" alt="Chocolate Lava Cake"/>
+          <div class="gallery-item" data-category="mains" onclick="openLightbox(this, 'Signature Plate', 'Another signature plate from our kitchen')">
+            <img src="https://i.postimg.cc/Dmwt0JYt/IMG-3285.jpg" alt="Signature Plate"/>
             <div class="gallery-overlay">
-              <h3 class="gallery-title">Chocolate Lava Cake</h3>
-              <p class="gallery-desc">Warm chocolate cake with a molten center</p>
+              <h3 class="gallery-title">Signature Plate</h3>
+              <p class="gallery-desc">Another signature plate from our kitchen</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Seafood Special', 'Special seafood preparation you\'ll love')">
+            <img src="https://i.postimg.cc/nMdfGYDF/IMG-3348.jpg" alt="Seafood Special"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Seafood Special</h3>
+              <p class="gallery-desc">Special seafood preparation you'll love</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="desserts" onclick="openLightbox(this, 'Sweet Finish', 'The perfect sweet finish to your seafood meal')">
+            <img src="https://i.postimg.cc/fkq19zGk/IMG-3368.jpg" alt="Sweet Finish"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Sweet Finish</h3>
+              <p class="gallery-desc">The perfect sweet finish to your seafood meal</p>
             </div>
           </div>
         </div>
@@ -543,107 +590,40 @@
       </div>
     </section>
     
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-content">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <img src="" alt="" class="lightbox-img" id="lightbox-img">
-        <div class="lightbox-caption" id="lightbox-caption"></div>
-        <div class="lightbox-nav">
-          <button onclick="changeImage(-1)">&lt;</button>
-          <button onclick="changeImage(1)">&gt;</button>
+    <section class="video-gallery section-spacing">
+      <div class="container">
+        <div class="section-title-container">
+          <p class="section-subtitle">Watch & Experience</p>
+          <h2 class="section-title">Our Dishes in Motion</h2>
         </div>
-      </div>
-    </div>
-    
-    <footer>
-      <div class="container footer-content">
-        <p>&copy; 2025 New York Seafood Restaurant. All Rights Reserved.</p>
-        <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </footer>
-    
-    <script>
-      // Gallery filtering
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Remove active class from all buttons
-          filterBtns.forEach(btn => btn.classList.remove('active'));
-          // Add active class to clicked button
-          btn.classList.add('active');
+        
+        <div class="video-container">
+          <div class="video-item">
+            <video autoplay loop muted playsinline>
+              <source src="https://media-hosting.imagekit.io/3a1393abf7934811/IMG_2947.MOV?Expires=1839032296&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0YGikDlNWpyYymOkbWv9jlU3TrSG7I1UFwG3sFz-hDflZxAQDhdQX0Tm4RVwaio8i19AHijHHJ77KrX-GcKIXWvCS5uVATq7XLPNePpI4RrtfvEZ~XStVHVMYDY7TzomuNZtoaRzDSCvTq0dQNT-a5uif45EhN3CjAVj1DKN5KVIZ8w07Y9M-CQtE6rfRKe2kgXM-x8dVyXwNlD4TA4OfqYJcsZlIS9agylkk3D6tJzfmOerHbbaoDoWGoy-4BZCWdv-nXZHekVQvSU2vb8RePw6vHZGa~LCqhg-yPLtNZMfvaE8EnHnSUTywrYYyczggb9yPnkOSAl2nFP8~ws~oQ__" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
           
-          const filter = btn.getAttribute('data-filter');
+          <div class="video-item">
+            <video autoplay loop muted playsinline>
+              <source src="https://media-hosting.imagekit.io/bd245ee23c4340e4/IMG_2884.MOV?Expires=1839032296&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=IgLpV~ScYBweOcSqmhRMDZJ8uj1yDXXBEhgngUPekJssgw4mm-R3i295n7xPwI9-q~wl2UKzuDPSLAsHC2RSAtSwrbNPYZ-0ZVTxHRGNVq4SYtCzozpNld6FDgP4yL~O-gzmosyNN19t7yXs2k62mbPW3FWRpSXIuiWWbuyDVEngrS0yn33mLfLGIMMJSZPeU1DAagmeH7cuWt6TJqH7tRvU80STp2cWVNI6h6pq4lKw6Z88ENt~j0YiKoMXFlNFZ60eaBdEtt0tRGeG47vldXko-87-TXgO78by~jj14R-EVeKq0pL6hMrkthpduKpbObkXq93wSy9fmXg~226VcA__" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
           
-          galleryItems.forEach(item => {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
-      
-      // Lightbox functionality
-      let currentIndex = 0;
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const lightboxCaption = document.getElementById('lightbox-caption');
-      const visibleItems = () => Array.from(galleryItems).filter(item => item.style.display !== 'none');
-      
-      function openLightbox(item, title, description) {
-        const imgSrc = item.querySelector('img').src;
-        lightboxImg.src = imgSrc;
-        lightboxCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
-        lightbox.classList.add('active');
-        
-        // Set current index
-        const items = visibleItems();
-        currentIndex = items.indexOf(item);
-        
-        // Prevent scrolling on body
-        document.body.style.overflow = 'hidden';
-      }
-      
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        // Re-enable scrolling on body
-        document.body.style.overflow = 'auto';
-      }
-      
-      function changeImage(direction) {
-        const items = visibleItems();
-        currentIndex = (currentIndex + direction + items.length) % items.length;
-        const newItem = items[currentIndex];
-        const imgSrc = newItem.querySelector('img').src;
-        const title = newItem.querySelector('.gallery-title').textContent;
-        const description = newItem.querySelector('.gallery-desc').textContent;
-        
-        lightboxImg.src = imgSrc;
-        lightboxCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
-      }
-      
-      // Close lightbox with escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-          closeLightbox();
-        }
-      });
-      
-      // Load more functionality (for demonstration)
-      document.getElementById('loadMoreBtn').addEventListener('click', function() {
-        this.textContent = 'No More Images';
-        this.disabled = true;
-        setTimeout(() => {
-          this.textContent = 'Load More';
-          this.disabled = false;
-        }, 2000);
-      });
-    </script>
-  </body>
-</html>
+          <div class="video-item">
+            <video autoplay loop muted playsinline>
+              <source src="https://media-hosting.imagekit.io/322217e987e841a1/IMG_2961.MOV?Expires=1839032296&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=bvjfGYzGm8SfBKzYm3DAq2gf8syjeN2r0jxVP8r4VY1jQvUDFXno4NLONQRGECwAmXmC~MBsFpcM9jTIiL2qb6DBXjtNcWWGZfbYrr5gk9HhJwrAoaH3wZRjw6Jojem2kxDyRrG61mEIGTfsfk~EkBKswyqdHnkGm1SoknhgB0L2KO0X8ERofK7A5Eq1qFsODIGdG1~DxXe2cDkJCbdA3rHw4I1TOVx0VVo15PgoYgmztI0BiYkLhBI4CbdvGPKDtrEztJXxk7fpcFrJkjmfSY6BXfwYe8BUN8kAbOnO8qrZN7Ik9Pv2D11h0iHBNmj~-FIUEIZDsx2ZNrgc4l8toA__" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <div class="video-item">
+            <video autoplay loop muted playsinline>
+              <source src="https://media-hosting.imagekit.io/989352dcfee747a0/IMG_2948.MOV?Expires=1839032296&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=dE7CP099jJNC4hX6TkMXmcRMqAcI-OtSJZodn3RnwlP8HRn8UuTY2NGyyUN4QfpJbWh6aYlsmeyR~1dtxMNfDKIfRQxIG~NdLbF3T2-wunAxxPSHBL8VYOUN0Ksp02JggzlXimx7VEE2xifkoeDM2RbaV1qoI2BYJ3SjctUrwspC1-65~HaxVWMbe2TCtRKyOt2bS1Q51JUs2409Pd45F3B4er8CZLGJby~8~oWmub4mFrX2K-K8GnqpiYLF8CFO~iz9zK5WPVJNc~4XzoZxDn6PUx2rB8g0qJiyVkwqJ1XEs5ygTKHkRAdf~wSAM7GFexuz6At8V25R6QviFD~Npw__" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <div class
