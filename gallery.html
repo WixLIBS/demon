@@ -299,37 +299,37 @@
       
       /* Overlay covers entire image with centered white text */
       .gallery-overlay {
-      position: absolute;
-      top: 0; /* Ensure it covers the whole image */
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gallery-overlay-bg);
-      color: var(--white);  /* Explicitly white text */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transition: opacity 0.5s ease;
-      opacity: 0;
-    }
+        position: absolute;
+        top: 0; /* Ensure it covers the whole image */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gallery-overlay-bg);
+        color: var(--white);  /* Explicitly white text */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: opacity 0.5s ease;
+        opacity: 0;
+      }
+      
       .gallery-item:hover .gallery-overlay {
          opacity: 1;
-    }
-      .gallery-title {
-        font-size: 1.5rem; /* Increased size from 1.1rem to 1.5rem */
-        font-weight: 500;
-        margin: 0;
-        padding: 0 10px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-   }
+      }
       
+      /* Updated Gallery Title: White text, larger size and glowing */
       .gallery-title {
-        font-size: 1.3rem;
-        font-weight: 500;
+        color: var(--white);
+        font-size: 1.8rem;
+        font-weight: 600;
         margin: 0;
         padding: 0 10px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        /* Glowing effect: multiple text-shadow layers */
+        text-shadow:
+          0 0 5px var(--white),
+          0 0 10px var(--white),
+          0 0 15px var(--white);
       }
       
       /* Lightbox Styles */
