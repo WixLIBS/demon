@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - New York Seafood Restaurant</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+      :root {
+        --primary: #003b6f;
+        --secondary: #e63946;
+        --light: #f1faee;
+        --dark: #1d3557;
+        --text: #333333;
+        --text-light: #666666;
+        --white: #ffffff;
+        --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --transition: all 0.3s ease;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--white);
+        color: var(--text);
+        line-height: 1.6;
+        background-image: url("https://www.transparenttextures.com/patterns/water.png");
+      }
+      h1, h2, h3, h4, h5 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      header {
+        background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+        background-blend-mode: multiply;
+        background-color: var(--primary);
+        color: var(--white);
+        padding: 1.2rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+        text-decoration: none;
+        transition: var(--transition);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      }
+      .tagline {
+        margin-left: 10px;
+        padding-left: 10px;
+        border-left: 1px solid rgba(255,255,255,0.3);
+        font-size: 0.9rem;
+        font-style: italic;
+        color: rgba(255,255,255,0.8);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: var(--transition);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .terms-header {
+        padding: 10rem 0 3rem;
+        text-align: center;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://edarcton.org/wp-content/uploads/2019/01/Edarcton-Terms-and-conditions.jpg") center/cover;
+        color: var(--white);
+        margin-bottom: 4rem;
+      }
+      .terms-content {
+        background-color: var(--white);
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        margin-bottom: 4rem;
+      }
+      .terms-section {
+        margin-bottom: 2.5rem;
+      }
+      .terms-section:last-child {
+        margin-bottom: 0;
+      }
+      .terms-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+        color: var(--primary);
+        position: relative;
+        padding-bottom: 10px;
+      }
+      .terms-section h2:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background-color: var(--secondary);
+        bottom: 0;
+        left: 0;
+      }
+      .terms-section p {
+        margin-bottom: 1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+      .terms-section ul {
+        margin-left: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+      }
+      .terms-section li {
+        margin-bottom: 0.7rem;
+      }
+      .last-updated {
+        font-style: italic;
+        color: var(--text-light);
+        text-align: right;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+      }
+      footer {
+        background-color: #00264d;
+        color: rgba(255,255,255,0.7);
+        padding: 1.8rem 0;
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+      }
+      .footer-links a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+      @media (max-width: 992px) {
+        .terms-content {
+          padding: 2rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .terms-header h1 {
+          font-size: 2.5rem;
+        }
+        .nav-links {
+          gap: 1rem;
+        }
+        .tagline {
+          display: none;
+        }
+      }
+      @media (max-width: 576px) {
+        .terms-header {
+          padding: 8rem 0 3rem;
+        }
+        .terms-header h1 {
+          font-size: 2rem;
+        }
+        .terms-content {
+          padding: 1.5rem;
+        }
+        .terms-section h2 {
+          font-size: 1.5rem;
+        }
+        .footer-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav-container">
+        <div class="logo-container">
+          <a href="index.html" class="logo">New York Seafood</a>
+          <span class="tagline">Authentic Taste of the Sea</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Menu</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="terms-header">
+      <div class="container">
+        <h1>Terms of Service</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="terms-content">
+        <div class="terms-section">
+          <h2>Welcome to New York Seafood</h2>
+          <p>These Terms of Service ("Terms") govern your use of the New York Seafood Restaurant website, located at [your website URL], and any related services provided by New York Seafood Restaurant ("we," "us," or "our"). By accessing our website or using our services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our website or services.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>1. Use of Our Website and Services</h2>
+          <p>By using our website and services, you agree to:</p>
+          <ul>
+            <li>Use our website and services only for lawful purposes and in accordance with these Terms.</li>
+            <li>Not use our website in any way that violates any applicable local, state, national, or international law or regulation.</li>
+            <li>Not attempt to gain unauthorized access to any portion of the website or any systems or networks connected to the website.</li>
+            <li>Not engage in any activity that interferes with or disrupts the website or the servers and networks connected to the website.</li>
+            <li>Not use any robot, spider, or other automatic device, process, or means to access the website for any purpose.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>2. Reservations and Orders</h2>
+          <p>When making reservations or placing orders through our website or by phone:</p>
+          <ul>
+            <li>You agree to provide accurate and complete information.</li>
+            <li>You understand that we may refuse service or cancel reservations at our discretion.</li>
+            <li>Reservations are subject to availability and confirmation.</li>
+            <li>We may require a credit card to secure certain reservations, particularly for large parties or special events.</li>
+            <li>Cancellation policies may apply to reservations. Please contact us directly for details on cancellation policies for specific events or large party reservations.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>3. Intellectual Property</h2>
+          <p>The content on our website, including but not limited to text, graphics, logos, images, audio clips, digital downloads, and software, is the property of New York Seafood Restaurant or its content suppliers and is protected by United States and international copyright, trademark, and other intellectual property laws.</p>
+          <p>You may not reproduce, distribute, modify, create derivative works from, publicly display, publicly perform, republish, download, store, or transmit any of the material on our website without our prior written consent.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>4. User-Generated Content</h2>
+          <p>If you submit any content to our website, including reviews, comments, or suggestions:</p>
+          <ul>
+            <li>You grant us a non-exclusive, perpetual, royalty-free, transferable, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content throughout the world in any media.</li>
+            <li>You represent and warrant that you own or control all rights to the content you submit and that the content does not violate these Terms.</li>
+            <li>You agree not to submit content that is unlawful, defamatory, obscene, offensive, threatening, or that otherwise violates any right of any third party.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>5. Disclaimer of Warranties</h2>
+          <p>Our website and services are provided on an "as is" and "as available" basis, without any warranties of any kind, either express or implied. We disclaim all warranties, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+          <p>We do not warrant that our website will be uninterrupted or error-free, that defects will be corrected, or that our website or the servers that make it available are free of viruses or other harmful components.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>6. Limitation of Liability</h2>
+          <p>In no event shall New York Seafood Restaurant, its officers, directors, employees, or agents be liable for any indirect, punitive, incidental, special, or consequential damages arising out of, or in any way connected with, your use of or inability to use our website or services.</p>
+          <p>Our liability for any direct damages shall be limited to the amount paid by you, if any, for using our services during the month in which the cause of action arose.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>7. Indemnification</h2>
+          <p>You agree to indemnify, defend, and hold harmless New York Seafood Restaurant, its officers, directors, employees, and agents from and against any and all claims, liabilities, damages, losses, or expenses, including attorney's fees and costs, arising out of or in any way connected with your access to or use of our website or services, or your violation of these Terms.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>8. Food Allergies and Dietary Restrictions</h2>
+          <p>While we make efforts to accommodate customers with food allergies and dietary restrictions, we cannot guarantee that any item will be completely free of allergens. If you have food allergies or dietary restrictions, please inform our staff directly when placing an order or making a reservation.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>9. Gift Cards and Promotions</h2>
+          <p>Gift cards and promotional offers may be subject to additional terms and conditions, which will be disclosed at the time of purchase or use. Gift cards are not redeemable for cash and may not be returned or refunded.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>10. Third-Party Links</h2>
+          <p>Our website may contain links to third-party websites or services that are not owned or controlled by New York Seafood Restaurant. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that we shall not be responsible or liable for any damage or loss caused by or in connection with the use of any such third-party website or service.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>11. Changes to Terms</h2>
+          <p>We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our website and services after any changes to these Terms constitutes your acceptance of such changes.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>12. Governing Law</h2>
+          <p>These Terms shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions. Any dispute arising from these Terms shall be resolved exclusively in the courts located in Pinellas County, Florida.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>13. Severability</h2>
+          <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that these Terms shall otherwise remain in full force and effect and enforceable.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>14. Contact Information</h2>
+          <p>If you have any questions about these Terms, please contact us at:</p>
+          <p>
+            New York Seafood Restaurant<br>
+            2801 34th St S<br>
+            St. Petersburg, FL 33711<br>
+            Phone: (727) 867-6666<br>
+            Email: nyseafoodmarket@gmail.com
+          </p>
+        </div>
+
+        <p class="last-updated">Last Updated: April 11, 2025</p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container footer-content">
+        <p>&copy; 2025 New York Seafood Restaurant. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
