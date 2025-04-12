@@ -11,11 +11,13 @@
       :root {
         --primary: #003b6f;
         --secondary: #e63946;
+        --light-blue: #4a9be6;
         --light: #f1faee;
         --white: #ffffff;
         --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         --transition: all 0.3s ease;
-        --video-outline: 2px solid var(--secondary);
+        --video-outline: 3px solid var(--secondary);
+        --gallery-overlay-bg: rgba(0, 0, 0, 0.7);
       }
       
       * {
@@ -129,40 +131,57 @@
         margin-bottom: 4rem;
       }
       
+      /* Change header text color to lighter blue for better contrast */
       .page-header h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
         margin-bottom: 1.5rem;
         line-height: 1.2;
+        color: var(--light-blue);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       }
       
       .page-header p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         max-width: 700px;
         margin: 0 auto;
         opacity: 0.9;
+        color: var(--white);
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
       }
       
       /* Video Section: Watch Our Dishes in Motion */
       .video-section {
         padding: 4rem 0;
         background-color: #f9f9f9;
+        box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      }
+      
+      .section-subtitle {
+        color: var(--secondary);
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
       }
       
       .video-section .section-title-container {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
       }
       
       .video-section .section-title {
         font-size: 2.5rem;
         position: relative;
         display: inline-block;
+        color: var(--primary);
+        margin-bottom: 1rem;
       }
       
       .video-section .section-title::after {
         content: "";
         position: absolute;
-        width: 70px;
+        width: 80px;
         height: 3px;
         background-color: var(--secondary);
         bottom: -10px;
@@ -173,16 +192,22 @@
       .video-gallery {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
+        gap: 25px;
       }
       
       .video-gallery video {
         width: 100%;
         height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         outline: var(--video-outline);
         padding: 5px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .video-gallery video:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
       }
       
       /* Gallery Section */
@@ -190,44 +215,71 @@
         padding: 4rem 0;
       }
       
+      .gallery-section .section-title-container {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      
+      .gallery-section .section-title {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+      
+      .gallery-section .section-title::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 3px;
+        background-color: var(--secondary);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
       .gallery-filter {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 2rem;
+        gap: 12px;
+        margin-bottom: 2.5rem;
       }
       
       .filter-btn {
         background-color: var(--light);
         color: #333;
         border: none;
-        padding: 8px 20px;
+        padding: 10px 22px;
         border-radius: 30px;
         cursor: pointer;
         font-weight: 500;
         transition: var(--transition);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       }
       
       .filter-btn.active,
       .filter-btn:hover {
         background-color: var(--secondary);
         color: var(--white);
+        box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
       }
       
       .gallery-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
+        gap: 25px;
       }
       
       .gallery-item {
         position: relative;
         overflow: hidden;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         cursor: pointer;
         transition: var(--transition);
+        height: 240px;
       }
       
       .gallery-item:hover {
@@ -243,7 +295,7 @@
       }
       
       .gallery-item:hover img {
-        transform: scale(1.05);
+        transform: scale(1.08);
       }
       
       .gallery-overlay {
@@ -251,21 +303,25 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        padding: 10px;
-        background: rgba(0, 0, 0, 0.6);
+        padding: 12px;
+        background: var(--gallery-overlay-bg);
         color: var(--white);
         text-align: center;
         transition: var(--transition);
         opacity: 0;
+        transform: translateY(10px);
       }
       
       .gallery-item:hover .gallery-overlay {
         opacity: 1;
+        transform: translateY(0);
       }
       
       .gallery-title {
         font-size: 1.1rem;
         font-weight: 500;
+        margin: 0;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
       }
       
       /* Lightbox Styles */
@@ -291,26 +347,32 @@
       
       .lightbox-content {
         position: relative;
-        max-width: 80%;
-        max-height: 80%;
+        max-width: 85%;
+        max-height: 85%;
       }
       
       .lightbox-img {
         max-width: 100%;
-        max-height: 80vh;
+        max-height: 85vh;
         border: 5px solid var(--white);
-        border-radius: 5px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       }
       
       .lightbox-close {
         position: absolute;
-        top: -40px;
+        top: -45px;
         right: 0;
         color: var(--white);
-        font-size: 2rem;
+        font-size: 2.2rem;
         cursor: pointer;
         background: none;
         border: none;
+        transition: color 0.3s ease;
+      }
+      
+      .lightbox-close:hover {
+        color: var(--secondary);
       }
       
       /* Footer */
@@ -319,7 +381,7 @@
         color: rgba(255,255,255,0.7);
         padding: 1.8rem 0;
         text-align: center;
-        margin-top: 2rem;
+        margin-top: 3rem;
       }
       
       .footer-content {
@@ -422,7 +484,7 @@
     <!-- Gallery Section -->
     <section class="gallery-section">
       <div class="container">
-        <div class="section-title-container" style="text-align:center; margin-bottom:2rem;">
+        <div class="section-title-container">
           <p class="section-subtitle">Visual Feast</p>
           <h2 class="section-title">Gallery</h2>
         </div>
@@ -434,7 +496,7 @@
         </div>
         
         <div class="gallery-container">
-          <!-- Seafood Category (unchanged) -->
+          <!-- Seafood Category -->
           <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Shrimp Scampi', 'Garlic butter shrimp scampi with white wine sauce')">
             <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImU0NGQ1YTg1LTE2ODAtMTFmMC05Y2Q4LTdhZTU2MzkyMTAxYiJ9.nmGhyiTC9o_q4RGVFNddHetNFbJts9jXHAqiVVUpZVE&h=e44d5a85-1680-11f0-9cd8-7ae56392101b" alt="Shrimp Scampi"/>
             <div class="gallery-overlay">
@@ -457,7 +519,6 @@
           </div>
           
           <!-- Main Courses Category -->
-          <!-- 14 items with overlay text corresponding to provided dish info -->
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Chicken n Steak Special', '')">
             <img src="https://i.postimg.cc/GTpw19Zn/IMG-2884.jpg" alt="Chicken n Steak Special"/>
             <div class="gallery-overlay">
@@ -546,6 +607,8 @@
             <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjBmNTgzNjAyLTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.5IVaZ8calWpsNEl1MBrEa5EV_zcyP2JkXRha2uCqw98&h=0f583602-1681-11f0-9786-96d07a933552" alt="Fish Combo #1"/>
             <div class="gallery-overlay">
               <h3 class="gallery-title">Fish Combo #1</h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
