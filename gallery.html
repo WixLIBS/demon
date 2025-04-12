@@ -131,12 +131,11 @@
         margin-bottom: 4rem;
       }
       
-      /* Change header text color to lighter blue for better contrast */
       .page-header h1 {
         font-size: 3.2rem;
         margin-bottom: 1.5rem;
         line-height: 1.2;
-        color: var(--light-blue);
+        color: var(--secondary);
         text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       }
       
@@ -496,7 +495,7 @@
         </div>
         
         <div class="gallery-container">
-          <!-- Seafood Category -->
+          <!-- Seafood Category (unchanged) -->
           <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Shrimp Scampi', 'Garlic butter shrimp scampi with white wine sauce')">
             <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImU0NGQ1YTg1LTE2ODAtMTFmMC05Y2Q4LTdhZTU2MzkyMTAxYiJ9.nmGhyiTC9o_q4RGVFNddHetNFbJts9jXHAqiVVUpZVE&h=e44d5a85-1680-11f0-9cd8-7ae56392101b" alt="Shrimp Scampi"/>
             <div class="gallery-overlay">
@@ -504,7 +503,7 @@
             </div>
           </div>
           
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Platter', 'A selection of today’s freshest catch')">
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Platter', 'A selection of today's freshest catch')">
             <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImFhYzQ2ZTA3LTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.p1Pd1Bu-0PqIa8Y0xNVGENZVxRunrnQnUHh8i38rbcA&h=aac46e07-1681-11f0-9786-96d07a933552" alt="Fresh Seafood Platter"/>
             <div class="gallery-overlay">
               <h3 class="gallery-title">Fresh Seafood Platter</h3>
@@ -563,10 +562,11 @@
           </div>
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Shrimp n Short Rib Fried Rice #3', '')">
             <img src="https://i.postimg.cc/f3XMHthH/IMG-3080.jpg" alt="Shrimp n Short Rib Fried Rice #3"/>
-            <div class="gallery-overlay">
+                        <div class="gallery-overlay">
               <h3 class="gallery-title">Shrimp n Short Rib Fried Rice #3</h3>
             </div>
           </div>
+          <!-- Continue with remaining Main Courses items -->
           <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Lobster Tail Tray #1', '')">
             <img src="https://i.postimg.cc/xXMZhKcb/IMG-3088.jpg" alt="Lobster Tail Tray #1"/>
             <div class="gallery-overlay">
@@ -636,12 +636,12 @@
     <script>
       const filterBtns = document.querySelectorAll('.filter-btn');
       const galleryItems = document.querySelectorAll('.gallery-item');
-      
+
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           filterBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          
+
           const filter = btn.getAttribute('data-filter');
           galleryItems.forEach(item => {
             if (filter === 'all' || item.getAttribute('data-category') === filter) {
@@ -652,23 +652,23 @@
           });
         });
       });
-      
+
       // Lightbox functionality
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
-      
+
       function openLightbox(item, title, description) {
         const imgSrc = item.querySelector('img').src;
         lightboxImg.src = imgSrc;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
-      
+
       function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = 'auto';
       }
-      
+
       // Close lightbox on Escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) {
