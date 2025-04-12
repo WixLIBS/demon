@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Updated Title and Favicon -->
   <title>Menu - New York Seafood: Soup & Chef's Special | Chicken Wraps & Salads</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,12 +14,15 @@
       --accent: rgba(0, 0, 0, 0.6);
       --highlight: #001f3f;
       --text: #fff;
-      /* Backgrounds */
+      /* Card and calculator backgrounds */
       --card-bg: rgba(0, 0, 0, 0.75);
       --calc-bg: rgba(255, 255, 255, 0.3);
       --blur: 10px;
       --transition: 0.3s ease-in-out;
       --border-radius: 12px;
+      /* Fixed card size */
+      --card-width: 100%;
+      --card-height: 400px;
     }
     * {
       margin: 0;
@@ -44,7 +47,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       z-index: 3000;
     }
     header .logo {
@@ -84,7 +87,7 @@
       font-size: 2rem;
       color: var(--secondary);
     }
-    /* Grid Container: 4 cards per row */
+    /* Grid container: 4 cards per row */
     .grid-container {
       display: grid;
       grid-template-columns: repeat(4, minmax(250px, 1fr));
@@ -96,23 +99,24 @@
       margin: 0 auto 2rem;
       padding: 0 1rem;
     }
-    /* Cards grow dynamically according to content */
+    /* All cards are fixed to a certain size; contents will scroll if overflowing */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(var(--blur));
       border-radius: var(--border-radius);
       padding: 1rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       transition: transform var(--transition);
       overflow: hidden;
-      width: 100%;
-      /* Height is determined by content */
+      width: var(--card-width);
+      height: var(--card-height);
       display: flex;
       flex-direction: column;
     }
     .card:hover {
       transform: translateY(-5px);
     }
+    /* Card titles */
     .card h2 {
       font-size: 1.3rem;
       color: var(--secondary);
@@ -120,26 +124,23 @@
       padding-bottom: 0.5rem;
       margin-bottom: 0.5rem;
     }
-    /* Card content area where items will be displayed */
+    /* The scrollable content area inside a card */
     .card .card-content {
-      flex: 1; /* Allow to grow */
-      overflow-x: auto; /* Horizontal scrollbar if items exceed available width */
-      white-space: nowrap; /* Prevent wrapping so items remain in one line */
-      padding-bottom: 0.5rem;
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 0.5rem; /* allow for scrollbar space */
     }
-    /* Menu items arranged horizontally */
+    /* Menu items arranged in a grid inside each card */
     .menu-items {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
     }
-    /* Each menu item styling */
     .menu-item {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.5);
       padding: 0.3rem;
       border-radius: 8px;
       font-size: 0.85rem;
-      display: inline-block;
-      min-width: 120px;
     }
     .menu-item h3 {
       font-size: 0.9rem;
@@ -168,7 +169,7 @@
       background: var(--calc-bg);
       backdrop-filter: blur(5px);
       border-radius: var(--border-radius);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       z-index: 3000;
     }
     .calc-container h2 {
@@ -187,7 +188,7 @@
     }
     .suggestions {
       background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 8px;
       max-height: 150px;
       overflow-y: auto;
@@ -198,7 +199,7 @@
       cursor: pointer;
     }
     .suggestion-item:hover {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
     /* Order list styling */
     .order-list {
@@ -208,7 +209,7 @@
       margin-bottom: 1rem;
     }
     .order-item {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
       padding: 0.5rem 0.8rem;
       border-radius: 8px;
       display: flex;
@@ -228,7 +229,7 @@
       font-weight: 600;
       text-align: center;
     }
-    /* Responsive Breakpoints */
+    /* Responsive Breakpoints for grid */
     @media (max-width: 1200px) {
       .grid-container {
         grid-template-columns: repeat(4, minmax(250px, 1fr));
@@ -259,6 +260,7 @@
 <body>
   <header>
     <a href="index.html" class="logo">New York Seafood</a>
+    <!-- View counter -->
     <div id="viewCount">Views: 0</div>
     <nav>
       <a href="index.html">Home</a>
@@ -299,7 +301,7 @@
             <p>Beer‑battered dill pickles.</p>
             <div class="price">$6.00</div>
           </div>
-          <!-- Add additional appetizers as needed -->
+          <!-- Additional Appetizers... -->
         </div>
       </div>
     </div>
@@ -335,12 +337,13 @@
             <p>Chowder with bay scallops.</p>
             <div class="price">$6.00</div>
           </div>
-          <!-- Chef's Special Item -->
+          <!-- Chef's Special Items -->
           <div class="menu-item">
             <h3>BEEF SHORT-RIBS</h3>
             <p>Grilled Teriyaki short ribs with 2 sides.</p>
             <div class="price">$17.99</div>
           </div>
+          <!-- (You can add more items if needed) -->
         </div>
       </div>
     </div>
@@ -992,6 +995,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
   <script type="module">
+    // Firebase initialization
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
     import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
@@ -1014,16 +1018,14 @@
     // Update view counter
     const viewCountEl = document.getElementById("viewCount");
     const countRef = ref(db, 'views/count');
-    get(countRef)
-      .then((snapshot) => {
-        let count = snapshot.exists() ? snapshot.val() : 0;
-        count++;
-        viewCountEl.textContent = "Views: " + count;
-        set(countRef, count);
-      })
-      .catch((error) => {
-        console.error("Error updating view count:", error);
-      });
+    get(countRef).then((snapshot) => {
+      let count = snapshot.exists() ? snapshot.val() : 0;
+      count++;
+      viewCountEl.textContent = "Views: " + count;
+      set(countRef, count);
+    }).catch((error) => {
+      console.error("Error updating view count:", error);
+    });
 
     // Menu and Order functionality
     const menuData = [];
