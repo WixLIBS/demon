@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Updated Title and Favicon -->
   <title>Menu - New York Seafood</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -18,8 +19,8 @@
       --blur: 10px;
       --transition: 0.3s ease-in-out;
       --border-radius: 12px;
-      /* Calculator background: semi-transparent gray */
-      --calc-bg: rgba(128, 128, 128, 0.85);
+      /* Calculator background: blurry, semi-transparent white-grayish */
+      --calc-bg: rgba(255, 255, 255, 0.3);
     }
     * {
       margin: 0;
@@ -44,7 +45,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       z-index: 3000;
     }
     header .logo {
@@ -85,9 +86,10 @@
       font-size: 2rem;
       color: var(--secondary);
     }
+    /* Grid container now displays 2 cards per row */
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       max-width: 1200px;
       margin: 0 auto 2rem;
@@ -98,7 +100,7 @@
       backdrop-filter: blur(var(--blur));
       border-radius: var(--border-radius);
       padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       transition: transform var(--transition);
       overflow: hidden;
     }
@@ -112,7 +114,7 @@
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
-    /* Container to hold all menu items inside a card in a grid with 3 columns */
+    /* Container for menu items inside a card; grid with 3 columns */
     .menu-items {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -145,7 +147,7 @@
       font-weight: 600;
       text-align: right;
     }
-    /* Calculator container (positioned top-right, cleaner and with a gray background) */
+    /* Calculator container: blurry, semi-transparent white-grayish */
     .calc-container {
       position: fixed;
       top: 80px;
@@ -153,8 +155,9 @@
       width: 320px;
       padding: 1rem;
       background: var(--calc-bg);
+      backdrop-filter: blur(5px);
       border-radius: var(--border-radius);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       z-index: 3000;
     }
     .calc-container h2 {
@@ -174,7 +177,7 @@
     /* Suggestions dropdown styling */
     .suggestions {
       background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 8px;
       max-height: 150px;
       overflow-y: auto;
@@ -185,7 +188,7 @@
       cursor: pointer;
     }
     .suggestion-item:hover {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
     /* Order list: horizontal row with wrapping */
     .order-list {
@@ -195,7 +198,7 @@
       margin-bottom: 1rem;
     }
     .order-item {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
       padding: 0.5rem 0.8rem;
       border-radius: 8px;
       display: flex;
@@ -256,7 +259,7 @@
       <div class="menu-items">
         <div class="menu-item">
           <h3>CRAB RANGOONS</h3>
-          <p>Crispy wonton wrappers with crab & cheese.</p>
+          <p>Crispy wonton wrappers with crab &amp; cheese.</p>
           <div class="price">$5.95</div>
         </div>
         <div class="menu-item">
@@ -276,7 +279,7 @@
         </div>
         <div class="menu-item">
           <h3>MAC 'N' CHEESE BITES</h3>
-          <p>Fried bite‑sized macaroni & cheese.</p>
+          <p>Fried bite‑sized macaroni &amp; cheese.</p>
           <div class="price">$6.00</div>
         </div>
         <div class="menu-item">
@@ -318,12 +321,12 @@
         </div>
         <div class="menu-item">
           <h3>LOBSTER BISQUE</h3>
-          <p>Rich & creamy bisque.</p>
+          <p>Rich &amp; creamy bisque.</p>
           <div class="price">$5.00</div>
         </div>
         <div class="menu-item">
           <h3>SHRIMP CORN CHOWDER</h3>
-          <p>Chowder with shrimp & corn.</p>
+          <p>Chowder with shrimp &amp; corn.</p>
           <div class="price">$5.00</div>
         </div>
         <div class="menu-item">
@@ -345,17 +348,17 @@
       <div class="menu-items">
         <div class="menu-item">
           <h3>GRILLED CHICKEN</h3>
-          <p>Romaine w/ grilled chicken, croutons & dressing.</p>
+          <p>Romaine w/ grilled chicken, croutons &amp; dressing.</p>
           <div class="price">$10.00</div>
         </div>
         <div class="menu-item">
           <h3>GRILLED SHRIMP</h3>
-          <p>Romaine w/ grilled shrimp, tomatoes & croutons.</p>
+          <p>Romaine w/ grilled shrimp, tomatoes &amp; croutons.</p>
           <div class="price">$10.00</div>
         </div>
         <div class="menu-item">
           <h3>CHICKEN TENDER SALAD</h3>
-          <p>Crispy chicken tenders on lettuce, tomatoes & cheese.</p>
+          <p>Crispy chicken tenders on lettuce, tomatoes &amp; cheese.</p>
           <div class="price">$12.00</div>
         </div>
       </div>
@@ -397,17 +400,17 @@
       <div class="menu-items">
         <div class="menu-item">
           <h3>CHICKEN CAESAR</h3>
-          <p>Chicken, romaine, parmesan & Caesar dressing.</p>
+          <p>Chicken, romaine, parmesan &amp; Caesar dressing.</p>
           <div class="price">$10.00</div>
         </div>
         <div class="menu-item">
           <h3>ORIGINAL CHICKEN</h3>
-          <p>Chicken, lettuce, tomatoes & ranch.</p>
+          <p>Chicken, lettuce, tomatoes &amp; ranch.</p>
           <div class="price">$10.00</div>
         </div>
         <div class="menu-item">
           <h3>SPICY CHICKEN</h3>
-          <p>Chicken w/ lettuce, tomatoes & spicy buffalo ranch.</p>
+          <p>Chicken w/ lettuce, tomatoes &amp; spicy buffalo ranch.</p>
           <div class="price">$10.00</div>
         </div>
       </div>
@@ -419,7 +422,7 @@
       <div class="menu-items">
         <div class="menu-item">
           <h3>SANDWICHES</h3>
-          <p>Includes lettuce, tomatoes, pickles & mayo. Served with fries.</p>
+          <p>Includes lettuce, tomatoes, pickles &amp; mayo. Served with fries.</p>
           <div class="price"></div>
         </div>
         <div class="menu-item">
@@ -434,7 +437,7 @@
         </div>
         <div class="menu-item">
           <h3>CLUB</h3>
-          <p>Club sandwich w/ chicken, bacon, lettuce & tomato.</p>
+          <p>Club sandwich w/ chicken, bacon, lettuce &amp; tomato.</p>
           <div class="price">$12.00</div>
         </div>
         <div class="menu-item">
@@ -510,7 +513,7 @@
         </div>
         <div class="menu-item">
           <h3>BLACKENED SALMON ALFREDO</h3>
-          <p>Blackened salmon over creamy Alfredo with penne & broccoli.</p>
+          <p>Blackened salmon over creamy Alfredo with penne &amp; broccoli.</p>
           <div class="price">$18.99</div>
         </div>
         <div class="menu-item">
