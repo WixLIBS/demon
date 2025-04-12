@@ -3,38 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery - New York Seafood</title>
+    <title>Food Gallery - New York Seafood Restaurant</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+      
       :root {
         --primary: #003b6f;
         --secondary: #e63946;
         --light: #f1faee;
-        --dark: #1d3557;
-        --text: #333333;
-        --text-light: #666666;
         --white: #ffffff;
         --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         --transition: all 0.3s ease;
+        --video-outline: 2px solid var(--secondary);
       }
+      
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      
       body {
         font-family: "Poppins", sans-serif;
         background-color: var(--white);
-        color: var(--text);
+        color: #333;
         line-height: 1.6;
         background-image: url("https://www.transparenttextures.com/patterns/water.png");
       }
+      
       h1, h2, h3, h4, h5 {
         font-family: "Playfair Display", serif;
-        font-weight: 600;
         color: var(--primary);
       }
+      
       header {
         background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
         background-blend-mode: multiply;
@@ -47,20 +49,24 @@
         z-index: 1000;
         box-shadow: var(--shadow);
       }
+      
       .container {
         width: 90%;
         max-width: 1200px;
         margin: 0 auto;
       }
+      
       .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
+      
       .logo-container {
         display: flex;
         align-items: center;
       }
+      
       .logo {
         font-family: "Playfair Display", serif;
         font-size: 1.8rem;
@@ -70,6 +76,7 @@
         transition: var(--transition);
         text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
       }
+      
       .tagline {
         margin-left: 10px;
         padding-left: 10px;
@@ -78,10 +85,12 @@
         font-style: italic;
         color: rgba(255,255,255,0.8);
       }
+      
       .nav-links {
         display: flex;
         gap: 2rem;
       }
+      
       .nav-links a {
         color: var(--white);
         text-decoration: none;
@@ -92,6 +101,7 @@
         transition: var(--transition);
         text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
       }
+      
       .nav-links a::after {
         content: "";
         position: absolute;
@@ -102,12 +112,15 @@
         background-color: var(--secondary);
         transition: var(--transition);
       }
+      
       .nav-links a:hover {
         color: var(--secondary);
       }
+      
       .nav-links a:hover::after {
         width: 100%;
       }
+      
       .page-header {
         padding: 10rem 0 4rem;
         text-align: center;
@@ -115,106 +128,147 @@
         color: var(--white);
         margin-bottom: 4rem;
       }
-      .page-header-content {
-        max-width: 800px;
-        margin: 0 auto;
-      }
+      
       .page-header h1 {
         font-size: 3rem;
         margin-bottom: 1.5rem;
-        color: var(--white);
         line-height: 1.2;
       }
+      
       .page-header p {
         font-size: 1.2rem;
         max-width: 700px;
         margin: 0 auto;
         opacity: 0.9;
       }
-      .section-spacing {
+      
+      /* Video Section: Watch Our Dishes in Motion */
+      .video-section {
+        padding: 4rem 0;
+        background-color: #f9f9f9;
+      }
+      
+      .video-section .section-title-container {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .video-section .section-title {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .video-section .section-title::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 3px;
+        background-color: var(--secondary);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .video-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      
+      .video-gallery video {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        outline: var(--video-outline);
+        padding: 5px;
+      }
+      
+      /* Gallery Section */
+      .gallery-section {
         padding: 4rem 0;
       }
+      
+      .gallery-filter {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 2rem;
+      }
+      
+      .filter-btn {
+        background-color: var(--light);
+        color: #333;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      
+      .filter-btn.active,
+      .filter-btn:hover {
+        background-color: var(--secondary);
+        color: var(--white);
+      }
+      
       .gallery-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 20px;
-        margin-bottom: 3rem;
       }
+      
       .gallery-item {
         position: relative;
         overflow: hidden;
         border-radius: 8px;
         box-shadow: var(--shadow);
-        aspect-ratio: 1 / 1;
         cursor: pointer;
         transition: var(--transition);
       }
+      
       .gallery-item:hover {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
         box-shadow: 0 15px 30px rgba(0,0,0,0.15);
       }
+      
       .gallery-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
       }
+      
       .gallery-item:hover img {
         transform: scale(1.05);
       }
-      /* We remove any overlay text for the Meat & Rice items */
+      
       .gallery-overlay {
-        display: none;
-      }
-      .gallery-filter {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 3rem;
-      }
-      .filter-btn {
-        background-color: var(--light);
-        color: var(--text);
-        border: none;
-        padding: 8px 20px;
-        border-radius: 30px;
-        cursor: pointer;
-        font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        transition: var(--transition);
-      }
-      .filter-btn.active, .filter-btn:hover {
-        background-color: var(--secondary);
-        color: var(--white);
-      }
-      .section-title-container {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-      .section-subtitle {
-        color: var(--secondary);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-      }
-      .section-title {
-        font-size: 2.5rem;
-        position: relative;
-        display: inline-block;
-      }
-      .section-title::after {
-        content: "";
         position: absolute;
-        width: 70px;
-        height: 3px;
-        background-color: var(--secondary);
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        color: var(--white);
+        text-align: center;
+        transition: var(--transition);
+        opacity: 0;
       }
+      
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+      
+      .gallery-title {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+      
+      /* Lightbox Styles */
       .lightbox {
         position: fixed;
         top: 0;
@@ -229,21 +283,25 @@
         opacity: 0;
         transition: opacity 0.3s ease;
       }
+      
       .lightbox.active {
         display: flex;
         opacity: 1;
       }
+      
       .lightbox-content {
         position: relative;
         max-width: 80%;
         max-height: 80%;
       }
+      
       .lightbox-img {
         max-width: 100%;
         max-height: 80vh;
         border: 5px solid var(--white);
         border-radius: 5px;
       }
+      
       .lightbox-close {
         position: absolute;
         top: -40px;
@@ -254,96 +312,48 @@
         background: none;
         border: none;
       }
-      .lightbox-caption {
-        color: var(--white);
-        text-align: center;
-        padding: 10px;
-        font-size: 1.2rem;
-        font-weight: 500;
-        margin-top: 10px;
-      }
-      .lightbox-nav {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-      }
-      .lightbox-nav button {
-        background: rgba(255, 255, 255, 0.2);
-        color: var(--white);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        cursor: pointer;
-        transition: var(--transition);
-      }
-      .lightbox-nav button:hover {
-        background: var(--secondary);
-      }
-      .btn {
-        background-color: var(--secondary);
-        color: var(--white);
-        padding: 0.9rem 2.5rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        display: inline-block;
-        transition: var(--transition);
-        border: none;
-        cursor: pointer;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.9rem;
-      }
-      .btn:hover {
-        background-color: #c1121f;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(230,57,70,0.3);
-      }
-      .load-more {
-        text-align: center;
-        margin-top: 2rem;
-      }
+      
+      /* Footer */
       footer {
         background-color: #00264d;
         color: rgba(255,255,255,0.7);
         padding: 1.8rem 0;
         text-align: center;
+        margin-top: 2rem;
       }
+      
       .footer-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
       }
+      
       .footer-links {
         display: flex;
         gap: 2rem;
       }
+      
       .footer-links a {
         color: rgba(255,255,255,0.7);
         text-decoration: none;
         transition: var(--transition);
       }
+      
       .footer-links a:hover {
         color: var(--secondary);
       }
+      
       /* Responsive */
       @media (max-width: 992px) {
-        .gallery-container {
+        .gallery-container, .video-gallery {
           grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         }
       }
+      
       @media (max-width: 768px) {
         .page-header h1 {
           font-size: 2.5rem;
-        }
-        .section-title {
-          font-size: 2rem;
         }
         .nav-links {
           gap: 1rem;
@@ -351,10 +361,8 @@
         .tagline {
           display: none;
         }
-        .gallery-container {
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        }
       }
+      
       @media (max-width: 576px) {
         .page-header {
           padding: 8rem 0 4rem;
@@ -365,33 +373,11 @@
         .page-header p {
           font-size: 1rem;
         }
-        .section-title {
-          font-size: 1.8rem;
-        }
-        .gallery-container {
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        }
-        .footer-content {
-          flex-direction: column;
-          gap: 1rem;
-        }
-      }
-      /* Styles for the video gallery section */
-      .video-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        margin-bottom: 3rem;
-      }
-      .video-gallery video {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
       }
     </style>
   </head>
   <body>
+    <!-- Header & Navigation -->
     <header>
       <div class="container nav-container">
         <div class="logo-container">
@@ -401,106 +387,27 @@
         <nav class="nav-links">
           <a href="index.html">Home</a>
           <a href="products.html">Menu</a>
-          <a href="gallery.html">Food Gallery</a>
+          <a href="gallery.html">Gallery</a>
           <a href="about.html">About Us</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
     </header>
     
+    <!-- Page Header -->
     <section class="page-header">
-      <div class="container page-header-content">
+      <div class="container">
         <h1>Our Food Gallery</h1>
-        <p>Explore our delicious creations through our gallery</p>
+        <p>Explore our delectable dishes and experience the true flavor</p>
       </div>
     </section>
     
-    <section class="gallery-section section-spacing">
+    <!-- Video Section: Watch Our Dishes in Motion -->
+    <section class="video-section">
       <div class="container">
         <div class="section-title-container">
-          <p class="section-subtitle">Visual Feast</p>
-          <h2 class="section-title">Gallery</h2>
-        </div>
-        
-        <div class="gallery-filter">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="seafood">Seafood</button>
-          <button class="filter-btn" data-filter="meatrice">Meat & Rice</button>
-        </div>
-        
-        <div class="gallery-container">
-          <!-- Seafood Category (unchanged) -->
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Shrimp Scampi', 'Garlic butter shrimp scampi with white wine sauce')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImU0NGQ1YTg1LTE2ODAtMTFmMC05Y2Q4LTdhZTU2MzkyMTAxYiJ9.nmGhyiTC9o_q4RGVFNddHetNFbJts9jXHAqiVVUpZVE&h=e44d5a85-1680-11f0-9cd8-7ae56392101b" alt="Shrimp Scampi"/>
-          </div>
-          
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Platter', 'A selection of today\'s freshest catch')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImFhYzQ2ZTA3LTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.p1Pd1Bu-0PqIa8Y0xNVGENZVxRunrnQnUHh8i38rbcA&h=aac46e07-1681-11f0-9786-96d07a933552" alt="Fresh Seafood Platter"/>
-          </div>
-          
-          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Grilled Fish', 'Fresh fish grilled to perfection')">
-            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjcyNzBmZGE1LTE2ODEtMTFmMC05Zjg4LTlhMzY5OTVkYTNjYyJ9.CJV01lms02_ypzfU2fLYu3JUJpVgD02oCBJBMx0Zib8&h=7270fda5-1681-11f0-9f88-9a36995da3cc" alt="Grilled Fish"/>
-          </div>
-          
-          <!-- Meat & Rice Category with new images (no overlay name) -->
-          <!-- The following items use the image links you provided -->
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/GTpw19Zn/IMG-2884.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/1nQsbmmy/IMG-2895.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/pyVtj1yc/IMG-2947.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/9rK3vmbs/IMG-2948.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/Wqpjb5qK/IMG-2961.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/fJwQxqLg/IMG-3078.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/XGQmx4XH/IMG-3079.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/f3XMHthH/IMG-3080.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/xXMZhKcb/IMG-3088.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/PpQTjgJY/IMG-3090.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/JsH8nDt1/IMG-3284.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/Dmwt0JYt/IMG-3285.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/nMdfGYDF/IMG-3348.jpg" alt="" />
-          </div>
-          <div class="gallery-item" data-category="meatrice">
-            <img src="https://i.postimg.cc/fkq19zGk/IMG-3368.jpg" alt="" />
-          </div>
-          
-        </div>
-        
-        <div class="load-more">
-          <button class="btn" id="loadMoreBtn">Load More</button>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Video Gallery Section -->
-    <section class="video-section section-spacing">
-      <div class="container">
-        <div class="section-title-container">
-          <p class="section-subtitle">Moving Flavors</p>
-          <h2 class="section-title">Video Gallery</h2>
+          <p class="section-subtitle">In Motion</p>
+          <h2 class="section-title">Watch Our Dishes in Motion</h2>
         </div>
         <div class="video-gallery">
           <video src="https://media-hosting.imagekit.io/3a1393abf7934811/IMG_2947.MOV?Expires=1839032296&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0YGikDlNWpyYymOkbWv9jlU3TrSG7I1UFwG3sFz-hDflZxAQDhdQX0Tm4RVwaio8i19AHijHHJ77KrX-GcKIXWvCS5uVATq7XLPNePpI4RrtfvEZ~XStVHVMYDY7TzomuNZtoaRzDSCvTq0dQNT-a5uif45EhN3CjAVj1DKN5KVIZ8w07Y9M-CQtE6rfRKe2kgXM-x8dVyXwNlD4TA4OfqYJcsZlIS9agylkk3D6tJzfmOerHbbaoDoWGoy-4BZCWdv-nXZHekVQvSU2vb8RePw6vHZGa~LCqhg-yPLtNZMfvaE8EnHnSUTywrYYyczggb9yPnkOSAl2nFP8~ws~oQ__" autoplay loop muted playsinline></video>
@@ -512,18 +419,146 @@
       </div>
     </section>
     
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section-title-container" style="text-align:center; margin-bottom:2rem;">
+          <p class="section-subtitle">Visual Feast</p>
+          <h2 class="section-title">Gallery</h2>
+        </div>
+        
+        <div class="gallery-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="seafood">Seafood</button>
+          <button class="filter-btn" data-filter="maincourses">Main Courses</button>
+        </div>
+        
+        <div class="gallery-container">
+          <!-- Seafood Category (unchanged) -->
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Shrimp Scampi', 'Garlic butter shrimp scampi with white wine sauce')">
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImU0NGQ1YTg1LTE2ODAtMTFmMC05Y2Q4LTdhZTU2MzkyMTAxYiJ9.nmGhyiTC9o_q4RGVFNddHetNFbJts9jXHAqiVVUpZVE&h=e44d5a85-1680-11f0-9cd8-7ae56392101b" alt="Shrimp Scampi"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Shrimp Scampi</h3>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Fresh Seafood Platter', 'A selection of today’s freshest catch')">
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6ImFhYzQ2ZTA3LTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.p1Pd1Bu-0PqIa8Y0xNVGENZVxRunrnQnUHh8i38rbcA&h=aac46e07-1681-11f0-9786-96d07a933552" alt="Fresh Seafood Platter"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Fresh Seafood Platter</h3>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="seafood" onclick="openLightbox(this, 'Grilled Fish', 'Fresh fish grilled to perfection')">
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjcyNzBmZGE1LTE2ODEtMTFmMC05Zjg4LTlhMzY5OTVkYTNjYyJ9.CJV01lms02_ypzfU2fLYu3JUJpVgD02oCBJBMx0Zib8&h=7270fda5-1681-11f0-9f88-9a36995da3cc" alt="Grilled Fish"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Grilled Fish</h3>
+            </div>
+          </div>
+          
+          <!-- Main Courses Category -->
+          <!-- 14 items with overlay text corresponding to provided dish info -->
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Chicken n Steak Special', '')">
+            <img src="https://i.postimg.cc/GTpw19Zn/IMG-2884.jpg" alt="Chicken n Steak Special"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Chicken n Steak Special</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Keep what u got', '')">
+            <img src="https://i.postimg.cc/1nQsbmmy/IMG-2895.jpg" alt="Keep what u got"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Keep what u got</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Not Lobster Make it Seafood Takeout #1', '')">
+            <img src="https://i.postimg.cc/pyVtj1yc/IMG-2947.jpg" alt="Not Lobster Make it Seafood Takeout #1"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Not Lobster Make it Seafood Takeout #1</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Seafood Takeout #2', '')">
+            <img src="https://i.postimg.cc/9rK3vmbs/IMG-2948.jpg" alt="Seafood Takeout #2"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Seafood Takeout #2</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Seafood Combo Tray #1', '')">
+            <img src="https://i.postimg.cc/Wqpjb5qK/IMG-2961.jpg" alt="Seafood Combo Tray #1"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Seafood Combo Tray #1</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Shrimp n Short Rib Fried Rice #1', '')">
+            <img src="https://i.postimg.cc/fJwQxqLg/IMG-3078.jpg" alt="Shrimp n Short Rib Fried Rice #1"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Shrimp n Short Rib Fried Rice #1</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Shrimp n Short Rib Fried Rice #2', '')">
+            <img src="https://i.postimg.cc/XGQmx4XH/IMG-3079.jpg" alt="Shrimp n Short Rib Fried Rice #2"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Shrimp n Short Rib Fried Rice #2</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Shrimp n Short Rib Fried Rice #3', '')">
+            <img src="https://i.postimg.cc/f3XMHthH/IMG-3080.jpg" alt="Shrimp n Short Rib Fried Rice #3"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Shrimp n Short Rib Fried Rice #3</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Lobster Tail Tray #1', '')">
+            <img src="https://i.postimg.cc/xXMZhKcb/IMG-3088.jpg" alt="Lobster Tail Tray #1"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Lobster Tail Tray #1</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Lobster Tail Tray #2', '')">
+            <img src="https://i.postimg.cc/PpQTjgJY/IMG-3090.jpg" alt="Lobster Tail Tray #2"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Lobster Tail Tray #2</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Homemade Pork and Rice', '')">
+            <img src="https://i.postimg.cc/JsH8nDt1/IMG-3284.jpg" alt="Homemade Pork and Rice"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Homemade Pork and Rice</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Short Ribs and Rice', '')">
+            <img src="https://i.postimg.cc/Dmwt0JYt/IMG-3285.jpg" alt="Short Ribs and Rice"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Short Ribs and Rice</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Signature Sandwiches', '')">
+            <img src="https://i.postimg.cc/nMdfGYDF/IMG-3348.jpg" alt="Signature Sandwiches"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Signature Sandwiches</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Chef’s Special', '')">
+            <img src="https://i.postimg.cc/fkq19zGk/IMG-3368.jpg" alt="Chef’s Special"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Chef’s Special</h3>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="maincourses" onclick="openLightbox(this, 'Fish Combo #1', '')">
+            <img src="https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBlb3BsZXZ1dSIsImtleSI6IjBmNTgzNjAyLTE2ODEtMTFmMC05Nzg2LTk2ZDA3YTkzMzU1MiJ9.5IVaZ8calWpsNEl1MBrEa5EV_zcyP2JkXRha2uCqw98&h=0f583602-1681-11f0-9786-96d07a933552" alt="Fish Combo #1"/>
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Fish Combo #1</h3>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
       <div class="lightbox-content">
         <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
         <img src="" alt="" class="lightbox-img" id="lightbox-img">
-        <div class="lightbox-caption" id="lightbox-caption"></div>
-        <div class="lightbox-nav">
-          <button onclick="changeImage(-1)">&lt;</button>
-          <button onclick="changeImage(1)">&gt;</button>
-        </div>
       </div>
     </div>
     
+    <!-- Footer -->
     <footer>
       <div class="container footer-content">
         <p>&copy; 2025 New York Seafood Restaurant. All Rights Reserved.</p>
@@ -534,20 +569,17 @@
       </div>
     </footer>
     
+    <!-- Scripts -->
     <script>
-      // Gallery filtering
       const filterBtns = document.querySelectorAll('.filter-btn');
       const galleryItems = document.querySelectorAll('.gallery-item');
       
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          // Remove active class from all buttons
           filterBtns.forEach(b => b.classList.remove('active'));
-          // Add active class to clicked button
           btn.classList.add('active');
           
           const filter = btn.getAttribute('data-filter');
-          
           galleryItems.forEach(item => {
             if (filter === 'all' || item.getAttribute('data-category') === filter) {
               item.style.display = 'block';
@@ -559,23 +591,13 @@
       });
       
       // Lightbox functionality
-      let currentIndex = 0;
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
-      const lightboxCaption = document.getElementById('lightbox-caption');
-      const visibleItems = () => Array.from(galleryItems).filter(item => item.style.display !== 'none');
       
       function openLightbox(item, title, description) {
         const imgSrc = item.querySelector('img').src;
         lightboxImg.src = imgSrc;
-        lightboxCaption.innerHTML = `<h3>${title || ""}</h3><p>${description || ""}</p>`;
         lightbox.classList.add('active');
-        
-        // Set current index
-        const items = visibleItems();
-        currentIndex = items.indexOf(item);
-        
-        // Prevent scrolling on body
         document.body.style.overflow = 'hidden';
       }
       
@@ -584,34 +606,11 @@
         document.body.style.overflow = 'auto';
       }
       
-      function changeImage(direction) {
-        const items = visibleItems();
-        currentIndex = (currentIndex + direction + items.length) % items.length;
-        const newItem = items[currentIndex];
-        const imgSrc = newItem.querySelector('img').src;
-        // For items with no overlay text, the caption will be empty
-        const title = newItem.querySelector('.gallery-title') ? newItem.querySelector('.gallery-title').textContent : "";
-        const description = newItem.querySelector('.gallery-desc') ? newItem.querySelector('.gallery-desc').textContent : "";
-        
-        lightboxImg.src = imgSrc;
-        lightboxCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
-      }
-      
-      // Close lightbox with escape key
-      document.addEventListener('keydown', function(e) {
+      // Close lightbox on Escape key
+      document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) {
           closeLightbox();
         }
-      });
-      
-      // Load more functionality (for demonstration)
-      document.getElementById('loadMoreBtn').addEventListener('click', function() {
-        this.textContent = 'No More Images';
-        this.disabled = true;
-        setTimeout(() => {
-          this.textContent = 'Load More';
-          this.disabled = false;
-        }, 2000);
       });
     </script>
   </body>
