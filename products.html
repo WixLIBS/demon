@@ -86,13 +86,13 @@
       font-size: 2rem;
       color: var(--secondary);
     }
-    /* Grid container now with 3 columns per row, dense packing, and items aligned at the start */
+    /* Grid container now shows 4 cards per row with dense packing and reduced gap */
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      align-items: start; /* each card’s height is determined solely by its own content */
-      grid-auto-flow: dense; /* auto-fill gaps when content is removed */
+      grid-template-columns: repeat(4, 1fr); /* 4 cards in each row */
+      gap: 0.8rem; /* Reduced gap between cards */
+      align-items: start; /* Each card's height follows its content */
+      grid-auto-flow: dense; /* Auto-fill any gaps */
       max-width: 1200px;
       margin: 0 auto 2rem;
       padding: 0 1rem;
@@ -211,6 +211,11 @@
       font-weight: 600;
       text-align: center;
     }
+    @media (max-width: 1200px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
     @media (max-width: 800px) {
       .grid-container {
         grid-template-columns: repeat(2, 1fr);
@@ -245,7 +250,7 @@
     <h1>Full Menu</h1>
   </div>
 
-  <!-- Grid Container: 3 cards per row with dense flow -->
+  <!-- Grid Container: 4 cards per row with dense auto-flow -->
   <div class="grid-container">
     <!-- Appetizers Card -->
     <div class="card" data-name="Appetizers">
