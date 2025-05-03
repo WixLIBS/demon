@@ -5,213 +5,242 @@
   <title>Menu - New York Seafood</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #191970;
-      --secondary: #e63946;
-      --accent: rgba(0, 0, 0, 0.6);
-      --highlight: #001f3f;
-      --text: #fff;
-      --card-bg: rgba(0, 0, 0, 0.75);
-      --blur: 10px;
-      --transition: 0.3s ease-in-out;
-      --border-radius: 12px;
-      --calc-bg: rgba(255, 255, 255, 0.3);
+      --primary: #0c2340;
+      --secondary: #d4af37;
+      --accent: rgba(12, 35, 64, 0.9);
+      --text: #333;
+      --light-text: #fff;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --header-bg: rgba(12, 35, 64, 0.95);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      --border-radius: 8px;
+      --transition: 0.3s ease;
     }
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       font-family: 'Poppins', sans-serif;
-      background: url('https://www.wallpapergap.com/cdn/24/221/animated-koi-fish-wallpaper-1920x1080.jpg') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80') no-repeat center center fixed;
       background-size: cover;
       color: var(--text);
-      padding-top: 70px;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 40px;
     }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(12, 35, 64, 0.7));
+      z-index: -1;
+    }
+    
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 70px;
-      background: var(--secondary);
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      z-index: 3000;
+      padding: 1.2rem 5%;
+      box-shadow: var(--shadow);
+      z-index: 1000;
     }
+    
     header .logo {
+      font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--text);
+      font-weight: 700;
+      color: var(--secondary);
       text-decoration: none;
-      flex: 1;
+      letter-spacing: 1px;
     }
+    
     header #viewCount {
-      flex: 1;
-      text-align: center;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text);
+      font-size: 0.9rem;
+      color: var(--light-text);
+      opacity: 0.8;
     }
-    header nav {
-      flex: 1;
-      text-align: right;
-    }
-    nav a {
-      color: var(--text);
+    
+    header nav a {
+      color: var(--light-text);
       text-decoration: none;
-      margin-left: 1.2rem;
+      margin-left: 1.5rem;
       font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
       transition: var(--transition);
     }
-    nav a:hover {
-      color: var(--highlight);
+    
+    header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: var(--transition);
     }
-    .page-header {
-      text-align: center;
-      margin: 1rem 0 1.5rem;
-    }
-    .page-header h1 {
-      font-size: 2rem;
+    
+    header nav a:hover {
       color: var(--secondary);
     }
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-      padding: 0 1rem;
-    }
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(var(--blur));
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      transition: transform var(--transition);
-      overflow: hidden;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card h2 {
-      font-size: 1.3rem;
-      color: var(--secondary);
-      border-bottom: 2px solid var(--secondary);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .menu-items {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .menu-item h3 {
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 4px;
-      white-space: normal;
-    }
-    .menu-item p {
-      font-size: 0.8rem;
-      color: #ccc;
-      margin-bottom: 4px;
-    }
-    .menu-item .price {
-      font-size: 0.85rem;
-      color: var(--secondary);
-      font-weight: 600;
-      text-align: right;
-    }
-    .calc-container {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      width: 320px;
-      padding: 1rem;
-      background: var(--calc-bg);
-      backdrop-filter: blur(5px);
-      border-radius: var(--border-radius);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      z-index: 3000;
-    }
-    .calc-container h2 {
-      margin-bottom: 1rem;
-      color: var(--secondary);
-      font-size: 1.4rem;
-      text-align: center;
-    }
-    .calc-search {
+    
+    header nav a:hover::after {
       width: 100%;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
     }
-    .suggestions {
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
-      max-height: 150px;
-      overflow-y: auto;
-      margin-bottom: 0.5rem;
+    
+    .container {
+      max-width: 1200px;
+      margin: 120px auto 50px;
+      padding: 0 20px;
     }
-    .suggestion-item {
-      padding: 0.5rem;
-      cursor: pointer;
+    
+    .page-title {
+      text-align: center;
+      margin-bottom: 50px;
     }
-    .suggestion-item:hover {
-      background: rgba(255, 255, 255, 0.1);
+    
+    .page-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--light-text);
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     }
-    .order-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+    
+    .page-title p {
+      font-size: 1.1rem;
+      color: var(--light-text);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
     }
-    .order-item {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0.5rem 0.8rem;
-      border-radius: 8px;
+    
+    .menu-section {
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      position: relative;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       display: flex;
       align-items: center;
-      font-size: 0.9rem;
     }
-    .order-item button.remove-btn {
-      background: transparent;
-      border: none;
-      color: var(--highlight);
-      cursor: pointer;
-      font-size: 1rem;
-      margin-left: 0.5rem;
+    
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--secondary);
+      margin-left: 20px;
+      opacity: 0.5;
     }
-    .total {
-      font-size: 1.1rem;
+    
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    
+    .menu-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    .menu-card-content {
+      padding: 20px;
+    }
+    
+    .menu-category {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
       font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--secondary);
+    }
+    
+    .menu-items {
+      /* Menu items will be added here */
+    }
+    
+    footer {
       text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: var(--light-text);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: var(--header-bg);
     }
-    @media (max-width: 800px) {
-      .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+    
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1rem 5%;
       }
-    }
-    @media (max-width: 500px) {
-      .grid-container {
+      
+      header .logo {
+        margin-bottom: 0.5rem;
+      }
+      
+      header nav {
+        margin-top: 0.5rem;
+      }
+      
+      header nav a {
+        margin: 0 0.7rem;
+        font-size: 0.9rem;
+      }
+      
+      .container {
+        margin-top: 150px;
+      }
+      
+      .page-title h1 {
+        font-size: 2.3rem;
+      }
+      
+      .menu-grid {
         grid-template-columns: 1fr;
       }
-      .calc-container {
-        top: 80px;
-        right: 10px;
-        width: 90%;
+      
+      .section-title {
+        font-size: 1.7rem;
       }
     }
   </style>
@@ -228,15 +257,19 @@
     </nav>
   </header>
 
-    <div class="page-header">
-    <h1>Full Menu</h1>
-  </div>
+  <div class="container">
+    <div class="page-title">
+      <h1>Our Menu</h1>
+      <p>Indulge in the finest selection of seafood, expertly prepared with premium ingredients and authentic flavors.</p>
+    </div>
 
-  <!-- Grid Container: 3 cards per row -->
-  <div class="grid-container">
-    <!-- Appetizers Card -->
-    <div class="card" data-name="Appetizers">
-      <h2>Appetizers</h2>
+    <!-- Grid Container -->
+<div class="grid-container">
+
+  <!-- Appetizers -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Appetizers</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>CRAB RANGOONS</h3>
@@ -255,12 +288,12 @@
         </div>
         <div class="menu-item">
           <h3>FRIED PICKLES</h3>
-          <p>Beer‑battered dill pickles.</p>
+          <p>Beer-battered dill pickles.</p>
           <div class="price">$6.00</div>
         </div>
         <div class="menu-item">
           <h3>MAC 'N' CHEESE BITES</h3>
-          <p>Fried bite‑sized macaroni &amp; cheese.</p>
+          <p>Fried bite-sized macaroni &amp; cheese.</p>
           <div class="price">$6.00</div>
         </div>
         <div class="menu-item">
@@ -290,10 +323,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Soup Card -->
-    <div class="card" data-name="Soup">
-      <h2>Soup</h2>
+  <!-- Soup -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Soup</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>EGGDROP</h3>
@@ -322,10 +357,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Salads Card -->
-    <div class="card" data-name="Salads">
-      <h2>Salads</h2>
+  <!-- Salads -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Salads</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>GRILLED CHICKEN</h3>
@@ -344,11 +381,13 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Fish & Shrimp Card -->
-    <div class="card" data-name="Fish & Shrimp">
-      <h2>Fish &amp; Shrimp</h2>
-      <p style="font-size:0.9rem; margin-bottom:0.8rem;">served with french fries</p>
+  <!-- Fish & Shrimp -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Fish &amp; Shrimp</h3>
+      <p>served with french fries</p>
       <div class="menu-items">
         <div class="menu-item">
           <h3>6 PCS FISH + 6 PCS SHRIMP</h3>
@@ -362,10 +401,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Chef's Special Card -->
-    <div class="card" data-name="Chefs Special">
-      <h2>Chef's Special</h2>
+  <!-- Chef's Special -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Chef’s Special</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>BEEF SHORT-RIBS</h3>
@@ -374,10 +415,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Chicken Wraps Card -->
-    <div class="card" data-name="Chicken Wraps">
-      <h2>Chicken Wraps</h2>
+  <!-- Chicken Wraps -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Chicken Wraps</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>CHICKEN CAESAR</h3>
@@ -396,10 +439,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Sandwiches Card -->
-    <div class="card" data-name="Sandwiches">
-      <h2>Sandwiches</h2>
+  <!-- Sandwiches -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Sandwiches</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>SANDWICHES</h3>
@@ -433,11 +478,13 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Fish Card -->
-    <div class="card" data-name="Fish">
-      <h2>Fish</h2>
-      <p style="font-size:0.9rem; margin-bottom:0.8rem;">deep fried or blackened, served with 2 sides</p>
+  <!-- Fish -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Fish</h3>
+      <p>deep fried or blackened, served with 2 sides</p>
       <div class="menu-items">
         <div class="menu-item">
           <h3>SALMON</h3>
@@ -466,11 +513,13 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Pasta Card -->
-    <div class="card" data-name="Pasta">
-      <h2>Pasta</h2>
-      <p style="font-size:0.9rem; margin-bottom:0.8rem;">Add bread sticks for $3.00</p>
+  <!-- Pasta -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Pasta</h3>
+      <p>Add bread sticks for $3.00</p>
       <div class="menu-items">
         <div class="menu-item">
           <h3>SHRIMP SCAMPI</h3>
@@ -504,69 +553,34 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Sides Card -->
-    <div class="card" data-name="Sides">
-      <h2>Sides</h2>
+  <!-- Sides -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Sides</h3>
       <div class="menu-items">
-        <div class="menu-item">
-          <h3>CORN</h3>
-          <div class="price">$2.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>POTATO</h3>
-          <div class="price">$2.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>SAUSAGE</h3>
-          <div class="price">$3.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>EGGS</h3>
-          <div class="price">$2 for 3.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>BROCCOLI</h3>
-          <div class="price">$3.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>MUSHROOM</h3>
-          <div class="price">$2.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>PEANUTS</h3>
-          <div class="price">$4.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>SMOKED NECKBONES</h3>
-          <div class="price">$4.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>FRENCH FRIES</h3>
-          <div class="price">$3.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>STEAMED RICE</h3>
-          <div class="price">$2.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>RAMEN</h3>
-          <div class="price">$2.50</div>
-        </div>
-        <div class="menu-item">
-          <h3>MASHED POTATOES</h3>
-          <div class="price">$4.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>ASPARAGUS</h3>
-          <div class="price">$4.00</div>
-        </div>
+        <div class="menu-item"><h3>CORN</h3><div class="price">$2.00</div></div>
+        <div class="menu-item"><h3>POTATO</h3><div class="price">$2.00</div></div>
+        <div class="menu-item"><h3>SAUSAGE</h3><div class="price">$3.00</div></div>
+        <div class="menu-item"><h3>EGGS</h3><div class="price">$2 for 3.00</div></div>
+        <div class="menu-item"><h3>BROCCOLI</h3><div class="price">$3.00</div></div>
+        <div class="menu-item"><h3>MUSHROOM</h3><div class="price">$2.00</div></div>
+        <div class="menu-item"><h3>PEANUTS</h3><div class="price">$4.00</div></div>
+        <div class="menu-item"><h3>SMOKED NECKBONES</h3><div class="price">$4.00</div></div>
+        <div class="menu-item"><h3>FRENCH FRIES</h3><div class="price">$3.00</div></div>
+        <div class="menu-item"><h3>STEAMED RICE</h3><div class="price">$2.00</div></div>
+        <div class="menu-item"><h3>RAMEN</h3><div class="price">$2.50</div></div>
+        <div class="menu-item"><h3>MASHED POTATOES</h3><div class="price">$4.00</div></div>
+        <div class="menu-item"><h3>ASPARAGUS</h3><div class="price">$4.00</div></div>
       </div>
     </div>
+  </div>
 
-    <!-- Drinks Card -->
-    <div class="card" data-name="Drinks">
-      <h2>Drinks</h2>
+  <!-- Drinks -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Drinks</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>LEMONADE</h3>
@@ -583,53 +597,28 @@
           <p>free refill</p>
           <div class="price">$2.50</div>
         </div>
-        <div class="menu-item">
-          <h3>LIMADE</h3>
-          <div class="price">$3.99</div>
-        </div>
+        <div class="menu-item"><h3>LIMADE</h3><div class="price">$3.99</div></div>
         <div class="menu-item">
           <h3>FLAVORED LEMONADE</h3>
           <p>no refill</p>
           <div class="price">$4.50</div>
         </div>
-        <div class="menu-item">
-          <h3>PINEAPPLE JUICE</h3>
-          <div class="price">$3.50</div>
-        </div>
-        <div class="menu-item">
-          <h3>CRANBERRY JUICE</h3>
-          <div class="price">$3.50</div>
-        </div>
-        <div class="menu-item">
-          <h3>ORANGE JUICE</h3>
-          <div class="price">$3.99</div>
-        </div>
-        <div class="menu-item">
-          <h3>APPLE JUICE</h3>
-          <div class="price">$3.99</div>
-        </div>
-        <div class="menu-item">
-          <h3>MANGO JUICE</h3>
-          <div class="price">$3.99</div>
-        </div>
-        <div class="menu-item">
-          <h3>THAI TEA</h3>
-          <div class="price">$4.50</div>
-        </div>
-        <div class="menu-item">
-          <h3>MATCHA LATTE</h3>
-          <div class="price">$4.50</div>
-        </div>
-        <div class="menu-item">
-          <h3>SODA</h3>
-          <div class="price">$2.00</div>
-        </div>
+        <div class="menu-item"><h3>PINEAPPLE JUICE</h3><div class="price">$3.50</div></div>
+        <div class="menu-item"><h3>CRANBERRY JUICE</h3><div class="price">$3.50</div></div>
+        <div class="menu-item"><h3>ORANGE JUICE</h3><div class="price">$3.99</div></div>
+        <div class="menu-item"><h3>APPLE JUICE</h3><div class="price">$3.99</div></div>
+        <div class="menu-item"><h3>MANGO JUICE</h3><div class="price">$3.99</div></div>
+        <div class="menu-item"><h3>THAI TEA</h3><div class="price">$4.50</div></div>
+        <div class="menu-item"><h3>MATCHA LATTE</h3><div class="price">$4.50</div></div>
+        <div class="menu-item"><h3>SODA</h3><div class="price">$2.00</div></div>
       </div>
     </div>
+  </div>
 
-    <!-- Side Specials Card -->
-    <div class="card" data-name="Side Specials">
-      <h2>Side Specials</h2>
+  <!-- Side Specials -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Side Specials</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>ANDY SPECIAL</h3>
@@ -693,10 +682,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Dungeness Crab Trays Card -->
-    <div class="card" data-name="Dungeness Crab Trays">
-      <h2>Dungeness Crab Trays</h2>
+  <!-- Dungeness Crab Trays -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Dungeness Crab Trays</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>DC #1</h3>
@@ -720,61 +711,32 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Seafood Add On Card -->
-    <div class="card" data-name="Seafood Add On">
-      <h2>Seafood Add On</h2>
+  <!-- Seafood Add On -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Seafood Add On</h3>
       <div class="menu-items">
-        <div class="menu-item">
-          <h3>1/2 LB SHRIMP</h3>
-          <div class="price">$9.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB GREEN MUSSEL</h3>
-          <div class="price">$10.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB BLACK MUSSEL</h3>
-          <div class="price">$9.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB CRAWFISH</h3>
-          <div class="price">$9.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1 LB BABY CLAMS</h3>
-          <div class="price">$10.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB SNOWCRAB</h3>
-          <div class="price">$15.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB DUNGENESS CRAB</h3>
-          <div class="price">$25.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB CONCH MEAT</h3>
-          <div class="price">$15.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>LOBSTERTAIL</h3>
-          <div class="price">$18.00 each</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB SCALLOP PIECES</h3>
-          <div class="price">$15.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>1/2 LB CALAMARI</h3>
-          <div class="price">$10.00</div>
-        </div>
+        <div class="menu-item"><h3>1/2 LB SHRIMP</h3><div class="price">$9.00</div></div>
+        <div class="menu-item"><h3>1/2 LB GREEN MUSSEL</h3><div class="price">$10.00</div></div>
+        <div class="menu-item"><h3>1/2 LB BLACK MUSSEL</h3><div class="price">$9.00</div></div>
+        <div class="menu-item"><h3>1/2 LB CRAWFISH</h3><div class="price">$9.00</div></div>
+        <div class="menu-item"><h3>1 LB BABY CLAMS</h3><div class="price">$10.00</div></div>
+        <div class="menu-item"><h3>1/2 LB SNOWCRAB</h3><div class="price">$15.00</div></div>
+        <div class="menu-item"><h3>1/2 LB DUNGENESS CRAB</h3><div class="price">$25.00</div></div>
+        <div class="menu-item"><h3>1/2 LB CONCH MEAT</h3><div class="price">$15.00</div></div>
+        <div class="menu-item"><h3>LOBSTERTAIL</h3><div class="price">$18.00 each</div></div>
+        <div class="menu-item"><h3>1/2 LB SCALLOP PIECES</h3><div class="price">$15.00</div></div>
+        <div class="menu-item"><h3>1/2 LB CALAMARI</h3><div class="price">$10.00</div></div>
       </div>
     </div>
+  </div>
 
-    <!-- Snowcrab Trays Card -->
-    <div class="card" data-name="Snowcrab Trays">
-      <h2>Snowcrab Trays</h2>
+  <!-- Snowcrab Trays -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Snowcrab Trays</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>1 SNOWCRAB CLUSTER</h3>
@@ -833,10 +795,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Asian Cuisine Card -->
-    <div class="card" data-name="Asian Cuisine">
-      <h2>Asian Cuisine</h2>
+  <!-- Asian Cuisine -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Asian Cuisine</h3>
       <div class="menu-items">
         <div class="menu-item">
           <h3>LOMIEN</h3>
@@ -883,82 +847,100 @@
           <p>Shrimp $8.00, Chicken $8.00</p>
           <div class="price"></div>
         </div>
-        <div class="menu-item">
-          <h3>WINGS &amp; SHRIMP FRIED RICE</h3>
-          <div class="price">$14.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>GENERAL TSO / CHICKEN &amp; SHRIMP FRIED RICE</h3>
-          <div class="price">$14.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>TERIYAKI CHICKEN &amp; SHRIMP FRIED RICE</h3>
-          <div class="price">$14.00</div>
-        </div>
+        <div class="menu-item"><h3>WINGS &amp; SHRIMP FRIED RICE</h3><div class="price">$14.00</div></div>
+        <div class="menu-item"><h3>GENERAL TSO / CHICKEN &amp; SHRIMP FRIED RICE</h3><div class="price">$14.00</div></div>
+        <div class="menu-item"><h3>TERIYAKI CHICKEN &amp; SHRIMP FRIED RICE</h3><div class="price">$14.00</div></div>
       </div>
     </div>
+  </div>
 
-    <!-- Sauce Card -->
-    <div class="card" data-name="Sauce">
-      <h2>Sauce</h2>
+  <!-- Sauce -->
+  <div class="menu-card">
+    <div class="menu-card-content">
+      <h3 class="menu-category">Sauce</h3>
       <div class="menu-items">
-        <!-- Heat Levels -->
-        <div class="menu-item">
-          <h3>Mild Sauce</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Medium Sauce</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Spicy Sauce</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Xtra Spicy Sauce</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <!-- Butter Options -->
-        <div class="menu-item">
-          <h3>Garlic Butter</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Cajun Butter</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Garlic Lemon Pepper</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Garlic &amp; Onion Butter</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Clear Butter</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>Creamy Garlic Butter</h3>
-          <div class="price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <h3>House Sauce</h3>
-          <div class="price">$5.00</div>
-        </div>
+        <div class="menu-item"><h3>Mild Sauce</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Medium Sauce</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Spicy Sauce</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Xtra Spicy Sauce</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Garlic Butter</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Cajun Butter</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Garlic Lemon Pepper</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Garlic &amp; Onion Butter</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Clear Butter</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>Creamy Garlic Butter</h3><div class="price">$5.00</div></div>
+        <div class="menu-item"><h3>House Sauce</h3><div class="price">$5.00</div></div>
       </div>
     </div>
   </div>
 
-  <div class="calc-container">
-    <h2>Order Calculator</h2>
-    <input type="text" id="calc-search" class="calc-search" placeholder="Search for an item...">
-    <div id="suggestions" class="suggestions"></div>
-    <div class="order-list"></div>
-    <p class="total">Total: $<span class="total-price">0.00</span></p>
+  <div class="menu-card">
+  <div class="menu-card-content">
+    <h3 class="menu-category">Drinks</h3>
+    <div class="menu-items">
+      <div class="menu-item">
+        <h3>LEMONADE</h3>
+        <p>free refill</p>
+        <div class="price">$3.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>ICE TEA</h3>
+        <p>free refill</p>
+        <div class="price">$3.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>HOT TEA</h3>
+        <p>free refill</p>
+        <div class="price">$2.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>LIMADE</h3>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="menu-item">
+        <h3>FLAVORED LEMONADE</h3>
+        <p>no refill</p>
+        <div class="price">$4.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>PINEAPPLE JUICE</h3>
+        <div class="price">$3.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>CRANBERRY JUICE</h3>
+        <div class="price">$3.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>ORANGE JUICE</h3>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="menu-item">
+        <h3>APPLE JUICE</h3>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="menu-item">
+        <h3>MANGO JUICE</h3>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="menu-item">
+        <h3>THAI TEA</h3>
+        <div class="price">$4.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>MATCHA LATTE</h3>
+        <div class="price">$4.50</div>
+      </div>
+      <div class="menu-item">
+        <h3>SODA</h3>
+        <div class="price">$2.00</div>
+      </div>
+    </div>
   </div>
+</div>
+
+  <footer>
+    <p>&copy; 2025 New York Seafood. All rights reserved.</p>
+  </footer>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
@@ -989,75 +971,6 @@
       set(countRef, count);
     }).catch((error) => {
       console.error("Error updating view count:", error);
-    });
-
-    const menuData = [];
-    document.querySelectorAll('.card').forEach(card => {
-      card.querySelectorAll('.menu-item').forEach(item => {
-        const name = item.querySelector('h3').textContent.trim();
-        const priceText = item.querySelector('.price').textContent.trim().replace('$','').split(" ")[0];
-        const price = parseFloat(priceText) || 0;
-        menuData.push({name, price});
-      });
-    });
-
-    let order = [];
-    const orderList = document.querySelector('.order-list');
-    const totalPriceEl = document.querySelector('.total-price');
-    const searchInput = document.getElementById('calc-search');
-    const suggestionsEl = document.getElementById('suggestions');
-
-    function updateOrder() {
-      orderList.innerHTML = '';
-      let total = 0;
-      order.forEach((item, index) => {
-        total += item.price;
-        const div = document.createElement('div');
-        div.className = 'order-item';
-        div.innerHTML = `<span>${item.name} - $${item.price.toFixed(2)}</span> <button class="remove-btn" data-index="${index}">x</button>`;
-        orderList.appendChild(div);
-      });
-      totalPriceEl.textContent = total.toFixed(2);
-    }
-
-    searchInput.addEventListener('input', function() {
-      const query = searchInput.value.trim().toLowerCase();
-      suggestionsEl.innerHTML = '';
-      if(query.length === 0) return;
-      const matches = menuData.filter(item => item.name.toLowerCase().includes(query));
-      matches.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'suggestion-item';
-        div.textContent = item.name;
-        div.addEventListener('click', function() {
-          order.push(item);
-          updateOrder();
-          searchInput.value = '';
-          suggestionsEl.innerHTML = '';
-        });
-        suggestionsEl.appendChild(div);
-      });
-    });
-
-    searchInput.addEventListener('keypress', function(e) {
-      if(e.key === 'Enter') {
-        const query = searchInput.value.trim().toLowerCase();
-        const found = menuData.find(item => item.name.toLowerCase() === query);
-        if(found) { 
-          order.push(found); 
-          updateOrder(); 
-        }
-        searchInput.value = '';
-        suggestionsEl.innerHTML = '';
-      }
-    });
-
-    orderList.addEventListener('click', function(e) {
-      if(e.target.classList.contains('remove-btn')) {
-        const idx = e.target.getAttribute('data-index');
-        order.splice(idx, 1);
-        updateOrder();
-      }
     });
   </script>
 </body>
