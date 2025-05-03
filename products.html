@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Updated Title and Favicon -->
   <title>Menu - New York Seafood</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4223/4223439.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +13,10 @@
       --accent: rgba(0, 0, 0, 0.6);
       --highlight: #001f3f;
       --text: #fff;
-      /* Dark semi-transparent background for cards */
       --card-bg: rgba(0, 0, 0, 0.75);
       --blur: 10px;
       --transition: 0.3s ease-in-out;
       --border-radius: 12px;
-      /* Calculator background: blurry, semi-transparent white-grayish */
       --calc-bg: rgba(255, 255, 255, 0.3);
     }
     * {
@@ -56,7 +53,6 @@
       text-decoration: none;
       flex: 1;
     }
-    /* View counter in header center */
     header #viewCount {
       flex: 1;
       text-align: center;
@@ -86,7 +82,6 @@
       font-size: 2rem;
       color: var(--secondary);
     }
-    /* Grid container: 3 cards per row */
     .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -114,13 +109,11 @@
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
-    /* Container for menu items inside a card as a grid with 3 columns */
     .menu-items {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
-    /* Allow title to wrap instead of clipping */
     .menu-item h3 {
       font-size: 0.9rem;
       font-weight: 500;
@@ -138,7 +131,6 @@
       font-weight: 600;
       text-align: right;
     }
-    /* Calculator styling: blurry, semi-transparent white-grayish */
     .calc-container {
       position: fixed;
       top: 80px;
@@ -165,7 +157,6 @@
       margin-bottom: 0.5rem;
       font-size: 1rem;
     }
-    /* Suggestions dropdown styling */
     .suggestions {
       background: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -181,7 +172,6 @@
     .suggestion-item:hover {
       background: rgba(255, 255, 255, 0.1);
     }
-    /* Order list: horizontal row with wrapping */
     .order-list {
       display: flex;
       flex-wrap: wrap;
@@ -229,7 +219,6 @@
 <body>
   <header>
     <a href="index.html" class="logo">New York Seafood</a>
-    <!-- View counter -->
     <div id="viewCount">Views: 0</div>
     <nav>
       <a href="index.html">Home</a>
@@ -239,7 +228,7 @@
     </nav>
   </header>
 
-  <div class="page-header">
+    <div class="page-header">
     <h1>Full Menu</h1>
   </div>
 
@@ -963,42 +952,34 @@
     </div>
   </div>
 
-  <!-- Calculator Section -->
   <div class="calc-container">
     <h2>Order Calculator</h2>
     <input type="text" id="calc-search" class="calc-search" placeholder="Search for an item...">
-    <!-- Suggestions dropdown -->
     <div id="suggestions" class="suggestions"></div>
     <div class="order-list"></div>
     <p class="total">Total: $<span class="total-price">0.00</span></p>
   </div>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
   <script type="module">
-    // Firebase initialization
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
     import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
     const firebaseConfig = {
-  apiKey: "AIzaSyCZrLCnjCyUvMOzDe-yeB185qrN8M97LP4",
-  authDomain: "github-1ec60.firebaseapp.com",
-  databaseURL: "https://github-1ec60-default-rtdb.firebaseio.com",
-  projectId: "github-1ec60",
-  storageBucket: "github-1ec60.firebasestorage.app",
-  messagingSenderId: "370562737308",
-  appId: "1:370562737308:web:6f9c9484c24368bf1c7959",
-  measurementId: "G-JDV0KHPD7F"
-};
+      apiKey: "AIzaSyCZrLCnjCyUvMOzDe-yeB185qrN8M97LP4",
+      authDomain: "github-1ec60.firebaseapp.com",
+      databaseURL: "https://github-1ec60-default-rtdb.firebaseio.com",
+      projectId: "github-1ec60",
+      storageBucket: "github-1ec60.firebasestorage.app",
+      messagingSenderId: "370562737308",
+      appId: "1:370562737308:web:6f9c9484c24368bf1c7959",
+      measurementId: "G-JDV0KHPD7F"
+    };
 
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const db = getDatabase(app);
 
-    // Update view counter
     const viewCountEl = document.getElementById("viewCount");
     const countRef = ref(db, 'views/count');
     get(countRef).then((snapshot) => {
@@ -1010,9 +991,7 @@
       console.error("Error updating view count:", error);
     });
 
-    // Menu and Order functionality
     const menuData = [];
-    // Gather menu items from all cards (each card may have multiple items)
     document.querySelectorAll('.card').forEach(card => {
       card.querySelectorAll('.menu-item').forEach(item => {
         const name = item.querySelector('h3').textContent.trim();
@@ -1041,7 +1020,6 @@
       totalPriceEl.textContent = total.toFixed(2);
     }
 
-    // Show suggestions as user types
     searchInput.addEventListener('input', function() {
       const query = searchInput.value.trim().toLowerCase();
       suggestionsEl.innerHTML = '';
@@ -1061,7 +1039,6 @@
       });
     });
 
-    // Allow adding item via Enter if there is an exact match
     searchInput.addEventListener('keypress', function(e) {
       if(e.key === 'Enter') {
         const query = searchInput.value.trim().toLowerCase();
@@ -1075,7 +1052,6 @@
       }
     });
 
-    // Remove item from order list
     orderList.addEventListener('click', function(e) {
       if(e.target.classList.contains('remove-btn')) {
         const idx = e.target.getAttribute('data-index');
