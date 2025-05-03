@@ -19,13 +19,7 @@
       --border-radius: 8px;
       --transition: 0.3s ease;
     }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       background: url('https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80') no-repeat center center fixed;
@@ -35,214 +29,43 @@
       position: relative;
       padding-bottom: 40px;
     }
-    
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(12, 35, 64, 0.7));
-      z-index: -1;
-    }
-    
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(12, 35, 64, 0.7)); z-index: -1; }
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: var(--header-bg);
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 5%;
-      box-shadow: var(--shadow);
-      z-index: 1000;
+      position: fixed; top: 0; left: 0; width: 100%; background: var(--header-bg); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%; box-shadow: var(--shadow); z-index: 1000;
     }
-    
-    header .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--secondary);
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-    
-    header #viewCount {
-      font-size: 0.9rem;
-      color: var(--light-text);
-      opacity: 0.8;
-    }
-    
-    header nav a {
-      color: var(--light-text);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-      transition: var(--transition);
-    }
-    
-    header nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--secondary);
-      transition: var(--transition);
-    }
-    
-    header nav a:hover {
-      color: var(--secondary);
-    }
-    
-    header nav a:hover::after {
-      width: 100%;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 120px auto 50px;
-      padding: 0 20px;
-    }
-    
-    .page-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    
-    .page-title h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--light-text);
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    }
-    
-    .page-title p {
-      font-size: 1.1rem;
-      color: var(--light-text);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-    }
-    
-    .menu-section {
+    header .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--secondary); text-decoration: none; letter-spacing: 1px; }
+    header #viewCount { font-size: 0.9rem; color: var(--light-text); opacity: 0.8; }
+    header nav a { color: var(--light-text); text-decoration: none; margin-left: 1.5rem; font-weight: 500; font-size: 0.95rem; position: relative; transition: var(--transition); }
+    header nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: var(--transition); }
+    header nav a:hover { color: var(--secondary); }
+    header nav a:hover::after { width: 100%; }
+    .container { max-width: 1200px; margin: 120px auto 50px; padding: 0 20px; }
+    .page-title { text-align: center; margin-bottom: 50px; }
+    .page-title h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--light-text); margin-bottom: 10px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); }
+    .page-title p { font-size: 1.1rem; color: var(--light-text); max-width: 600px; margin: 0 auto; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); }
+
+    /* --- Grid Layout --- */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
       margin-bottom: 40px;
     }
-    
-    .section-title {
-      position: relative;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--secondary);
-      margin-bottom: 25px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
+    @media (max-width: 992px) {
+      .grid-container { grid-template-columns: repeat(2, 1fr); }
     }
-    
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--secondary);
-      margin-left: 20px;
-      opacity: 0.5;
+    @media (max-width: 576px) {
+      .grid-container { grid-template-columns: 1fr; }
     }
-    
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 25px;
-    }
-    
-    .menu-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-    
-    .menu-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    }
-    
-    .menu-card-content {
-      padding: 20px;
-    }
-    
-    .menu-category {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--secondary);
-    }
-    
-    .menu-items {
-      /* Menu items will be added here */
-    }
-    
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: var(--light-text);
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: var(--header-bg);
-    }
-    
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 1rem 5%;
-      }
-      
-      header .logo {
-        margin-bottom: 0.5rem;
-      }
-      
-      header nav {
-        margin-top: 0.5rem;
-      }
-      
-      header nav a {
-        margin: 0 0.7rem;
-        font-size: 0.9rem;
-      }
-      
-      .container {
-        margin-top: 150px;
-      }
-      
-      .page-title h1 {
-        font-size: 2.3rem;
-      }
-      
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .section-title {
-        font-size: 1.7rem;
-      }
-    }
+
+    .menu-card { background: var(--card-bg); border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+    .menu-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); }
+    .menu-card-content { padding: 20px; }
+    .menu-category { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--primary); margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--secondary); }
+    .menu-items { /* your items styling */ }
+    footer { text-align: center; padding: 20px; font-size: 0.9rem; color: var(--light-text); position: absolute; bottom: 0; width: 100%; background: var(--header-bg); }
   </style>
 </head>
 <body>
